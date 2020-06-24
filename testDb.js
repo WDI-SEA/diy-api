@@ -6,7 +6,7 @@ const errHandler = (err) => {
   console.l0g('⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️')
 }
 
-// CREATE TRAINER
+// //CREATE TRAINER
 // db.trainer.create({
 //   name: "Brock",
 //   gender: "Male",
@@ -26,7 +26,7 @@ const errHandler = (err) => {
 //   console.log(userData)
 // }).catch(errHandler)
 
-// FIND ALL
+// READ/FIND ALL
 // db.trainer.findAll().then((trainers) => {
 //   trainers.forEach((trainer) => console.log(`👀 Hey there ${trainer.name}!`));
 // }).catch(errHandler);
@@ -42,6 +42,17 @@ const errHandler = (err) => {
 // }).then((updated) => {
 //   console.log("👻");
 //   console.log(updated);
+// }).catch(errHandler);
+
+// DELETE
+// db.trainer.destroy({
+//   where: {
+//     name: 'Jamo'
+//   },
+// }).then((deleted) => {
+//   console.log("👽👽");
+//   // Number of items deleted
+//   console.log(deleted);
 // }).catch(errHandler);
 
 // DELETE
@@ -99,10 +110,10 @@ const errHandler = (err) => {
 // //   }).catch(errHandler)
 // // }).catch(errHandler)
 
-// db.trainer.findAll({
-//   include: [db.pokemon]
-// }).then(trainers => {
-//   // each trainer object will have a pokemons key with an array of pokemons
-//   trainers.forEach(trainer => console.log(`🐱🐶 ${trainer.name} has ${trainer.pokemons.length} pokemon`))
-//   // console.log(`🐱🐶 ${trainers[2].name} has ${trainers[2].pokemons.length} pokemon`)
-// }).catch(errHandler)
+db.trainer.findAll({
+  include: [db.pokemon]
+}).then(trainers => {
+  // each trainer object will have a pokemons key with an array of pokemons
+  trainers.forEach(trainer => console.log(`🐱🐶 ${trainer.name} has ${trainer.pokemons.length} pokemon`))
+  // console.log(`🐱🐶 ${trainers[2].name} has ${trainers[2].pokemons.length} pokemon`)
+}).catch(errHandler)

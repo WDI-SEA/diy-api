@@ -1,0 +1,18 @@
+Pokemon
+----
+firstName: string (NOT NULL),
+lastName: string,
+age: integer,
+email: string (UNIQUE and NOT NULL)
+
+sequelize model:create --name pokemon --attributes name:string,type:string,weakAgainst:string
+npx sequelize db:migrate
+
+Trainer
+--------
+name: string,
+gender: string,
+favoritePokemon: string
+
+
+npx sequelize model:create --name trainer --attributes name:string,gender:string,favoritePokemon:string
