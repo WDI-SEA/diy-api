@@ -1,0 +1,18 @@
+
+User
+--------
+name: string,
+email: string (UNIQUE and NOT NULL), 
+age: integer, 
+
+sequelize model:create --name user --attributes name:string,email:string,age:string
+
+Candy 
+-------
+name: string (UNIQUE and NOT NULL),
+description: string,
+rating: integer,
+userId: integer (PK) 
+
+
+sequelize model:create --name candy --attributes name:string,description:string,rating:integer
