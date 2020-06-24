@@ -42,21 +42,35 @@ app.post('/games', (req, res) => {
             quantity: req.body.quantity
         }
     }).then(([game, created]) => {
-        console.log(`hey ${game.name}`)
+       console.log(`hey ${game.name}`)
     })
 })
 
 app.put('/games/:id', (req, res) => {
     db.game.update({ 
-        quantity: req.params.id
+        quantity: 5
     }, { 
         where: {
-            name: req.params.id } 
+            name: 'Dota' } 
         }).then(updated => {
             console.log('💩');
             //updated is an array of 1 value ehich is the number of items updated
             console.log(updated);
         })
+})
+
+app.delete('/games/:id', (req, res) => {
+        db.user.destroy({
+        where: {
+            name: 'Dota'
+        }
+    }).then(deleted => {
+        console.log('👽');
+        console.log(deleted);
+    })
+    .finally(() => {
+        console.log('Donkies')
+    });
 })
 
 app.listen(8000, () => console.log("hey"));
