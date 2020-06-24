@@ -33,25 +33,24 @@ app.get('/chickens/:id', (req, res) => {
 app.post('/chickens', (req, res) => {
   db.chicken.findOrCreate({
     where: {
-      origin: 'France'
+      origin: req.body.origin
     },
     defaults: {
-      species: 'Crevecour',
-      purpose: 'Meat, eggs',
+      species: req.body.species,
+      purpose: req.body.purpose
     }
   }).then(function([chicken, created]) {
-    console.log(chicken); // returns info about the chicken
-  });
-   
+    req.send(`${chicken.species} was ${created ? 'created' : 'found'} in the database`)
+  }).catch(err) 
 })
 
 // PUT	update
 app.put('/chickens/:id', (req, res) => {
   db.chicken.update({
-    description: 'Very large birb. 10/10'
+    description: req.body.description
   }, {
     where: {
-      species: 'Jersey Giant'
+      species: req.body.species
     }
   }).then(function(user) {
     console.log("👍🏼")
@@ -62,7 +61,7 @@ app.put('/chickens/:id', (req, res) => {
 // DELETE	delete	
 app.delete('/chickens/:id', (req, res) => {
   db.chicken.destroy({
-    where: { species: 'Java' }
+    where: { species: req.body.species }
   }).then(function() {
     console.log("👍🏼")
   });
