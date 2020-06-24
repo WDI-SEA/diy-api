@@ -38,9 +38,9 @@ app.post('/drinks', (req, res) => {
       type: newData.type
     }, 
     defaults: {
-      description: newData.descitpion,
+      description: newData.description,
       servedWarm: newData.servedWarm,
-      deliciousScale: newData.delicousScale
+      deliciousScale: newData.deliciousScale
     }  
   }).then( ([drink, created]) => {
     let result = `${drink.type} was was ${created ? 'created' : 'found'}`;
@@ -67,9 +67,9 @@ app.put('/drinks/:index', (req, res) => {
   let newData = req.body;
   db.drink.update({
     type: newData.type,
-    description: newData.descitpion,
+    description: newData.description,
     servedWarm: newData.servedWarm,
-    deliciousScale: newData.delicousScale
+    deliciousScale: newData.deliciousScale
   }, {
     where: {
       id: index

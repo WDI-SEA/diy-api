@@ -44,8 +44,8 @@ let hotToddyData = {
   deliciousScale: 10
 }
 
-function makeNew(createData){
-  db.drink.create(createData)
+function makeNew( { type, description, servedWarm, deliciousScale } ){
+  db.drink.create( { type, description, servedWarm, deliciousScale } )
   .then(newData => { 
     console.log(`drink ${newData}`)
   }).catch( error => errorHandler(error) );
