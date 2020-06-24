@@ -64,6 +64,35 @@ app.delete('/trainers/:id', (req, res) => {
     console.log(err)
   })
 })
+
+app.get('/pokemon', (req, res) => {
+  db.pokemon.findAll().then(pokemons => {
+    res.send(pokemons)
+  }).catch(err => {
+    console.log(err)
+  })
+})
+
+app.post('/trainers/:id', (req, res) => {
+  db.trainer.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then((trainer) => {
+      trainer.createPokemon({
+        name: "Lugia",
+        type: "Water, Psychic, Flying",
+        weakAgainst: "Nothing",
+        trainerId: req.params.id
+      }).then((pokemon) => {
+          res.send(`🐱🐱 Hello ${pokemon.name}! 🐱🐱`);
+      }).catch(err => {
+        console.log(err);
+      });
+    }).catch(err => {
+      console.log(err)
+    });
+})
 // Listen
 app.listen(8000, () => {
   console.log(`Listening on localhost:8000`)
