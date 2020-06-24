@@ -1,0 +1,10 @@
+Car
+---
+carName: string,
+model: string (NOT NULL),
+make: string,
+year: integer,
+email: string (UNIQUE and NOT NULL)
+
+sequelize model:create --name car --attributes carName:string,model:string,make:string,year:integer
+sequelize db:migrate
