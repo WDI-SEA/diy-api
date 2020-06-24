@@ -66,3 +66,18 @@ app.put('/cars/:id', (req, res) => {
         res.send(err)
     })
 });
+
+app.delete('/cars/:id', (req, res) => {
+    db.car.destroy({
+        where: {
+            id: req.params.id
+        }
+    }).then(deleted => {
+        res.send('Sad to see her go.')
+    }).catch(err => {
+        console.log("🔥 This is fine");
+        console.log(err);
+        res.send(err)
+    })
+})
+app.listen(8000, () => console.log("come along with me"))
