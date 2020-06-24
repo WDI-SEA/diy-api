@@ -1,0 +1,26 @@
+player
+---
+firstName: string (NOT NULL),
+lastName: string,
+age: integer,
+email: string (NOT NULL)
+
+My root file terminal command
+----------------------------
+sequelize model:create --name player --attributes firstName:string,lastName:string,age:integer,email:string
+sequelize db:migrate
+sequelize db:migrate:undo
+
+
+team
+-----
+name: string (NOT NULL),
+species: string,
+description: text,
+userId: integer (FK)
+
+
+My root file terminal command
+----------------------------
+sequelize model:create --name pet --attributes name:string,species:string,description:text,userId:integer
+sequelize db:migrate
