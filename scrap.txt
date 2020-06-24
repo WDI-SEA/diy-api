@@ -1,0 +1,8 @@
+Plant
+---
+commonName: string,
+scientificName: string,
+description: string,
+quantity: integer
+
+sequelize model:create --name plant --attributes commonName:string,scientificName:string,description:string,quantity:integer
