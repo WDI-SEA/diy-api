@@ -1,0 +1,8 @@
+Drinks Model
+---
+type: string (NOT NULL), //eg 'coffee'
+description: text, // 'Coffee is a brewed drink prepared from roasted coffee beans, the seeds of berries from certain Coffea species. Once ripe, coffee berries are picked, processed, and dried. Dried coffee seeds (referred to as beans) are roasted to varying degrees, depending on the desired flavor. Roasted beans are ground and then brewed with near-boiling water to produce the beverage known as coffee.' 
+servedWarm: string //'sometimes'
+deliciousScale: int //9 (out of 10)
+
+sequelize model:create --name drink --attributes type:string,description:text,servedWarm:string,deliciousScale:integer
