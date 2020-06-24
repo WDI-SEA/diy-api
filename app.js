@@ -38,6 +38,32 @@ app.post('/trainers', (req, res) => {
   })
 })
 
+app.put('/trainers/:id', (req, res) => {
+  db.trainer.update({
+    id: 4
+  },
+  {
+    where: {
+      id: req.params.id,
+    },
+  }).then((updated) => {
+    res.send(updated)
+  }).catch(err => {
+    console.log(err)
+  });
+})
+
+app.delete('/trainers/:id', (req, res) => {
+  db.trainer.destroy({
+    where: {
+      id: req.params.id
+    }
+  }).then((deleted) => {
+    res.send("Successfully deleted trainer");
+  }).catch(err => {
+    console.log(err)
+  })
+})
 // Listen
 app.listen(8000, () => {
   console.log(`Listening on localhost:8000`)
