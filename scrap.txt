@@ -1,0 +1,7 @@
+Anime Movies
+----
+title: string (NOT NULL)
+makeCry: boolean
+rating: integer
+
+sequelize model:create --name anime --attributes title:string,makeCry:boolean,rating:integer
