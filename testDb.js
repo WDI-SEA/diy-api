@@ -50,4 +50,26 @@ const errorHandler = error => {
 //     console.log(deleted)
 // }).catch(errorHandler)
 
+// CREATE pt. 2
+// db.song.create({ 
+//         name: 'Tiny Dancer',
+//         age: 47
+//     }).then(songData => {
+//         console.log(`✨`)
+//         console.log(songData)
+//     }).catch(errorHandler)
 
+// READ pt. 2
+// to find one of the songs
+// db.song.findOne({
+//     where: {
+//         id: 1
+//     }
+// }).then(foundSong => {
+//     console.log(`🌼 Listen to ${foundSong.name}`)
+// }).catch(errorHandler)
+
+// to find all 
+// db.song.findAll().then(songs => {
+//     songs.forEach(song => console.log(`🔮Check out ${song.name}`))
+// })
