@@ -1,0 +1,13 @@
+Movie
+--------------
+title: string,
+description: text,
+year: integer
+
+sequelize model:create --name movie --attributes title:string,description:string,year:integer
+sequelize db:migrate
+
+
+Genre
+-----
+genre: string
