@@ -42,7 +42,7 @@ app.post('/games', (req, res) => {
             quantity: req.body.quantity
         }
     }).then(([game, created]) => {
-       console.log(`hey ${game.name}`)
+       res.send(`hey ${game.name}`)
     })
 })
 
@@ -58,7 +58,7 @@ app.put('/games/:id', (req, res) => {
         }).then(updated => {
             console.log('💩');
             //updated is an array of 1 value ehich is the number of items updated
-            console.log(updated);
+            res.send(updated);
         })
 })
 
@@ -72,7 +72,7 @@ app.delete('/games/:id', (req, res) => {
         console.log(deleted);
     })
     .finally(() => {
-        console.log('Donkies')
+        res.send('Deleted')
     });
 })
 
