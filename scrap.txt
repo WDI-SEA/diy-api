@@ -1,0 +1,9 @@
+super
+-----
+name: string (NOT NULL),
+superpower: string,
+description: text,
+
+
+sequelize model:create --name super --attributes name:string,superpower:string,description:text
+sequelize db:migrate
