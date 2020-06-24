@@ -4,7 +4,6 @@ const db = require('./models')
 let app = express()
 
 
-
 //setting up routes
 app.get('/', (req, res) =>{
     res.send('IKEA is life')

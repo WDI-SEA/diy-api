@@ -14,9 +14,17 @@ let bedRoomData = {
 //PRODUCTS
 // create products
 let malmData = {
-    name: 'MALM Dresser',
+    prodName: 'MALM Dresser',
     color: 'Maple Wood' ,
-    purpose: 'organization'
+    purpose: 'organization',
+    roomId: 1
+}
+
+let brimnesData = {
+    prodName: 'BRIMNES Bed',
+    color: 'Neutral Grey' ,
+    purpose: 'sleep',
+    roomId: 1
 }
 
 //function to make new rooms & products
@@ -37,3 +45,4 @@ function newProduct(createData){
 // call the functions
 newRoom(bedRoomData)
 newProduct(malmData)
+newProduct(brimnesData)
