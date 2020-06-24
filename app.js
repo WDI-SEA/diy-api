@@ -1,7 +1,9 @@
 let express = require('express');
 const db = require('./models');
-
 let app = express();
+
+app.use(express.urlencoded({extended: false}));
+
 
 const errorHandler = error => {
   console.log(`YOU FAIL`)
@@ -23,16 +25,12 @@ app.get('/candies', (req, res) => {
 
 //Create New User OR CANDY RATING
 app.post('/users', (req, res) => {
-  db.user.findOrCreate({
-    where: {
-      email: 'peanutbuttermiddle@reeses.com'
-    }, 
-    defaults: {
-      name: 'ReesesPieces', 
-      age: 44
-    }
-  }).then(([user, created]) => {
-    res.send(`${user.name} was ${created? 'created' : 'found'}!`)
+  db.user.create({
+      email: req.body.email,
+      name: req.body.name,
+      age: req.body.age
+  }).then(newUser => {
+    res.send(`${newUser.name} was created!`)
   }).catch(errorHandler);
 })
 
@@ -41,9 +39,9 @@ app.post('/users/:idx', (req, res) => {
   db.user.findByPk(req.params.idx).then(user => {
     console.log("FOUND THE USER")
     user.createCandy({
-      name: 'Skittles',
-      description: 'tiny, delightful fruit-flavored sugar balls', 
-      rating: 9
+      name: req.body.name,
+      description: req.body.description, 
+      rating: req.body.ratings
     }).then(candy => {
       console.log("YOU WONT SEE ME")
       res.send(`${user.name} gave ${candy.name}, a ${candy.description}, a rating of ${candy.rating}`)
@@ -55,7 +53,7 @@ app.post('/users/:idx', (req, res) => {
 app.get('/users/:idx', (req, res) => {
   db.user.findOne({
     where: {
-      id: req.params.id
+      id: req.params.idx
     }
   }).then(foundUser => {
     res.send(foundUser.name + ' is ' + foundUser.age + ' and their email is ' + foundUser.email + '!');
@@ -65,10 +63,10 @@ app.get('/users/:idx', (req, res) => {
 //update user//
 app.put('/users/:idx', (req, res) => {
   db.user.update({
-    name: 'MandM'
+    name: req.body.name
   }, {
     where: {
-      id: req.params.id
+      id: req.params.idx
     }
   }).then(updated  => {
     res.send(updated + ` file was updated successfully.`);
@@ -79,7 +77,7 @@ app.put('/users/:idx', (req, res) => {
 app.delete('/users/:idx', (req, res) => {
   db.user.destroy({
     where: {
-      id: 3
+      id: req.params.idx
     }
   }).then(deleted => {
     console.log(deleted + `file is gone, baby, gone`)
