@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   artist.associate = function(models) {
     // associations can be defined here
+    // models.artist.hasMany(models.songs)
   };
   return artist;
 };
