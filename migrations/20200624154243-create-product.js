@@ -9,7 +9,8 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       prodName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       color: {
         type: Sequelize.STRING
