@@ -65,7 +65,7 @@ app.put('/games/:id', (req, res) => {
 app.delete('/games/:id', (req, res) => {
         db.game.destroy({
         where: {
-            name: 'Dota'
+            name: req.body.name
         }
     }).then(deleted => {
         console.log('👽');
