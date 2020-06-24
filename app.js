@@ -18,8 +18,7 @@ app.get('/', (req, res) => {
 
 app.get('/animalfrauds', (req,res) => {
     db.animalfraud.findAll().then(animals => {
-        animals.forEach(animal => 
-            res.send(animal))
+            res.send(animals)
       })
 })
 
