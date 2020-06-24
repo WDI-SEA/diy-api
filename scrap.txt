@@ -1,0 +1,3 @@
+My spotify albums
+
+sequelize model:create --name album --attributes albumTitle:string,rating:integer,description:string
