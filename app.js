@@ -16,7 +16,6 @@ app.get('/', (req, res) => {
 //animalfrauds - GETs list of db animalfrauds
 
 
-//FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 app.get('/animalfrauds', (req,res) => {
     db.animalfraud.findAll().then(animals => {
         animals.forEach(animal => 
@@ -24,41 +23,37 @@ app.get('/animalfrauds', (req,res) => {
       })
 })
 
-app.get('/animalfrauds/:idx', (req,res) => {
+app.get('/animalfrauds/view/:idx', (req,res) => {
     db.animalfraud.findOne({
         where: {
             id: req.params.idx
         }
     }).then(animal => {
-        console.log(animal)
+        // console.log(animal)
         res.send(animal)
     })
 })
 
 
 //adds an animalfraud to table
-// app.get('/animalfrauds', (req, res) => {
-//     // res.send('what the fuck')
-//     db.animalfraud.create({
-//         firstName: 'ShitHead',
-//         lastName: 'McGee',
-//         species: 'cat',
-//         factoid: 'eats cat litter'
-//     }).then(animalfraudData => {
-//         console.log('woop woop')
-//         console.log(animalfraudData)
-//     })
-// })
-// console.log(db.animalfrauds)
-// db.animalfraud.create({
-//     firstName: 'ShitHead',
-//     lastName: 'McGee',
-//     species: 'cat',
-//     factoid: 'eats cat litter'
-// }).then(animalfraudData => {
-//     console.log('woop woop')
-//     console.log(animalfraudData)
-// })
+
+app.post('/animalfrauds/create', (req, res) => {
+    db.animalfraud.create({
+        firstName: req.query.firstName
+    }).then(animals => {
+        console.log('animal added')
+        res.send(animals)
+    })
+})
+
+
+
+    //  = fs.readFileSync('./dogs.json')
+    // dogs = JSON.parse(dogs)
+    // dogs.push(req.body)
+    // fs.writeFileSync('dogs.json', JSON.stringify(dogs))
+    // res.redirect('/dogs')
+//   })
 
 
 
