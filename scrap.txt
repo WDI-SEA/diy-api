@@ -21,6 +21,7 @@ Bearer
 6. Gandalf - A well respected and powerful wizard who understood the dangers that came along with bearing the One ring.  Gandalf helped both, Bilbo and Frodo Baggins, to handle the pressure of bearing and destroying it.
 7. Frodo Baggins - Brave hobbit of the Shire.  He volunteered to bear the One ring and journey it across Middle-earth to destroy it on Mount Doom.
 8. Samwise Gamgee - Frodo Baggins' gardener and best friend.  Without Sam, Frodo would never have survived the long journey to have destroyed the One ring.  What a G.
+
 9. Tom Bombadil - Note: Tom Bombadil is a special case in that while he held the ring for a time he was not affected by its powers (nor was he blind to Frodo wearing it). Additionally, he only held it for a minute. Gandalf also handles the Ring very briefly, on at least three different occasions.
 
 name: string (NOT NULL),
