@@ -1,0 +1,31 @@
+User    // this is a model definition ---models are always singular this is ONE user
+----
+firstName: string (NOT NULL),
+lastName: string,
+age: integer,
+email: string (UNIQUE and NOT NULL)
+
+sequelize model:create --name user --attributes firstName:string,lastName:string,age:integer,email:string
+
+sequelize db:migrate
+
+
+Country
+-----
+
+name: string (NOT NULL),
+duration: string,
+description: text,
+date: integer 
+
+sequelize model:create --name country --attributes name:string,duration:string,description:text,date:integer
+
+
+
+
+
+
+sequelize model:create --name pet --attributes name:string,species:string,description:text,userId:integer
+
+
+sequelize db:migrate
