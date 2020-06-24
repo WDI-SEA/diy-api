@@ -1,0 +1,9 @@
+Movie
+---
+title: string (NOT NULL),
+year: integer,
+rating: integer (NOT NULL)
+
+
+sequelize model:create --name movie --attributes title:string,year:string,rating:integer
+
