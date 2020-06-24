@@ -1,0 +1,18 @@
+room
+////
+roomName: string (NOT NULL),
+color: string,
+collection: string
+
+sequelize model:create --name room --attributes name:string,color:string,purpose:string
+sequelize db:migrate
+
+product
+----
+prodName: string (NOT NULL),
+color: string,
+purpose: text,
+roomId: integer (FK)
+
+sequelize model:create --name product --attributes prodName:string,color:string,purpose:text,roomId:integer
+sequelize db:migrate
