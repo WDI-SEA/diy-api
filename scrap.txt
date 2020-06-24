@@ -1,0 +1,31 @@
+Ring
+----
+A beautiful golden ring with magical engravings and superpowers.  Created by a powerful Dark Lord and savant known as Sauron, the Necromancer.
+
+name: string (NOT NULL),
+creator: string,
+description: text,
+
+sequelize model:create --ring --attributes name:string,creator:string,description:text
+
+
+
+Bearers
+-------
+
+1. Sauron - creator of the One ring; original bearer and the second Dark Lord.
+2. Isildur - King of Gondor; chopped off Sauron's finger along with the One ring during the War of the Last Alliance but failed to destroy the ring due to being enamored by its beauty.
+3. Deagol - The third ring bearer albeit for just a couple of minutes.  Found the One ring deep underwater after Isildur, King of Gondor.
+4. Smeagol - The fourth ring bearer.  Smeagol, also known as Gollum, greatly desired the One ring upon laying eyes on it and strangled his cousin to death in order to abtain it.
+5. Bilbo Baggins - The world's first famous hobbit and also the first ring bearer to voluntarily give it up, although with some difficulty.  Bilbo Baggins took the ring from Gollum after tricking him with clever riddles.
+6. Gandalf - A well respected and powerful wizard who understood the dangers that came along with bearing the One ring.  Gandalf helped both, Bilbo and Frodo Baggins, to handle the pressure of bearing and destroying it.
+7. Frodo Baggins - Brave hobbit of the Shire.  He volunteered to bear the One ring and journey it across Middle-earth to destroy it on Mount Doom.
+8. Samwise Gamgee - Frodo Baggins' gardener and best friend.  Without Sam, Frodo would never have survived the long journey to have destroyed the One ring.  What a G.
+9. Tom Bombadil - Note: Tom Bombadil is a special case in that while he held the ring for a time he was not affected by its powers (nor was he blind to Frodo wearing it). Additionally, he only held it for a minute. Gandalf also handles the Ring very briefly, on at least three different occasions.
+
+name: string (NOT NULL),
+type: string,
+description: text,
+bearerId: integer (fkey)
+
+sequelize model:create --name bearer --attributes name:string,type:string,description:text,bearerId:integer
