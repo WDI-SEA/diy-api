@@ -10,7 +10,7 @@ sequelize model:create --ring --attributes name:string,creator:string,descriptio
 
 
 
-Bearers
+Bearer
 -------
 
 1. Sauron - creator of the One ring; original bearer and the second Dark Lord.
