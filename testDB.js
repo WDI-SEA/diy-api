@@ -1,6 +1,6 @@
 const db = require('./models');
 
-const errorHandler = err => {
+const errorHandler = error => {
   console.log('YOU FAIL')
 }
 
@@ -8,25 +8,25 @@ const errorHandler = err => {
 //   users.forEach(user => console.log(`User ${user.name} exists`))
 // })
 
-db.user.findOrCreate({
-  where: {
-    email: 'sweet@sour.com'
-  }, 
-  defaults: {
-    name: 'Star Burst', 
-    age: 28
-  }
-}).then(([user, created]) => {
-  console.log(`${user.name} was ${created? 'created' : 'found'}!`)
-}).catch(errorHandler);
+db.user.findByPk(5).then(user => {
+  user.createCandy({
+    name: 'Skittles',
+    description: 'tiny, delightful fruit-flavored sugar balls', 
+    rating: 9
+  }).then(candy => {
+    console.log(`that was tough!`)
+  }).catch(errorHandler);
+}).catch(errorHandler)
+
 
 //edit//
-db.user.update({
-  name: 'MilkyWay'
-}, {
-  where: {
-    email: 'mandms@chocolate.com'
-  }
-}).then(updated  => {
-  console.log(`${user.name} is updated`);
-}).catch(errorHandler);
+// db.user.update({
+//   name: 'MilkyWay'
+// }, {
+//   where: {
+//     email: 'mandms@chocolate.com'
+//   }
+// }).then(updated  => {
+//   console.log(`${user.name} is updated`);
+// }).catch(errorHandler);
+

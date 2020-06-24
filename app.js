@@ -5,6 +5,7 @@ let app = express();
 
 const errorHandler = error => {
   console.log(`YOU FAIL`)
+  console.log(error)
 };
 
 // FIND USER INDEX
@@ -14,7 +15,13 @@ app.get('/users', (req, res) => {
   }).catch(errorHandler);
 })
 
-//Create New User
+app.get('/candies', (req, res) => {
+  db.candies.findAll().then(candies => {
+    res.send(JSON.stringify(candies));
+  }).catch(errorHandler);
+})
+
+//Create New User OR CANDY RATING
 app.post('/users', (req, res) => {
   db.user.findOrCreate({
     where: {
@@ -29,11 +36,26 @@ app.post('/users', (req, res) => {
   }).catch(errorHandler);
 })
 
+app.post('/users/:idx', (req, res) => {
+  console.log(req.params.idx)
+  db.user.findByPk(req.params.idx).then(user => {
+    console.log("FOUND THE USER")
+    user.createCandy({
+      name: 'Skittles',
+      description: 'tiny, delightful fruit-flavored sugar balls', 
+      rating: 9
+    }).then(candy => {
+      console.log("YOU WONT SEE ME")
+      res.send(`${user.name} gave ${candy.name}, a ${candy.description}, a rating of ${candy.rating}`)
+    }).catch(errorHandler);
+  }).catch(errorHandler)
+})
+
 // Show Details about User
 app.get('/users/:idx', (req, res) => {
   db.user.findOne({
     where: {
-      id: 3
+      id: req.params.id
     }
   }).then(foundUser => {
     res.send(foundUser.name + ' is ' + foundUser.age + ' and their email is ' + foundUser.email + '!');
@@ -46,7 +68,7 @@ app.put('/users/:idx', (req, res) => {
     name: 'MandM'
   }, {
     where: {
-      id: 3
+      id: req.params.id
     }
   }).then(updated  => {
     res.send(updated + ` file was updated successfully.`);

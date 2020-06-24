@@ -15,4 +15,4 @@ rating: integer,
 userId: integer (PK) 
 
 
-sequelize model:create --name candy --attributes name:string,description:string,rating:integer
+sequelize model:create --name candy --attributes name:string,description:string,rating:integer,userId:integer
