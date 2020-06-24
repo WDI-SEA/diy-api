@@ -1,6 +1,7 @@
 const express = require('express')
 const db = require('./models')
-const app = express()
+
+let app = express()
 
 
 
@@ -103,6 +104,6 @@ app.put('/room/:index', (req, res) => {
     })
 })
 
-app.listen(8000, () => {
-    console.log(`🦩 8000 fam`)
+app.listen(8800, () => {
+    console.log(`🦩 8800 fam`)
 })

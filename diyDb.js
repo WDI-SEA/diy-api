@@ -9,18 +9,6 @@ let bedRoomData = {
     color: 'Arctic White',
     purpose: 'sleep'
 }
-  
-let livingRoomData = {
-    name: 'living room',
-    color: 'Wood',
-    purpose: 'lounging'
-}
-  
-let kitchenData = {
-    name: 'kitchen',
-    color: 'Maple Marble',
-    purpose: 'cooking'
-}
 
 
 //PRODUCTS
@@ -29,18 +17,6 @@ let malmData = {
     name: 'MALM Dresser',
     color: 'Maple Wood' ,
     purpose: 'organization'
-}
-  
-let brimnesData = {
-    name: 'BRIMNES Bed',
-    color: 'neutral grey' ,
-    purpose: 'sleep'
-}
-  
-let godmorgonData = {
-    name: 'GODMORGON Toilet',
-    color: 'Artic White' ,
-    purpose: 'hygiene'
 }
 
 //function to make new rooms & products
@@ -60,8 +36,4 @@ function newProduct(createData){
 
 // call the functions
 newRoom(bedRoomData)
-newRoom(livingRoomData)
-newRoom(kitchenData)
 newProduct(malmData)
-newProduct(brimnesData)
-newProduct(godmorgonData)
