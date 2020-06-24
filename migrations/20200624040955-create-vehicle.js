@@ -9,7 +9,8 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       vin: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        unique: true
       },
       make: {
         type: Sequelize.STRING

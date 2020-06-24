@@ -15,7 +15,8 @@ module.exports = {
         type: Sequelize.STRING
       },
       dlNum: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        unique: true
       },
       insurance: {
         type: Sequelize.BOOLEAN
