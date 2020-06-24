@@ -1,0 +1,16 @@
+chicken
+---
+species: string (NOT NULL),
+origin: string,
+purpose: string,
+description: text
+
+sequelize model:create --name chicken --attributes species:string,origin:string,purpose:string,description:string
+
+
+egg
+---
+size_sml: string,
+color: string,
+chickenId: integer (FK)
+

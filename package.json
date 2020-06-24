@@ -1,0 +1,24 @@
+{
+  "name": "diy-api",
+  "version": "1.0.0",
+  "description": "## **Deliverable**:",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Emily-Rose-K/diy-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Emily-Rose-K/diy-api/issues"
+  },
+  "homepage": "https://github.com/Emily-Rose-K/diy-api#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.2.1",
+    "sequelize": "^5.21.13"
+  }
+}
