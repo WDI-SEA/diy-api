@@ -13,7 +13,9 @@ app.get('/', (req, res) => {
 })
 
 app.get('/anime', (req,res) => {
-    res.send(`All Anime`)
+    db.anime.findAll().then(anime => {
+        anime.forEach(anime => res.send(anime))
+    })
 })
 
 app.post('/anime', (req, res) => {
