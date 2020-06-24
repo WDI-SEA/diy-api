@@ -1,0 +1,9 @@
+
+Game
+----
+name: text,
+description: text,
+quantity: integer
+
+
+sequelize model:create --name game --attributes name:text,description:text,quantity:integer
