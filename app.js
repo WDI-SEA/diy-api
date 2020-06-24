@@ -48,10 +48,13 @@ app.post('/games', (req, res) => {
 
 app.put('/games/:id', (req, res) => {
     db.game.update({ 
-        quantity: 5
+        name: req.body.name,
+        quantity: req.body.quantity,
+        quantity: req.body.quantity
+
     }, { 
         where: {
-            name: 'Dota' } 
+            name: req.body.name } 
         }).then(updated => {
             console.log('💩');
             //updated is an array of 1 value ehich is the number of items updated
@@ -60,7 +63,7 @@ app.put('/games/:id', (req, res) => {
 })
 
 app.delete('/games/:id', (req, res) => {
-        db.user.destroy({
+        db.game.destroy({
         where: {
             name: 'Dota'
         }
