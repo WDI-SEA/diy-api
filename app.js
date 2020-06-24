@@ -15,21 +15,25 @@ app.get('/', (req, res) => {
 
 //animalfrauds - GETs list of db animalfrauds
 
+
+//FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 app.get('/animalfrauds', (req,res) => {
-    res.send(db.animalfraud.findAll().then(animals => {
-        animals.forEach(animal => console.log(`derp ${animal.firstName}`))
-      }))
+    db.animalfraud.findAll().then(animals => {
+        animals.forEach(animal => 
+            res.send(animal))
+      })
 })
 
-
-// app.get('/animalfrauds', (req,res) => {
-//     res.send(db.animalfraud.findall().firstName
-// )})
-//     .then(animals => {
-//         animals.forEach(animal => animal.firstName)
-//       }))
-// })
-
+app.get('/animalfrauds/:idx', (req,res) => {
+    db.animalfraud.findOne({
+        where: {
+            id: req.params.idx
+        }
+    }).then(animal => {
+        console.log(animal)
+        res.send(animal)
+    })
+})
 
 
 //adds an animalfraud to table
