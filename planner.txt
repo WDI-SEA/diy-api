@@ -1,0 +1,18 @@
+owner
+----
+
+firstName:string,
+lastName:string,
+dlNum:string,
+insurance:boolean
+
+sequelize model:create --name owner --attributes firstName:string,lastName:string,dlNum:string,insurance:boolean
+sequelize db:migrate
+
+vehicle
+---
+vin:integer,
+make:string,
+model:string,
+year:integer
+sequelize model:create --name vehicle --attributes vin:integer,make:string,model:string,year:integer
