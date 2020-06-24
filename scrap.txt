@@ -1,0 +1,14 @@
+Artist 
+---
+firstName: string (NOT NULL),
+lastName: string,
+bestAlbum: string,
+
+sequelize model:create --name artist --attributes firstName:string,lastName:string,bestAlbum:string
+
+Song
+---
+name: string (NOT NULL),
+age: integer
+
+sequelize model:
