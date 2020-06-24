@@ -1,0 +1,8 @@
+animalFraud
+____
+firstName: string (NOT NULL),
+lastName: string,
+species: string,
+factoid: text
+
+sequelize model:create --name animalfraud --attributes firstName:string,lastName:string,species:string,factoid:text
