@@ -47,7 +47,7 @@ app.post("/plants/", (req, res) =>{
         }).catch(errorHandler)
     }).catch(errorHandler)
 })
-//update plants  SET age =99 WHERE email = "b.hague@ga.co"
+//update plants  
 app.put("/plants/:id", (req, res) =>{
     db.plant.update({ 
         species: "bush plant"
