@@ -39,13 +39,37 @@ app.get('/animalfrauds/view/:idx', (req,res) => {
 app.post('/animalfrauds/create', (req, res) => {
     db.animalfraud.create({
         firstName: req.query.firstName
-    }).then(animals => {
+    }).then(animalCreated => {
         console.log('animal added')
-        res.send(animals)
+        res.send(`${animalCreated} was added to animalfrauds`)
     })
 })
 
+//REMOVES AN ANIMALFRAUD FROM TABLE BY ID //WORKS
 
+app.delete('/animalfrauds/destroy', (req,res) => {
+    db.animalfraud.destroy({
+        where: {
+            id: req.query.id
+        }
+    }).then(deletedAnimal => {
+        console.log(`${deletedAnimal} removed from animalfrauds`)
+        res.send(`${deletedAnimal} removed from animalfrauds`)
+    })
+})
+
+//UPDATES AN ANIMALFRAUD ATTRIBUTES //CRASHES
+
+
+app.put('/animalfrauds/update', (req,res) => {
+    db.animalfraud.update({firstName: 'beavis'}, {
+        where: {
+            id: 4
+        }
+    }).then(updatedAnimal => {
+        console.log(`updated ${updatedAnimal} attributes to ${updatedAnimal}`)
+    })
+})
 
     //  = fs.readFileSync('./dogs.json')
     // dogs = JSON.parse(dogs)
