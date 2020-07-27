@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 // /chickens — GET indexes all chickens
 app.get('/chickens', (req, res) => {
   db.chicken.findAll().then(chickens => {
-    res.send(chickens);
+    res.render('chickens');
   }).catch(err => {
     console.log('🔥');
     console.log(err);
@@ -36,9 +36,6 @@ app.get('/chickens/:id', (req, res) => {
   })
 })
 
-app.get('/chickens', (req, res) => {
-  res.render('chickens')
-})
 
 app.get('/newChicken', (req, res) => {
   res.render('newChicken')
@@ -56,8 +53,6 @@ app.post('/chickens', urlencodedParser, (req, res) => {
       purpose: req.body.purpose
     }
   }).then(function([chicken, created]) {
-    console.log(`${chicken.species} was ${created ? 'created' : 'found'} in the database`)
-    console.log(chicken)
     res.redirect('chickens')
   }).catch("🔥") 
 })
