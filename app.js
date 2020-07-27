@@ -1,10 +1,13 @@
 const express = require('express');
 const db = require('./models');
 const app = express();
+const ejsLayouts = require('express-ejs-layouts');
+app.set('view engine', 'ejs');
+app.use(ejsLayouts);
 
 // Routes
 app.get('/', (req, res) => {
-  res.send('HOOOOME');
+  res.render('home');
 });
 
 // /chickens — GET indexes all chickens
@@ -28,19 +31,28 @@ app.get('/chickens/:id', (req, res) => {
   })
 })
 
+app.get('/chickens', (req, res) => {
+  res.render('chickens')
+})
+
+app.get('/newChicken', (req, res) => {
+  res.render('newChicken')
+})
+
 
 // POST	create	
 app.post('/chickens', (req, res) => {
   db.chicken.findOrCreate({
     where: {
-      origin: req.body.origin
+      origin: req.body.species
     },
     defaults: {
-      species: req.body.species,
-      purpose: req.body.purpose
+      species: req.body.origin,
+      purpose: req.body.purpose.value
     }
   }).then(function([chicken, created]) {
-    req.send(`${chicken.species} was ${created ? 'created' : 'found'} in the database`)
+    console.log(`${chicken.species} was ${created ? 'created' : 'found'} in the database`)
+    req.redirect('chickens')
   }).catch(err) 
 })
 
