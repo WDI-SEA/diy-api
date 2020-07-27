@@ -1,9 +1,14 @@
 const express = require('express');
 const db = require('./models');
 const app = express();
+const bodyParser = require('body-parser')
 const ejsLayouts = require('express-ejs-layouts');
 app.set('view engine', 'ejs');
 app.use(ejsLayouts);
+
+const jsonParser = bodyParser.json()
+ 
+const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 // Routes
 app.get('/', (req, res) => {
@@ -41,19 +46,20 @@ app.get('/newChicken', (req, res) => {
 
 
 // POST	create	
-app.post('/chickens', (req, res) => {
+app.post('/chickens', urlencodedParser, (req, res) => {
   db.chicken.findOrCreate({
     where: {
-      origin: req.body.species
+      species: req.body.species
     },
     defaults: {
-      species: req.body.origin,
-      purpose: req.body.purpose.value
+      origin: req.body.origin,
+      purpose: req.body.purpose
     }
   }).then(function([chicken, created]) {
     console.log(`${chicken.species} was ${created ? 'created' : 'found'} in the database`)
-    req.redirect('chickens')
-  }).catch(err) 
+    console.log(chicken)
+    res.redirect('chickens')
+  }).catch("🔥") 
 })
 
 // PUT	update
