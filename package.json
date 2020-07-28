@@ -1,0 +1,27 @@
+{
+  "name": "diy-api",
+  "version": "1.0.0",
+  "description": "## **Deliverable**:",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thelderop/diy-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thelderop/diy-api/issues"
+  },
+  "homepage": "https://github.com/thelderop/diy-api#readme",
+  "dependencies": {
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "method-override": "^3.0.0",
+    "pg": "^8.3.0",
+    "sequelize": "^5.21.13"
+  }
+}
