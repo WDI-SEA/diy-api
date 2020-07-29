@@ -103,6 +103,43 @@ app.put('/room/:index', (req, res) => {
     })
 })
 
+//POST route for room
+app.post('/room', (req, res) => {
+  db.room.findOrCreate({
+    where: {
+      name: req.body.name
+    }, 
+    defaults: {
+      color: req.body.color,
+      purpose: req.body.purpose
+    }
+  }).then(([room, roomCreated]) => {
+    res.send(`🌊 ${room.name} is great for ${room.purpose} 🌊`)
+  }).catch(error => {
+    console.log(`🤬🤬`)
+    console.log(error)
+  })
+})
+
+//POST route for product
+app.post('/product', (req, res) => {
+  db.product.findOrCreate({
+    where: {
+      name: req.body.prodName
+    }, 
+    defaults: {
+      color: req.body.color,
+      purpose: req.body.purpose
+    }
+  }).then(([product, productCreated]) => {
+    res.send(`🌊 ${product.name} is great for ${product.purpose} 🌊`)
+  }).catch(error => {
+    console.log(`🤬🤬`)
+    console.log(error)
+  })
+})
+
+
 app.listen(8800, () => {
     console.log(`🦩 8800 fam`)
 })
