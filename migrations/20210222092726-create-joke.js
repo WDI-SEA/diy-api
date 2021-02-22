@@ -11,7 +11,13 @@ module.exports = {
       jokeName: {
         type: Sequelize.STRING
       },
-      JokeContent: {
+      JokeQ: {
+        type: Sequelize.STRING
+      },
+      jokeA: {
+        type: Sequelize.STRING
+      },
+      catagory: {
         type: Sequelize.STRING
       },
       reference: {
@@ -24,9 +30,6 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      },
-      catagory: {
-        type: Sequelize.STRING
       }
     });
   },

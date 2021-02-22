@@ -15,9 +15,10 @@ module.exports = (sequelize, DataTypes) => {
   };
   joke.init({
     jokeName: DataTypes.STRING,
-    JokeContent: DataTypes.STRING,
-    reference: DataTypes.STRING,
-    category: DataTypes.STRING
+    JokeQ: DataTypes.STRING,
+    jokeA: DataTypes.STRING,
+    catagory: DataTypes.STRING,
+    reference: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'joke',
