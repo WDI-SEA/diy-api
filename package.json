@@ -4,8 +4,10 @@
   "description": "## **Deliverable**:",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "start-server": "nodemon server.js"
   },
+  "proxy": "http://localhost:3000",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jcom619/diy-api.git"
@@ -18,6 +20,8 @@
   },
   "homepage": "https://github.com/jcom619/diy-api#readme",
   "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7",
     "pg": "^8.5.1",
     "sequelize": "^6.5.0"
   }
