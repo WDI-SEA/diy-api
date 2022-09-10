@@ -8,6 +8,10 @@ Steps:
     2c) create a detail.ejs forEach god that shows more information on them
 3) make sure I have a database where everything is being stored. 
 
+Creating a gods model:
+
+sequelize model:create --name gods --attributes name:string,godOf:string,img_url:string
+
 List of Pantheon Gods:
 
 Zeus
