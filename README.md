@@ -19,9 +19,25 @@ Using what you have learned about Express, Express Routing, RESTful routing, CRU
 |id | integer |
 |createdAt | timestamp |
 |updatedAt | timestamp |
-|recipename | text |
-|brewing device | integer |
+|name | text |
+|wodgets | integer |
 |quantity | integer |
+
+Custom:
+| column name     | type |
+|:---------------:|:----:|
+|id | integer |
+|createdAt | timestamp |
+|updatedAt | timestamp |
+|recipename | string |
+|brewing device | string |
+|watertemp | integer |
+|grinder | string |
+|grindsetting | integer |
+|groundcoffee | integer |
+|description | text |
+
+
 
 
 2. Your API should be accessible via five routes: 
@@ -35,6 +51,15 @@ Using what you have learned about Express, Express Routing, RESTful routing, CRU
 | GET | detail/show | /widgets/:id | show one widget |
 | PUT | update | /widgets/:id | update one widget |
 | DELETE | delete | /widgets/:id | delete one widget |
+
+Custom:
+| Method | Action | URL | Functionality |
+|--------|:------:|:---:|:--------------|
+| GET | index | /recipes | list all recipes |
+| POST | create | /recipes | add a recipe |
+| GET | detail/show | /recipes/:id | show one recipe |
+| PUT | update | /recipes/:id | update one recipe |
+| DELETE | delete | /recipes/:id | delete one recipe |
 
 -------
 
