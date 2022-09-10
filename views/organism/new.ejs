@@ -1,26 +1,38 @@
 
 <h1>Add an Organism</h1>
 
-<form action="/" method="post">
+<form action="/create" method="post">
     <div class="form-section">
         <label for="cName">Common Name</label>
+        <br>
         <input type="text" id="cName" name="cName" required>
     </div>
     <div class="form-section">
         <label for="size">Size</label>
+        <br>
         <input type="text" id="size" name="size" required>
     </div>
     <div class="form-section">
-        <label for="sName">Scientific Name (uppercase lowercase)</label>
+        <label for="sName">Scientific Name</label>
+        <br>
         <input type="text" id="sName" name="sName">
     </div>
-    <input hidden type="number" name="kingdomId" value=" kingdom.id %\> ">
     <fieldset>
-        <legend>What Kingdom is this Organism</legend>
+        <legend>What Kingdom does it belong to?</legend>
         <input type="radio" id="animal" name="id" value="1">
         <label for="animal">Animal</label>
-        
+        <input type="radio" id="fungi" name="id" value="2">
+        <label for="fungi">Fungi</label>
+        <input type="radio" id="plant" name="id" value="3">
+        <label for="plant">Plant</label>
+        <input type="radio" id="protist" name="id" value="4">
+        <label for="protist">Protist</label>
+        <input type="radio" id="bacteria" name="id" value="5">
+        <label for="bacteria">Bacteria</label>
+        <input type="radio" id="virus" name="id" value="6">
+        <label for="virus">Virus</label>
     </fieldset>
     
+    <button type="submit">SUBMIT ORGANISM</button>
 
 </form>

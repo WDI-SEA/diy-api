@@ -30,19 +30,17 @@ nav a {
     font-size: 30px;
 }
 
-#oLink {
+/* #oLink {
     color: white;
     font-size: 25px;
     text-decoration: none;
     margin: 30px;
-}
+} */
 
 .form-section {
     text-align: center;
     font-size: 30px;
     margin: 30px;
-    width: 20vw;
-    height: 20vh;
     
 }
 
@@ -50,10 +48,39 @@ form {
     margin: 0 auto;
     border-radius: 30px;
     width: 60vw;
-    background-color: rgba(255, 255, 255, 0.3);
+    /* background-color: rgba(255, 255, 255, 0.3); */
     
 }
 
 label {
-    display: block;
+    margin-right: 20px;
+}
+
+fieldset {
+    margin: 0 auto;
+    width: 60%;
+    border-radius: 30px;
+    font-size: large;
+    border: 3px white solid;
+    padding: 10px;
+    margin-bottom: 100px;
+}
+
+form button {
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: large;
+    border: none;
+}
+
+.form-section input {
+    border-radius: 30px;
+    margin: 0 auto;
+    width: 62%;
+    height: 40px;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 10px;
 }
