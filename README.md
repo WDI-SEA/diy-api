@@ -14,13 +14,13 @@ Using what you have learned about Express, Express Routing, RESTful routing, CRU
 
 *Example:*
 
-| column name | type |
-|:-----------:|:----:|
+| column name     | type |
+|:---------------:|:----:|
 |id | integer |
 |createdAt | timestamp |
 |updatedAt | timestamp |
-|name | text |
-|wodgets | integer |
+|recipename | text |
+|brewing device | integer |
 |quantity | integer |
 
 
