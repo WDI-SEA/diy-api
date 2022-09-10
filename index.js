@@ -9,6 +9,8 @@ const app = express()
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/public'))
 app.use(layouts)
+app.use('/kingdoms', require('./controllers/kingdoms'))
+app.use('/organisms', require('./controllers/organisms'))
 
 // const db = require('../models')
 
@@ -24,18 +26,5 @@ app.get('/', (req,res) => {
 // inside kingdoms show, Create organism, add organism. and then the kindom will supply the id link. 
 
 
-app.post('/organisms/new', async (req, res) => {
-    try {
-        await db.organism.create({
-            common_name: req.body.cName,
-            size: req.body.size,
-            scientific_name: req.body.sName,
-            kingdomId: req.params.id
 
-        })
-    } catch(err) {
-        console.log(err)
-        res.send('Sorry, Server Issue')
-    }
-})
 
