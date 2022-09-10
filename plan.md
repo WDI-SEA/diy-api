@@ -1,10 +1,9 @@
 # API Planning
-## What will I make?
-#### A database of organisms
+## What will I make? -- A database of organisms
 ---
 1:M relationship. 
 the kingdoms -> organisms 
-M:M organisms to Model Organism Usages
+need to add more quantifiers to kingdom table or switch order. 
 
 | id | kingdom  | 
 |:--:|:--------:|
@@ -15,10 +14,11 @@ M:M organisms to Model Organism Usages
 | 5  | Monera   |
 | 6  | virus    |
 
-| id | organism | size   | can_it_kill_you | kingdomId |
-|:--:|:--------:|:------:|:---------------:|:---------:|
-| 1  | cat      | small  | yes             | 1         |
-| 2  | t4bp     | tiny   | yes             | 6         |
-| 3  | turkey   | medium | yes             | 1         |
+| id | common_name      | size        | scientific_name      | kingdomId |
+|:--:|:----------------:|:-----------:|:--------------------:|:---------:|
+| 1  | house cat        | small       | Felis catus          | 1         |
+| 2  | T4 bacteriophage | microscopic | Escherichia virus T4 | 6         |
+| 3  | turkey           | medium      | Meleagris            | 1         |
+| 3  | slime mold       | tiny        | Acrasiomycota        | 4         |
 
 
