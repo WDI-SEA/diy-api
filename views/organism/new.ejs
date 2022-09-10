@@ -1,0 +1,26 @@
+
+<h1>Add an Organism</h1>
+
+<form action="/" method="post">
+    <div class="form-section">
+        <label for="cName">Common Name</label>
+        <input type="text" id="cName" name="cName" required>
+    </div>
+    <div class="form-section">
+        <label for="size">Size</label>
+        <input type="text" id="size" name="size" required>
+    </div>
+    <div class="form-section">
+        <label for="sName">Scientific Name (uppercase lowercase)</label>
+        <input type="text" id="sName" name="sName">
+    </div>
+    <input hidden type="number" name="kingdomId" value=" kingdom.id %\> ">
+    <fieldset>
+        <legend>What Kingdom is this Organism</legend>
+        <input type="radio" id="animal" name="id" value="1">
+        <label for="animal">Animal</label>
+        
+    </fieldset>
+    
+
+</form>
