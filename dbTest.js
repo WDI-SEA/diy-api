@@ -17,4 +17,4 @@ async function createGod() {
   }
 }
 
-createGod()
+// createGod()
