@@ -1,0 +1,20 @@
+{
+  "name": "diy-api",
+  "version": "1.0.0",
+  "description": "## **Deliverable**:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshdewhurst/diy-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joshdewhurst/diy-api/issues"
+  },
+  "homepage": "https://github.com/joshdewhurst/diy-api#readme"
+}

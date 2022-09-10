@@ -1,0 +1,47 @@
+Greek Mythology API
+
+Steps:
+1) create a model for the pantheon gods with their attributes as; name, img_url, and associations
+2) Write routes to show all gods, add a god, show more details for one god, update a god's info, or delete a god 
+    2a) create a controller file to keep track of the "/gods" url 
+    2b) layouts.ejs should have a home page layout showing all gods and have clickable links to; edit a god, add a new god, and delete a god if needed
+    2c) create a detail.ejs forEach god that shows more information on them
+3) make sure I have a database where everything is being stored. 
+
+List of Pantheon Gods:
+
+Zeus
+God of: the sky, lightning, thunder, law, order and justice.
+img_url: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Jupiter_Smyrna_Louvre_Ma13.jpg/75px-Jupiter_Smyrna_Louvre_Ma13.jpg
+
+Hera
+God of: marriage, women, childbirth and family.
+img_url: https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Hera_Campana_Louvre_Ma2283.jpg/75px-Hera_Campana_Louvre_Ma2283.jpg
+
+Poseidon
+
+Hades (although not an Olympian)
+
+Demeter
+
+Athena
+
+Apollo
+
+Artemis
+
+Ares
+
+Hephaestus
+
+Aphrodite
+
+Hermes
+
+
+
+Gods to Add
+
+Hestia
+
+Dionysus
