@@ -1,7 +1,7 @@
 const express = require('express')
 const ejsLayouts = require('express-ejs-layouts')
 const app = express()
-const db = reuire('./models')
+const db = require('./models')
 
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
