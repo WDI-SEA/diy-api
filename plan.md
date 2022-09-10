@@ -5,20 +5,29 @@
 the kingdoms -> organisms 
 need to add more quantifiers to kingdom table or switch order. 
 
-| id | kingdom  | 
-|:--:|:--------:|
-| 1  | Animelia |
-| 2  | Plantae  |
-| 3  | Fungi    |
-| 4  | Protista |
-| 5  | Monera   |
-| 6  | virus    |
+KINGDOM TABLE
+| id | kingdom        | traits                                     |
+|:--:|:--------------:|:------------------------------------------:|
+| 1  | Animals        | Here there be doge                         |
+| 2  | Plants         | Green, Filled with anger.                  |
+| 3  | Fungi          | What we see is the reproductive organs!    |
+| 4  | Protists       | Catch all, Most of all organisms           |
+| 5  | Bacteria       | They do a lot, Single Celled, Lack nucleus |
+| 6  | Viruses        | Not living, Very cool. Machines of nature  |
 
+ANIMAL TABLE
 | id | common_name      | size        | scientific_name      | kingdomId |
 |:--:|:----------------:|:-----------:|:--------------------:|:---------:|
 | 1  | house cat        | small       | Felis catus          | 1         |
 | 2  | T4 bacteriophage | microscopic | Escherichia virus T4 | 6         |
 | 3  | turkey           | medium      | Meleagris            | 1         |
-| 3  | slime mold       | tiny        | Acrasiomycota        | 4         |
+| 4  | slime mold       | tiny        | Acrasiomycota        | 4         |
+| 5  | E. coli          | microsopic  | Escherichia coli     | 6         |
+---
+#### BONUS
 
+MODEL ORGANISM TABLE
+| id | usage                          | ethical | animalId |
+|:--:|:------------------------------:|:-------:|:--------:|
+| 1  | bacterial genetics, metabolism | yes     | 5        |
 
