@@ -52,6 +52,7 @@ Custom:
 | PUT | update | /widgets/:id | update one widget |
 | DELETE | delete | /widgets/:id | delete one widget |
 
+
 Custom:
 | Method | Action | URL | Functionality |
 |--------|:------:|:---:|:--------------|
