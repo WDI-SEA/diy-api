@@ -10,7 +10,7 @@ KINGDOM TABLE
 |:--:|:--------------:|:------------------------------------------:|
 | 1  | Animals        | Here there be doge                         |
 | 2  | Plants         | Green, Filled with anger.                  |
-| 3  | Fungi          | What we see is the reproductive organs!    |
+| 3  | Fungi          | What we see is the reproductive organ!     |
 | 4  | Protists       | Catch all, Most of all organisms           |
 | 5  | Bacteria       | They do a lot, Single Celled, Lack nucleus |
 | 6  | Viruses        | Not living, Very cool. Machines of nature  |
@@ -22,7 +22,7 @@ ANIMAL TABLE
 | 2  | T4 bacteriophage | microscopic | Escherichia virus T4 | 6         |
 | 3  | turkey           | medium      | Meleagris            | 1         |
 | 4  | slime mold       | tiny        | Acrasiomycota        | 4         |
-| 5  | E. coli          | microsopic  | Escherichia coli     | 6         |
+| 5  | E. coli          | microsopic  | Escherichia coli     | 5         |
 ---
 #### BONUS
 
