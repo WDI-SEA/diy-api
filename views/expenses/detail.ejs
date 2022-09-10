@@ -1,9 +1,20 @@
 <h2>Detail</h2>
 
 <ul>
-    <li>Date: <%=expense.date%></li>
-    <li>Spend Category: <%=category.name%></li>
-    <li>Merchant: <%=merchant.name%></li>
-    <li>Amount: $<%=expense.cost%></li>
-    <li>Description: <%=expense.description%></li>
+    <li>Date: <%=expense.date%>
+    </li>
+    <li>Spend Category: <%=category.name%>
+    </li>
+    <li>Merchant: <%=merchant.name%>
+    </li>
+    <li>Amount: $<%=expense.cost%>
+    </li>
+    <li>Description: <%=expense.description%>
+    </li>
 </ul>
+
+<a href="/expenses/<%= expense.id %>/edit">Edit</a>
+
+<form method="POST" action="/expenses/<%= expense.id %>/?_method=DELETE">
+    <input type="submit" value="delete">
+</form>

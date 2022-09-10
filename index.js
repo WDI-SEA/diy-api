@@ -12,6 +12,10 @@ app.use(ejsLayouts)
 app.use('/categories', require('./controllers/categories'))
 app.use('/expenses', require('./controllers/expenses'))
 
+//for PUT and DELETE
+const methodOverride = require("method-override")
+app.use(methodOverride("_method"))
+
 
 app.get('/', async (req, res) => {
     try{

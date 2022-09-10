@@ -1,10 +1,10 @@
 <h2>List of Categories</h2>
 
-<ul>
+
     <% categories.forEach(category => { %>
-        <li><%= category.name %>: <a href="/categories/<%=category.id%>">expenses</a></li>
-    <%})%>
-</ul>
+        <ul><%= category.name %>: <a href="/categories/<%=category.id%>">expenses</a></ul>
+     <%})%>
+
 
 <h4>Add a New Category:</h4>
 <form action="/categories" method="POST">
