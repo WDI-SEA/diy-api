@@ -13,8 +13,23 @@ router.get('/', (req, res) => {
   })
 
 router.get('/new', (req, res) => {
-    res.render('projects/new')
+    res.render('gods/new')
   })
+
+router.post('/', (req, res) => {
+    db.god.create({
+        name: req.body.name,
+        godOf: req.body.godOf,
+        img_url: req.body.img_url
+    })
+    .then((god) => {
+        res.redirect('/')
+    })
+    .catch((err) => {
+        console.warn(err)
+    })
+})
+
 
   router.get('/:id', (req, res) => {
     db.god.findOne({
