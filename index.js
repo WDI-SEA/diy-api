@@ -1,11 +1,13 @@
 const express = require('express')
 const db = require('./models')
+const ejsLayouts = require('express-ejs-layouts');
+const methodOverride = require('method-override')
 const PORT = 3000
 const app = express()
 
-app.use(methodOverride('_method'))
 app.set('view engine', 'ejs')
-
+app.use(ejsLayouts)
+app.use(methodOverride('_method'))
 
 app.get('/', (req,res)=>{
     res.send('home page')
