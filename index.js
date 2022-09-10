@@ -17,7 +17,7 @@ app.listen(PORT, () => {
 })
 
 app.get('/', (req,res) => {
-    res.render('/views/show')
+    res.render('show')
 })
 
 // we want to create the oragnism, inside the kingdom of which is comes from to deal with the id,
