@@ -1,0 +1,16 @@
+F1 Drivers & Teams
+
+M:M relationship
+
+Drivers
+---------
+Name
+Teams
+Age
+World Titles
+
+Teams
+----------
+TeamName:
+Drivers:
+World Titles:
