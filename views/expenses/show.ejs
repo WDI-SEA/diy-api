@@ -1,0 +1,8 @@
+<h2>All Expenses</h2>
+
+<ul>
+    <% expenses.forEach(expense => { %>
+        <li><%=expense.date%> : $<%=expense.cost%> <a href="/expenses/<%=expense.id%>">view detail</a></li>
+
+    <%})%>
+</ul>

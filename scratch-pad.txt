@@ -1,0 +1,8 @@
+sequelize model:create --name category --attributes name:string,budget:integer
+
+sequelize model:create --name merchant --attributes name:string
+
+sequelize model:create --name categories_merchants --attributes categoryId:integer,merchantId:integer
+
+sequelize model:create --name expense --attributes date:string,merchantId:integer,cost:integer,categoryId:integer,description:text
+
