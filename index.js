@@ -1,14 +1,26 @@
 const express = require('express');
 const ejsLayouts = require('express-ejs-layouts');
 const db = require('./models');
-const rowdy = require('rowdy-logger');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
-rowdy.begin(app);
+const PORT = 3000;
 
 app.set('view engine', 'ejs');
-app.use(require('morgan')('dev'))
 app.use(express.urlencoded({ extended: false }))
 app.use(ejsLayouts)
 
+app.get('/', (req, res) => {
+    db.god.findAll()
+    .then((gods) => {
+      res.render('main/index', { gods: gods })
+    })
+    .catch((error) => {
+      console.log('Error in GET /', error)
+    })
+  })
+
+
+
+app.use('/gods', require('./controllers/gods'))
+
+app.listen(PORT, () => console.log(`my god we are up and running`))

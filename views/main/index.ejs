@@ -1,0 +1,9 @@
+<h2>Gods</h2>
+
+<% gods.forEach(function(god) { %>
+    <div>
+      <h2>
+        <a href="/gods/<%= god.id %>"><%= god.name %></a>
+      </h2>
+    </div>
+  <% }); %>
