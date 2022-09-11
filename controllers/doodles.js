@@ -2,18 +2,29 @@ const express= require("express")
 const router =express.Router()
 const fs = require('fs')
 
+// gets doodles from db
+const readDoodleFile= ()=>{
+    // uses fs to read json file
+    const doodles = fs.readFileSync('./doodles.json')
+    // parses the file into json data
+    const doodleData = JSON.parse(doodles)
+    return doodleData
+}
 
-// GET index /doodles - show all doodles -gtg
+// GET index /doodles - show all doodles   ***** GTG ************
 router.get ("/", (req, res)=>{
-    //  res.send( "See all doodles here")
-    res.render('doodles/index.ejs')
+    const doodleData = readDoodleFile()
+    console.log(doodleData +"testing")
+    res.render('index.ejs',{
+        doodles:doodleData,
+    })
 })
 
 
-// POST create /doodles/new - display a form to create a new doodle -gtg
+// POST create /doodles/new - display a form to create a new doodle *** SHOWS FORM****
 router.get ("/new", (req, res)=>{
     // res.send ("Add a doodle here")
-    res.render("doodles/new.ejs")
+    res.render("new.ejs")
 })
 
 // GET  detail/show /doodles - show one doodle by id 
