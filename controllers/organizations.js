@@ -6,8 +6,7 @@ router.get("/", async (req, res) =>
 {
     try 
     {
-        const organizations = await db.organization.findAll();    // find all orgs in database
-        res.json(organizations);    // send json data of all orgs found
+        res.json(await db.organization.findAll());    // find all orgs in database and send as json data
     } 
     catch (error) 
     {
@@ -27,6 +26,40 @@ router.post("/", async (req, res) =>
             location: "South Korea",
             abbreviation: "Gen.G"
         }));
+    } 
+    catch (error) 
+    {
+        console.warn(error);
+        res.send("server error");
+    }
+})
+router.get("/:id", async (req, res) =>
+{
+    try 
+    {
+        res.json(await db.organization.findByPk(req.params.id));    // find org by primary key
+    } 
+    catch (error) 
+    {
+        console.warn(error);
+        res.send("server error");
+    }
+})
+router.put("/:id", async (req, res) =>
+{
+    try 
+    {
+        const organization = await db.organization.findByPk(req.params.id);
+        organization.set(
+        {
+            // can be replaced with req.body.name, req.body.founded, etc. once form is made
+            name: "Cloud9",
+            founded: "2013-01-08",
+            location: "United States",
+            abbreviation: "C9"
+        })
+        await organization.save();
+        res.json(organization);
     } 
     catch (error) 
     {
