@@ -14,3 +14,9 @@ Teams
 TeamName:
 Drivers:
 World Titles:
+
+
+sequelize model:create --name pet --attributes name:string,species:string,description:text,userId:integer
+sequelize model:create --name driver --attributes name:string,team:string,age:integer,titles:string
+
+sequelize model:create --name team --attributes teamname:string,drivers:string,championships:string
