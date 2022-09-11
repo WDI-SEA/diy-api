@@ -10,7 +10,7 @@ app.set ('view engine', 'ejs')
 // app.use()
 // define express routes
 app.get('/', (req, res) => {
-     res.send('<h1>Build a Dachshund!</h1>')
+     res.render('/views/layout')
 })
 app.get('/color', (req, res) =>{
     res.send('This is where you will see the different color options')
