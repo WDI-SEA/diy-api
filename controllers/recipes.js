@@ -7,6 +7,7 @@ router.get('/', async (req, res) => {
     res.render('recipes/show', { showRecipes: allRecipes })
 })
 
+// Create
 router.get('/new', async (req, res) => {
     res.render('recipes/new')
 })
@@ -28,6 +29,7 @@ router.post('/new', async (req, res) => {
     }
 })
 
+// Read
 router.get('/:id', async (req, res) => {
     try {
         const aRecipe = await db.recipe.findOne({
@@ -41,6 +43,7 @@ router.get('/:id', async (req, res) => {
     }
 })
 
+// Update
 router.get('/:id/edit', async (req, res) => {
     try {
         const aRecipe = await db.recipe.findOne({
@@ -77,6 +80,7 @@ router.put('/:id', async (req, res) => {
     }
 })
 
+// Destroy
 router.delete('/:id', async (req, res) => {
     try {
         await db.recipe.destroy({
