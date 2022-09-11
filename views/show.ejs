@@ -2,11 +2,11 @@
 <div style="display: flex; flex-wrap: wrap; text-align: center;">
     <% pokemoncards.forEach(pokemon => { %>
         <div style="display: inline-block;">
-            <h3> <a href="/pokemoncards/<%=pokemon.id%>"><%=pokemon.name%></a></h3>
+            <h3> <a href="/pokemoncards/<%=pokemon.id%>"><%=pokemon.name%> (Click to Edit)</a></h3>
             <img src="<%=pokemon.img_url%>"/> 
             <p><%=pokemon.rarity%></p>
             <form method="POST" action="/pokemoncards/<%=pokemon.id%>/?_method=DELETE">
-                <input type="submit" value="Delete">
+            <input type="submit" value="Delete">
             </form>
         </div>
         <hr/>

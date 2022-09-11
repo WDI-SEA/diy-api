@@ -1,8 +1,10 @@
+<h2>Edit Saved Pokemon Card</h2>
 <div>
     <h3><%=pokemoncard.name%></h3>
     <img src="<%=pokemoncard.img_url%>"/>
     <h4> <%=pokemoncard.rarity%></h4>
 </div>
+<div style="width: 20vw; margin-left: 39.5vw;">
 <form method="POST" action="/pokemoncards/<%=pokemoncard.id%>/?_method=PUT">
     <label>Name</label>
     <input type="text" name="name" value="<%= pokemoncard.name %>" required>
@@ -12,3 +14,4 @@
     <input type="text" name="rarity" value="<%= pokemoncard.rarity %>" required>
     <input type="submit">
 </form>
+</div>

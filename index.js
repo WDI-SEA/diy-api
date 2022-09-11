@@ -17,10 +17,12 @@ app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride("_method"));
 //Get
 
+// HOMEPAGE
 app.get('/', (req,res) => {
     res.render('index.ejs')
 })
 
+// SHOWALL CARDS
 app.get('/pokemoncards', async (req,res) => {
     try {
         const pokemoncards = await db.pokemoncard.findAll()
@@ -31,10 +33,12 @@ app.get('/pokemoncards', async (req,res) => {
     }
 })
 
+// SHOW FORM TO MAKE NEW CARD
 app.get('/pokemoncards/new', (req,res) => {
     res.render('new.ejs')
 })
 
+// DELETE/DESTROY
 app.delete('/pokemoncards/:id', async (req,res) => {
     console.log(req.params.id)
     try {
@@ -46,8 +50,8 @@ app.delete('/pokemoncards/:id', async (req,res) => {
         console.log(err)
     }
 })
-
-app.put('/pokemoncard/:id', async (req,res) => {
+// PUT/UPDATE
+app.put('/pokemoncards/:id', async (req,res) => {
     console.log(req.body)
     try {
         const editPokemonCard = await db.pokemoncard.update({
@@ -62,7 +66,7 @@ app.put('/pokemoncard/:id', async (req,res) => {
         console.log(err)
     }
 })
-
+// SHOW SPECIFIC CARD
 app.get('/pokemoncards/:id', async (req,res) => {
     try {
         const onePokemonCard = await db.pokemoncard.findOne({
@@ -74,6 +78,7 @@ app.get('/pokemoncards/:id', async (req,res) => {
     }
 })
 
+// CREATE A NEW CARD
 app.post('/pokemoncards', async (req,res) => {
     console.log(req.body)
     try {
