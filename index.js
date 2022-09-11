@@ -87,7 +87,7 @@ app.post('/pokemoncards', async (req,res) => {
             img_url: req.body.img_url,
             rarity: req.body.rarity
         })
-        res.redirect('/')
+        res.redirect('/pokemoncards')
     }catch(err) {
         console.log(err)
     }
