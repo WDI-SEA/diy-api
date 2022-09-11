@@ -2,10 +2,11 @@ const express = require('express');
 const app = express();
 const ejsLayouts = require('express-ejs-layouts');
 const fs = require("fs")
+const PORT = 8000
 
 app.set('view engine', 'ejs');
 app.use(ejsLayouts);
-app.listen(8000)
+// app.listen(8000)
 
 const db = require('./models')
 
@@ -40,13 +41,13 @@ app.get ("/doodles/:id", (req, res)=>{
 })
 
 // PUT update /doodles - updates a doodle
-app.get ("/edit/:id", (req, res)=>{
+app.get ("doodles/edit/:id", (req, res)=>{
     res.send("update your doodle")
 })
 
 
 // DELETE /doodles - delete a doodle ----- why?!?!?!?!
-app.delete("/doodles", (req,res)=>{
+app.delete("/doodles/edit", (req,res)=>{
     res.send ("Why would you do this???")
 })
 

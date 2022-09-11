@@ -14,7 +14,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   doodles.init({
-    id: DataTypes.INTEGER,
     breed: DataTypes.STRING,
     personality: DataTypes.STRING,
     img_url: DataTypes.TEXT

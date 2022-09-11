@@ -1,1 +1,2 @@
 sequelize model:create --name doodles --attributes id:integer,breed:string,personality:string,img_url:text
+
