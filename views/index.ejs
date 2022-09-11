@@ -5,11 +5,15 @@
 
 <!-- view each needs to edit /delete -->
 <ul> <% doodles.forEach((doodle, index) =>{ %>
-    <li> <%= doodle.breed %> is known as a <%= doodle.personality %> </li>
+<a href="/doodles/<%= doodle.id %>">
+ <li> <%= doodle.breed %> is known as a <%= doodle.personality %> </li>
+ <li> <%= doodle.id %></li>
+</a>
+
     <!-- <p> <img width="500" src="<%= //doodle.image %>">" </p>  -->
    
-  <!-- edit current doodle -->
-    <a href="/doodles/edit/<%index%>">Edit this doodle</a> 
+  <!-- edit current doodle -->  
+    <a href="/doodles/edit/<%=index%>">Edit this doodle</a> 
      
 <!-- adds delete  -->
      <form method="POST" action ="/doodles/<%=index %>/?_method=DELETE"> 

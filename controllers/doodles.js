@@ -1,35 +1,67 @@
 const express= require("express")
 const router =express.Router()
 const fs = require('fs')
+let db =require('../models')
 
-// gets doodles from db
-const readDoodleFile= ()=>{
-    // uses fs to read json file
-    const doodles = fs.readFileSync('./doodles.json')
-    // parses the file into json data
-    const doodleData = JSON.parse(doodles)
-    return doodleData
-}
+
 
 // GET index /doodles - show all doodles   ***** GTG ************
 router.get ("/", (req, res)=>{
-    const doodleData = readDoodleFile()
-    console.log(doodleData +"testing")
-    res.render('index.ejs',{
-        doodles:doodleData,
+    // const doodleData = readDoodleFile()
+    // console.log(doodleData +"testing")
+    // res.render('index.ejs',{
+    //     doodles:doodleData,
     })
+// })
+
+
+// POST create - adds a new doodle
+router.post ("/new", (req, res)=>{
+   db.doodles.create({
+    breed: req.body.breed,
+    content: req.body.content,
+    image: req.body.image
+   })
+   .then((post)=>{
+    res.redirect('/')
+   })
+   .catch ((error) => {
+    res.send("server error")
+   })
 })
+// POST /doodles/new - display form to add doodle
+router.get('/new', (req, res) => {
+    db.doodles.findAll()
+    .then((doodle) => {
+      res.render('doodles/new', { doodles: bread })
+    })
+    .catch((error) => {
+      res.status('server error')
+    })
+  })
 
-
-// POST create /doodles/new - display a form to create a new doodle *** SHOWS FORM****
-router.get ("/new", (req, res)=>{
-    // res.send ("Add a doodle here")
-    res.render("new.ejs")
-})
-
-// GET  detail/show /doodles - show one doodle by id 
-router.get ("/:id", (req, res)=>{
-    res.send("Choose your doodle")
+ 
+  // GET /doodles/:id - display a specific doodle
+  router.get('/:id', (req, res) => {
+    db.doodles.findOne({
+      where: { id: req.params.id },
+      include: [db.breed, db.personality, db.image]
+    })
+    .then((doodles) => {
+      if (!doodles) throw Error()
+      db.comment.findAll({
+        where: {articleId: req.params.id},
+      })
+    .then ((doodles)=>{
+      console.log(doodles)
+      res.render('doodles/show', { doodle:breed }
+      )
+    })
+      console.log(doodle.breed)
+    })
+    .catch((error) => {
+      console.log("server error")
+    })
 })
 
 

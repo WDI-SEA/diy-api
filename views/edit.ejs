@@ -1,9 +1,9 @@
 <!-- edit or deletes a doodle-->
 <form method ='POST' action="/doodles/<%=doodleId%>/?_method=PUT">
 <label>Breed</label>
-    <input type="text" name="breed" value="<%=myDoodle.breed%>" >
+    <input type="text" name="type" value="<%=myDoodle.breed%>" >
 <label> Personality</label>
-    <input type ="text" name="personality" value="<%=myDoodle.personality%>">
+    <input type ="text" name="type" value="<%=myDoodle.personality%>">
 <label>Image </label>
     <input type ="text" name="img_url" value="<%=myDoodle.img%>">
 <input type ="submit" >
