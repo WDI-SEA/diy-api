@@ -8,7 +8,7 @@ app.use("/organizations", require("./controllers/organizations"));
 // Routes
 app.get("/", (req, res) =>
 {
-    res.send("esports api");
+    res.render("main/index.ejs");
 })
 
 // Listen
