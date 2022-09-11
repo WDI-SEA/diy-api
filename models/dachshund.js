@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      models.dachshund.hasMany(models.color)
+      models.dachshund.hasMany(models.pattern)
+      models.dachshund.hasMany(models.coatType)
+      models.dachshund.hasMany(models.size)
     }
   }
   dachshund.init({

@@ -12,9 +12,6 @@ app.set ('view engine', 'ejs')
 app.get('/', (req, res) => {
      res.send('<h1>Build a Dachshund!</h1>')
 })
-app.get('/about', (req, res) => {
-    res.send('<h1>Hello, my name is Hydrangea Benn</h1>')
-})
 app.get('/color', (req, res) =>{
     res.send('This is where you will see the different color options')
 })
@@ -23,6 +20,9 @@ app.get('/pattern', (req, res) => {
 })
 app.get('/size', (req, res) => {
     res.send('This is where you will see the different size options')
+})
+app.get('/coatType', (req, res) => {
+    res.send('This is where you will see the different coat type options')
 })
 // tell express to listen on a port for incoming http requests
 app.listen(PORT, () => {
