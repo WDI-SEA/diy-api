@@ -1,0 +1,29 @@
+Random world cup facts
+----------------------------
+
+
+Id:
+fact:
+country:
+year:
+
+
+
+sequelize model:create --name world_cups --attributes fact:text,country:string,year:integer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

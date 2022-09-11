@@ -1,0 +1,13 @@
+<h1>World cup facts!</h1>
+
+<% world_cups.forEach(function(world_cup) { %>
+  <div class="well">
+    <h2>
+      <%=world_cup.fact %>
+      <br>
+      <%= world_cup.year%>
+      <br>
+      <%= world_cup.country %> 
+    </h2>
+  </div>
+<% }); %>
