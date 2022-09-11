@@ -18,3 +18,9 @@
         <% } else if (hitboxes.name == "Merc") { %>
         <img width="500" src="https://i.imgur.com/gOTyOSq.png" alt="<%=hitboxes.name%> image">
 <%}%>
+<form method="POST" action="/hitboxes/<%=hitboxes.id%>/?_method=DELETE">
+    <input type="submit" value="Delete" />
+</form>
+<form method="POST" action="/hitboxes/<%=hitboxes.id%>/?_method=PUT">
+    <input type="submit" value="Edit" />
+</form>
