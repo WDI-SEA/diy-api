@@ -49,9 +49,18 @@ router.post('/', async (req, res) => {
 
 
 // DELETE a mixed martial artist
-// router.delete('/:id', (req, res) => {
-
-// })
+router.delete(':/name', async (req, res) => {
+    try {
+        console.log(req.body)
+        await db.mixedmartialartist.destroy({
+            where: { name: req.params.name }
+        })
+        res.redirect('/mixedmartialartists')
+    } catch(err) {
+        console.warn(err)
+        res.send(`server error!`)
+    }
+})
 
 
 

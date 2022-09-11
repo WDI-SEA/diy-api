@@ -1,12 +1,24 @@
 <h1>Mixed Martial Artists</h1>
+<nav>
+    <a href="/">Home</a>
+</br>
+    <a href="/mixedmartialartists/new">Create a new Mixed Martial Artist</a>
+</nav>
 
 <% martialArtists.forEach(martialArtist => { %>
     <div>
-        <a href="/mixedmartialartists/<%= martialArtist.name %>"><%= martialArtist.name %></a>
+        <h3>
+            <a href="/mixedmartialartists/<%= martialArtist.name %>"><%= martialArtist.name %></a>
+            <form method="POST" action="/mixedmartialartists/<%= martialArtist.name %>/?_method=DELETE">
+                <input type="submit" value="delete">
+            </form>
+        </h3>
     </div>
 <% }) %>
 
+<!-- </br>
 </br>
 </br>
+<a href="/">Home</a>
 </br>
-<a href="/mixedmartialartists/new">Create a new Mixed Martial Artist</a>
+<a href="/mixedmartialartists/new">Create a new Mixed Martial Artist</a> -->
