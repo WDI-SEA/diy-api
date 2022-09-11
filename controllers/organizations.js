@@ -36,11 +36,10 @@ router.post("/", async (req, res) =>
         {
             where:
             {
-                // can be replaced with req.body.name, req.body.founded, etc. once form is made
-                name: "Gen.G Esports",
-                founded: "2017-08-11",
-                location: "South Korea",
-                abbreviation: "Gen.G"
+                name: req.body.name,                   // e.g. "Gen.G Esports"
+                founded: req.body.founded,             // e.g. "2017-08-11"
+                location: req.body.location,           // e.g. "South Korea"
+                abbreviation: req.body.abbreviation    // e.g. "Gen.G"
             }
         });
         console.log("Unique entry:", orgCreated);
@@ -59,11 +58,10 @@ router.put("/:orgId", async (req, res) =>
         const organization = await db.organization.findByPk(req.params.orgId);
         organization.set(
         {
-            // can be replaced with req.body.name, req.body.founded, etc. once form is made
-            name: "Cloud9",
-            founded: "2013-01-08",
-            location: "United States",
-            abbreviation: "C9"
+            name: req.body.name,                   // e.g. "Cloud9"
+            founded: req.body.founded,             // e.g. "2013-01-08"
+            location: req.body.location,           // e.g. "United States"
+            abbreviation: req.body.abbreviation    // e.g. "C9"
         })
         await organization.save();
         res.redirect(`/organizations/${organization.id}`);    // redirect to detail page of org updated
