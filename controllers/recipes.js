@@ -30,7 +30,12 @@ router.post('/new', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-
+        const aRecipe = await db.recipe.findOne({
+            where: {
+                id: req.params.id
+            }   
+        })
+        res.render('recipes/showOne', {aRecipe: aRecipe})
     } catch(err) {
         console.warn(err)
     }
