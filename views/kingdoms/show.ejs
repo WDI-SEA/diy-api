@@ -6,10 +6,7 @@
             <h3>Common Name: <%= org.common_name %></h3>
             <h3>Scientific Name: <%= org.scientific_name%></h3>
             <h3>Size: <%= org.size %></h3>
-            <div class="ud-div">
-                <a id="leftA" href="/organisms/edit/<%=org.id%>">UPDATE</a>|  
-                <a id="rightA" href="/organisms/delete/<%=org.id%>">DELETE</a>
-            </div>
+            <a href="../organisms/<%= org.id %>">DETAILS</a>
         </div>
     <% }) %>
 <% } %>

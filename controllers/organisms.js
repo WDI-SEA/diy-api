@@ -1,6 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const db = require('../models')
+const methodOverride = require('method-override')
+
+router.use(methodOverride('_method'))
 
 
 router.get('/new', (req,res) => {
@@ -26,6 +29,22 @@ router.post('/new', async (req, res) => {
         res.send('Sorry, Server Issue')
     }
 })
+
+router.get('/:id', async (req,res) => {
+    try {
+        const organism = await db.organism.findOne({
+            where: {
+                id: req.params.id
+            }
+        })
+        res.render('organism/details', {organism: organism})
+
+    } catch(error) {
+        console.warn(error)
+    }
+})
+
+
 
 
 

@@ -111,10 +111,21 @@ form button {
 }
 
 .ud-div {
+    margin: 0 auto;
+    width: 15%;
     padding: 10px;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
 
+}
+
+.ud-div button {
+    background: none;
+    color: white;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 #leftA {
