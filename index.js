@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000
 // SET views
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
-
+app.use('/public', express.static('public'));
 //Get
 
 app.get('/', (req,res) => {
