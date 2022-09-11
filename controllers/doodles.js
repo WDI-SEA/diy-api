@@ -10,18 +10,16 @@ router.get ("/", (req, res)=>{
 })
 
 
-// POST create /doodles/new - display a form to create a new doodle 
+// POST create /doodles/new - display a form to create a new doodle -gtg
 router.get ("/new", (req, res)=>{
-    res.send ("Add a doodle here")
+    // res.send ("Add a doodle here")
     res.render("doodles/new.ejs")
 })
 
-// GET  detail/show /doodles - show one doodle by id
+// GET  detail/show /doodles - show one doodle by id 
 router.get ("/:id", (req, res)=>{
     res.send("Choose your doodle")
 })
-
-
 
 
 // PUT update /doodles - updates a doodle
