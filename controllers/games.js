@@ -5,7 +5,8 @@ const db = require('../models')
 // GET /games -- index of all games
 router.get('/', async (req, res) => {
     try {
-        res.send('index')
+        const allGames = await db.game.findAll()
+        res.json(allGames)
     } catch(error) {
         console.warn(error)
     }
@@ -14,7 +15,8 @@ router.get('/', async (req, res) => {
 // GET /games/:id -- details on one game
 router.get('/:id', async (req, res) => {
     try {
-        res.send(`details ${req.params.id}`)
+        const thisGame = await db.game.findByPk(req.params.id)
+        res.json(thisGame)
     } catch(error) {
         console.warn(error)
     }
@@ -23,7 +25,14 @@ router.get('/:id', async (req, res) => {
 // POST /games -- create new game
 router.post('/', async (req, res) => {
     try {
-        res.send(req.body)
+        const [newGame] = await db.game.findOrCreate({
+            where: {
+                title: req.body.title,
+                year: req.body.year,
+                rating: req.body.rating
+            }
+        })
+        res.json(newGame)
     } catch(error) {
         console.warn(error)
     }
