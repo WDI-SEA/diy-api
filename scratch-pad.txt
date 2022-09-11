@@ -1,0 +1,32 @@
+table: comment
+----------------
+id: INT
+user_name: TEXT
+user_id: INT
+content: TEXT
+image: BYTEA?
+thread_id: INT
+
+sequelize model:create --name comment --attributes user_name:text,user_id:integer,content:text,thread_id:integer
+
+
+table: thread
+----------------
+id: INT
+user_name: TEXT
+content: TEXT
+image: BYTEA?
+title: TEXT
+user_id: INT
+
+sequelize model:create --name thread --attributes user_name:text,content:text,title:text,user_id:integer
+
+
+table: user
+---------------
+id: INT
+user_name: TEXT
+user_avatar: BYTEA
+user_id: INT
+
+sequelize model:create --name user --attributes user_name:text,user_id:integer
