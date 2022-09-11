@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       founded: {
-        type: Sequelize.DATE
+        type: Sequelize.DATEONLY
       },
       location: {
         type: Sequelize.STRING
