@@ -45,6 +45,18 @@ router.get('/', async (req, res) => {
     }
 })
 
+router.get('/new', async (req, res) => {
+    try {
+        const expenses = await db.expense.findAll()
+        const categories = await db.category.findAll()
+        res.render("expenses/new.ejs", { expenses: expenses, categories:categories })
+
+    } catch (err) {
+        console.log(err)
+        res.send("server error")
+    }
+})
+
 router.get('/:id', async (req, res) => {
     try {
         const expense = await db.expense.findOne({

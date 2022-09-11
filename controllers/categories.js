@@ -29,7 +29,7 @@ router.post('/', async (req, res) => {
     }
 })
 
-router.get('/:id', async (req, res) => {
+router.get('/expenses/:id', async (req, res) => {
     try {
         const category = await db.category.findOne({
             where: {
@@ -42,6 +42,21 @@ router.get('/:id', async (req, res) => {
             }
         })
         res.render("categories/expenses.ejs", { expenses: expenses, category: category })
+
+    } catch (err) {
+        console.log(err)
+        res.send("server error")
+    }
+})
+router.get('/merchants/:id', async (req, res) => {
+    try {
+        const category = await db.category.findOne({
+            where: {
+                id: req.params.id
+            },
+            include: [db.merchant]
+        })
+         res.render("categories/merchants.ejs", { category: category, merchants: category.merchants })
 
     } catch (err) {
         console.log(err)

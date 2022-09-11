@@ -20,7 +20,8 @@ app.use(methodOverride("_method"))
 app.get('/', async (req, res) => {
     try{
     const categories = await db.category.findAll()
-    res.render("home.ejs", {categories: categories})
+    const expenses = await db.expense.findAll()
+    res.render("home.ejs", {categories: categories, expenses: expenses})
     }catch(err) {
         console.log(err)
         res.send("server error")

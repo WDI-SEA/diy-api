@@ -4,7 +4,11 @@
 <% categories.forEach(category=> { %>
         <li>
             <%= category.name %> (budget: $<%= category.budget %>) : %>
-             <a href="/categories/<%=category.id%>">expenses</a>
+            <div>
+             <a href="/categories/expenses/<%=category.id%>">expenses vs budget</a> </div>
+             <div>
+             <a href="/categories/merchants/<%=category.id%>">list of merchants</a>
+            </div>
         </li>
     <%})%>
 
@@ -16,15 +20,15 @@
 
         <h3>Add a New Category:</h3>
         <form action="/categories" method="POST">
-            <div class="form-group">
+            <div>
                 <label for="name">Name:</label>
-                <input type="text" class="form-control" id="name" name="name" required>
+                <input type="text" id="name" name="name" required>
             </div>
 
-            <div class="form-group">
+            <div>
                 <label for="budget">Monthly Budget:</label>
-                <input type="number" name="budget" id="budget" class="form-control" required>
+                <input type="number" name="budget" id="budget" required>
             </div>
 
-            <button type="submit" class="btn btn-primary">Add Category</button>
+            <button type="submit">Add Category</button>
         </form>

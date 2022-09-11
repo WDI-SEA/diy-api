@@ -1,8 +1,24 @@
-<h2>Spend Summary:</h2>
+<h2>Summary:</h2>
+
+<% let budgetArr = [] %>
+<% let expenseArr = [] %>
+<% let sumBudget = 0 %>
+<% let sumExp = 0 %>
 
 
-    <% categories.forEach(category => { %>
-        <ul><%= category.name %>: budget: $<%= category.budget %></a></ul>
-     <%})%>
+<% categories.forEach(category=> { %>
+  <% budgetArr.push(category.budget) %>
+  <%})%>
+<% expenses.forEach(expense=> { %>
+  <% expenseArr.push(expense.cost) %>
+  <%})%>
 
+<% sumBudget = budgetArr.reduce((a, b) => a + b, 0) %>
+<% sumExp = expenseArr.reduce((a, b) => a + b, 0) %>
+<% let remainder = sumBudget - sumExp  %>
 
+<h3>Total Budget: $<%= sumBudget%> </h3>
+<h3>Total Expenses: $<%= sumExp%> </h3>
+<h3>Remaining: $<%= remainder%> </h3>
+
+<h4><a href="/expenses/new">Click here to Add a New Expense</a></h4>
