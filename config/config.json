@@ -1,0 +1,8 @@
+{
+  "development": {
+    "database": "kingorg_database",
+    "logging": false,
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}

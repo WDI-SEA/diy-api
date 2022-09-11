@@ -11,7 +11,7 @@ KINGDOM TABLE
 | 1  | Animals        | Here there be doge                         |
 | 2  | Plants         | Green, Filled with anger.                  |
 | 3  | Fungi          | What we see is the reproductive organ!     |
-| 4  | Protists       | Catch all, Most of all organisms           |
+| 4  | Protists       | Catch all, for everything outside of the norm.          |
 | 5  | Bacteria       | They do a lot, Single Celled, Lack nucleus |
 | 6  | Viruses        | Not living, Very cool. Machines of nature  |
 
@@ -31,3 +31,14 @@ MODEL ORGANISM TABLE
 |:--:|:------------------------------:|:-------:|:--------:|
 | 1  | bacterial genetics, metabolism | yes     | 5        |
 
+
+
+### Model Structure
+
+db name: kingorg_database
+
+sequelize model:create --name kingdom --attributes kingdom_name:string,traits:string,known_species:integer
+
+sequelize model:create --name organism --attributes common_name:string,size:integer,scientific_name:string,kingdomId:integer
+
+sequelize model:create --name kingdoms_organisms --attributes kingdomId:integer,organismId:integer
