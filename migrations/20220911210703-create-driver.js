@@ -18,7 +18,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       titles: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,

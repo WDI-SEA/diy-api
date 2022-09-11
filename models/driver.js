@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     team: DataTypes.STRING,
     age: DataTypes.INTEGER,
-    titles: DataTypes.STRING
+    titles: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'driver',

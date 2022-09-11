@@ -4,19 +4,18 @@ M:M relationship
 
 Drivers
 ---------
-Name
-Teams
-Age
-World Titles
+Name STRING
+Teams STRING
+Age INT
+World Titles INT
 
+
+sequelize model:create --name pet --attributes name:string,species:string,description:text,userId:integer
+sequelize model:create --name driver --attributes name:string,team:string,age:integer,titles:integer
+
+BONUS
 Teams
 ----------
 TeamName:
 Drivers:
 World Titles:
-
-
-sequelize model:create --name pet --attributes name:string,species:string,description:text,userId:integer
-sequelize model:create --name driver --attributes name:string,team:string,age:integer,titles:string
-
-sequelize model:create --name team --attributes teamname:string,drivers:string,championships:string
