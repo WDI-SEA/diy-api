@@ -36,7 +36,8 @@ router.post('/', async (req, res) => {
 router.get('/', async (req, res) => {
     try {
         const expenses = await db.expense.findAll()
-        res.render("expenses/show.ejs", { expenses: expenses })
+        const categories = await db.category.findAll()
+        res.render("expenses/show.ejs", { expenses: expenses, categories:categories })
 
     } catch (err) {
         console.log(err)
