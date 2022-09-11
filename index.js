@@ -7,6 +7,7 @@ const PORT = 3000
 const app = express()
 
 app.set('view engine', 'ejs')
+app.use(express.urlencoded({extended:true}))
 app.use(express.static(__dirname + '/public'))
 app.use(layouts)
 app.use('/kingdoms', require('./controllers/kingdoms'))
@@ -24,12 +25,13 @@ app.get('/', (req,res) => {
 
 app.post('/create', async (req,res) => {
     try {
-        const newCreature = {
+        const newCreature = await {
             common_name: req.body.cName,
             size: req.body.size,
             scientific_name: req.body.sName,
             id: req.body.id
         }
+        console.log(newCreature)
         res.redirect('/')
     } catch (error) {
         console.warn(error)
