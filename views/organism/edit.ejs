@@ -10,7 +10,7 @@
     <div class="form-section">
         <label for="size">Size from 0 to 10; Humans are 5</label>
         <br>
-        <input type="text" id="size" name="size" value="<%= organism.size %>" required>
+        <input type="number" id="size" name="size" value="<%= organism.size %>" required>
     </div>
     <div class="form-section">
         <label for="sName">Scientific Name</label>
@@ -33,7 +33,7 @@
         <label for="virus">Virus</label>
         
     </fieldset>
-    
+    <input type="number" name="oId" value="<%= organism.id %>" hidden>
     <button type="submit">EDIT ORGANISM</button>
 
 </form>

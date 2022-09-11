@@ -59,6 +59,37 @@ router.get('/edit/:id', async (req,res) => {
     
 })
 
+router.put('/edit/:id', async (req, res) => {
+    try {
+        await db.organism.update({
+            common_name: req.body.cName,
+            size: req.body.size,
+            scientific_name: req.body.sName,
+            kingdomId: req.body.id
+        }, {
+            where: {
+                id: req.body.oId
+            }
+        })
+        res.redirect(`/organisms/${req.body.oId}`)
+    } catch(err) {
+        console.warn(err)
+    }
+})
+
+router.delete('/:id', async (req,res) => {
+    try {
+        await db.organism.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+        res.redirect('../kingdoms')
+    } catch(error) {
+        console.warn(error)
+    }
+})
+
 
 
 

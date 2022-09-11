@@ -5,10 +5,10 @@
     <h3>Size: <%= organism.size %></h3>
 </div>
 <div class="ud-div">
-        <a href="/organisms/edit/<%= organism.id %>">UPDATE</a>-|
+        <a href="/organisms/edit/<%= organism.id %>">UPDATE</a>
     
 
-    <form method="post" action="">
-        |-<button type="submit">DELETE</button>
+    <form method="post" action="/organisms/<%= organism.id %>/?_method=DELETE">
+        <button type="submit">DELETE</button>
     </form>
 </div>

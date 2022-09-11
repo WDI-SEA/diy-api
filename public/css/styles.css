@@ -112,7 +112,7 @@ form button {
 
 .ud-div {
     margin: 0 auto;
-    width: 15%;
+    width: fit-content;
     padding: 10px;
     display: flex;
     align-items: center;
@@ -126,6 +126,7 @@ form button {
     border: none;
     font-size: 20px;
     font-weight: bold;
+    text-decoration: none;
 }
 
 
@@ -134,4 +135,9 @@ form button {
     padding: 0;
     margin: 0;
     width: fit-content;
+    height: 63px;
+}
+
+.ud-div button:hover {
+    cursor: pointer;
 }
