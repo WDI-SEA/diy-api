@@ -1,0 +1,48 @@
+<h1>Create Payment</h1>
+
+<form action="/customers/new" method="POST">
+  <div>
+    <input type="radio" class="" id="type" name="type" value="One-Time Payment" checked required/>
+    <label for="type">One-Time-Payment</label>
+  </div>
+
+  <div>
+    <label for="amount">Amount</label>
+    <input type="number" class="" id="amount" name="amount" required/>
+    
+    <!-- <select id="currency" required>
+      <option value="USD">USD</option>
+      <option value="AUD">AUD</option>
+      <option value="CAD">CAD</option>
+      <option value="EUR">EUR</option>
+      <option value="GBP">GBP</option>
+      <option value="KRW">KRW</option>
+      <option value="MXN">MXN</option>
+      <option value="NZD">NZD</option>
+    </select> -->
+  </div>
+
+  <div>
+    <label for="currency">Currency</label>
+    <input type="text" class="" id="currency" name="currency" required/>
+  </div>
+
+  <div>
+    <label for="name">Customer</label>
+    <input type="text" class="" id="name" name="name" required/>
+  </div>
+
+  <div>
+    <label for="description">Description</label>
+    <input type="text" class="" id="description" name="description" />
+  </div>
+  
+  <div>
+    <label for="statement">Statement Descriptor</label>
+    <input type="text" class="" id="statement" name="statement" />
+  </div>
+
+  <div>
+    <button type="submit">Create Payment</button>
+  </div>
+</form>

@@ -1,0 +1,12 @@
+<a href="/">back</a>
+
+<h1>Customers</h1>
+<p>New Payment <a href="/customers/new">+</a></p>
+
+<% if(!customers.length) { %>
+  <p>No payments exist...</p>
+<% } %>
+
+<% customers.forEach(customer => { %>
+  <a href="/customers/<%= customer.id %>"><h3><%= customer.name %></h3></a>
+<% }) %>

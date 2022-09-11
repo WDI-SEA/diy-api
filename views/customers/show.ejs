@@ -1,0 +1,21 @@
+<a href="/customers">back</a>
+
+<div>
+  <h1><%= customer.name %>'s Payment Details</h1>
+  <a href="/customers/<%= customer.id %>/edit">edit payment</a>
+</div>
+
+<p>Payment type: <%= customer.type %></p>
+<p>Amount paid: $<%= customer.amount %>.00<%= customer.currency %></p>
+
+<% if(customer.description !== 'N/A') { %>
+  <p>Description: <%= customer.description %></p>
+<% } %>
+
+<% if(customer.statement !== 'N/A') { %>
+  <p>Statement Descriptor: <%= customer.statement %></p>
+<% } %>
+
+<form action="/customers/<%= customer.id %>/?_method=DELETE" method="POST">
+  <button type="submit">CANCEL PAYMENT</button>
+</form>

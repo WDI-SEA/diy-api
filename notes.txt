@@ -1,0 +1,24 @@
+API === Stripe payment system
+
+Model(s):
+- Customer:
+  - type: string
+  - amount: integer
+  - currency: string
+  - name: string
+  - description: text
+  - statement: text
+
+- Card:
+  - name: string
+  - number: character(16)
+  - expire: character(4)
+  - cvc: varchar(4)
+  - ownerId: integer
+
+Sequelize Commands:
+// Customer
+sequelize model:create --name customer --attributes type:string,amount:integer,currency:string,name:string,description:text,statement:text
+
+// Card
+sequelize model:create --name card --attributes name:string,number:integer,expires:integer,cvc:integer,ownerId:integer
