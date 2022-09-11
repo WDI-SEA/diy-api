@@ -26,6 +26,22 @@ app.get('/pokemoncards', async (req,res) => {
     }
 })
 
+app.get('/pokemoncards/new', (req,res) => {
+    res.render('new.ejs')
+})
+
+app.post('/pokemoncards/new', async (req,res) => {
+    try {
+        const pokemoncards = await db.pokemoncard.create({
+            name: req.body.name,
+            img_url: req.body.img_url,
+            rarity: req.body.rarity
+        })
+        res.redirect('/')
+    }catch(err) {
+        console.log(err)
+    }
+})
 // Listen
 app.listen(PORT, function() {
     console.log(`listening to the screams of pokemon on port: ${PORT}`)

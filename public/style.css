@@ -1,7 +1,10 @@
-body {
+#page {
     background-size: cover;
     background-repeat: none;
     color: black;
     text-align: center; 
     background-image: url('https://assets.pokemon.com//assets/cms2/img/misc/virtual-backgrounds/sword-shield/pokemon-in-the-wild.png');
+}
+a:link {
+    text-decoration: none;
 }
