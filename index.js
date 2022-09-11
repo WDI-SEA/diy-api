@@ -1,16 +1,18 @@
 //  Import required packages
-const { Console } = require('console')
 const express = require('express')
+const expressLayouts = require('express-ejs-layouts')
+const db = require('./models')
 
 // create an instance of an express app
 const app = express()
 const PORT = 3000
 
 app.set ('view engine', 'ejs')
+app.use(expressLayouts)
 // app.use()
 // define express routes
 app.get('/', (req, res) => {
-     res.render('/views/layout')
+     res.render('views/layout')
 })
 app.get('/color', (req, res) =>{
     res.send('This is where you will see the different color options')
