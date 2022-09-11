@@ -44,6 +44,21 @@ router.get('/:id', async (req,res) => {
     }
 })
 
+router.get('/edit/:id', async (req,res) => {
+    try {
+        const organism = await db.organism.findOne({
+            where: {
+                id: req.params.id
+            }
+        })
+        res.render('organism/edit', {organism: organism})
+
+    } catch(error) {
+        console.warn(error)
+    }
+    
+})
+
 
 
 

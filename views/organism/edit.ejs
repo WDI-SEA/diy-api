@@ -1,0 +1,39 @@
+
+<h1>Edit an Organism</h1>
+
+<form action="/organisms/edit/:id/?_method=PUT" method="post">
+    <div class="form-section">
+        <label for="cName">Common Name</label>
+        <br>
+        <input type="text" id="cName" name="cName" value="<%= organism.common_name %>" required>
+    </div>
+    <div class="form-section">
+        <label for="size">Size from 0 to 10; Humans are 5</label>
+        <br>
+        <input type="text" id="size" name="size" value="<%= organism.size %>" required>
+    </div>
+    <div class="form-section">
+        <label for="sName">Scientific Name</label>
+        <br>
+        <input type="text" id="sName" name="sName" value="<%= organism.scientific_name %>" required>
+    </div>
+    <fieldset>
+        <legend>What Kingdom does it belong to?</legend>
+        <input type="radio" id="animal" name="id" value="1">
+        <label for="animal">Animal</label>
+        <input type="radio" id="plant" name="id" value="2">
+        <label for="plant">Plant</label>
+        <input type="radio" id="Fungi" name="id" value="4">
+        <label for="Fungi">Fungi</label>
+        <input type="radio" id="protist" name="id" value="5">
+        <label for="protist">Protist</label>
+        <input type="radio" id="bacteria" name="id" value="6">
+        <label for="bacteria">Bacteria</label>
+        <input type="radio" id="virus" name="id" value="7">
+        <label for="virus">Virus</label>
+        
+    </fieldset>
+    
+    <button type="submit">EDIT ORGANISM</button>
+
+</form>

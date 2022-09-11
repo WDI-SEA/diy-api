@@ -120,7 +120,7 @@ form button {
 
 }
 
-.ud-div button {
+.ud-div button, .ud-div a {
     background: none;
     color: white;
     border: none;
@@ -128,11 +128,10 @@ form button {
     font-weight: bold;
 }
 
-#leftA {
-    margin-right: 5px;
-}
 
-#rightA {
-    margin-left: 5px;
-}
 
+.ud-div form {
+    padding: 0;
+    margin: 0;
+    width: fit-content;
+}
