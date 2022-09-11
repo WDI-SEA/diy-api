@@ -23,7 +23,9 @@ app.get('/', async (req, res) => {
 app.get('/new', (req, res) => {
   res.render('main/new.ejs')
 })
-
+app.get('/:id', (req,res) => {
+  res.render('main/show.ejs')
+})
 app.use('/world_cups', require('./controllers/facts'))
 
 app.get('*', (req, res) => {

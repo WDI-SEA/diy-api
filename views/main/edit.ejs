@@ -1,0 +1,9 @@
+<form method="POST", action="/facts/<%= world_cupId %>/?_method=PUT">
+    <label>Fact:</label>
+    <input type="text" name="name" value="<%= world_cups.fact %>">
+    <label>Year: </label>
+    <input type="text" name="type" value="<%= world_cups.year %>">
+    <label>Country: </label>
+    <input type="text" name="type" value="<%= world_cups.country%>">
+    <input type="submit">
+</form>
