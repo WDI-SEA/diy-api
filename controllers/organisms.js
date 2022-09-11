@@ -9,11 +9,12 @@ router.get('/new', (req,res) => {
 
 router.post('/organisms/new', async (req, res) => {
     try {
-        await db.organism.create({
-            common_name: req.body.cName,
-            size: req.body.size,
-            scientific_name: req.body.sName,
-            kingdomId: req.body.id
+        db.kingdom.find({
+            where: {
+                id: req.body.id
+            }
+        })
+        
 
         })
     } catch(err) {
