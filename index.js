@@ -2,10 +2,11 @@ const express = require('express')
 const layout = require('express-ejs-layouts')
 const PORT = 3001
 const app = express()
+const methodOverride = require('method-override')
 
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
-// app.use(methodOverride("_method"))
+app.use(methodOverride("_method"))
 app.use(layout)
 
 app.use('/recipes', require('./controllers/recipes'))

@@ -41,6 +41,17 @@ router.get('/:id', async (req, res) => {
     }
 })
 
-
+router.delete('/:id', async (req, res) => {
+    try {
+        await db.recipe.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+        res.redirect('/recipes')
+    } catch(err) {
+        console.warn(err)
+    }
+})
 
 module.exports = router

@@ -5,3 +5,7 @@
 <h3><%= aRecipe.groundcoffee %> grams of ground coffee</h3>
 <h3><%= aRecipe.watertemp %> F</h3>
 <p><%= aRecipe.description %></p>
+
+<form method="POST" action="/recipes/<%= aRecipe.id %>/?_method=DELETE">
+    <input type="Submit" value="Delete">
+</form>
