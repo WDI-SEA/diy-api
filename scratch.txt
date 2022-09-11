@@ -1,3 +1,24 @@
-TABLE: 
+TABLE: games
 -----
+title: TEXT
+year: INT
+rating: TEXT
+
+developerId: INT
+
+TABLE: developers // bonus 1
+---------------
 name: TEXT
+founded: INT
+
+TABLE: platforms // bonus 2
+--------
+name: TEXT
+year: INT
+
+TABLE games_platforms
+---------------
+gameId: INT
+platformId: INT
+
+sequelize model:create --name game --attributes title:string,year:integer,rating:string
