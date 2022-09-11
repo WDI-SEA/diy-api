@@ -1,22 +1,38 @@
 <h1>Esports API</h1>
+
 <h2>Organizations Routes:</h2>
 <ul>
     <li>GET <a href="/organizations">/organizations</a> -- .json of an array of all orgs as objects w/ attributes</li>
-    <li>GET <a href="/organizations/1">/organizations/:id</a> -- .json of an object w/ attributes for a specific org using primary key</li>
+    <li>GET <a href="/organizations/1">/organizations/:orgId</a> -- .json of an object w/ attributes for a specific org using primary key</li>
     <!-- use Postman for below actions if there are no form pages -->
     <li>POST /organizations -- add an org record in postgres w/ attributes:</li>
         <ul>
-            <li>name: req.body.name</li>
-            <li>founded: req.body.founded</li>
-            <li>location: req.body.location</li>
-            <li>abbreviation: req.body.abbreviation</li>
+            <li>name: req.body.name (string)</li>
+            <li>founded: req.body.founded (date only)</li>
+            <li>location: req.body.location (string)</li>
+            <li>abbreviation: req.body.abbreviation (string)</li>
         </ul>
-    <li>PUT /organizations/:id -- update an org record using primary key w/ attributes:</li>
+    <li>PUT /organizations/:orgId -- update an org record using primary key w/ attributes:</li>
         <ul>
-            <li>name: req.body.name</li>
-            <li>founded: req.body.founded</li>
-            <li>location: req.body.location</li>
-            <li>abbreviation: req.body.abbreviation</li>
+            <li>name: req.body.name (string)</li>
+            <li>founded: req.body.founded (date only)</li>
+            <li>location: req.body.location (string)</li>
+            <li>abbreviation: req.body.abbreviation (string)</li>
         </ul>
-    <li>DELETE /organizations/:id -- delete an org record using primary key</li>
+    <li>DELETE /organizations/:orgId -- delete an org record using primary key</li>
+</ul>
+
+<h2>Teams Routes:</h2>
+<ul>
+    <li>GET <a href="/organizations/1/teams">/organizations/:orgId/teams</a> -- .json of an array of all teams under an org as objects w/ attributes</li>
+    <li>GET <a href="/organizations/1/teams/1">/organizations/:orgId/teams/:teamId</a> -- .json of an object w/ attributes for a specific team using primary key</li>
+    <!-- use Postman for below actions if there are no form pages -->
+    <li>POST /organizations/:orgId/teams/:teamId -- add a team record in postgres w/ attributes:</li>
+        <ul>
+            <li>name: req.body.name (string)</li>
+            <li>created: req.body.created (date only)</li>
+            <li>region: req.body.region (string)</li>
+            <li>winnings: req.body.winnings (integer)</li>
+            <li>organizationId: req.params.orgId (integer)</li>
+        </ul>
 </ul>

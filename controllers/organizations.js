@@ -2,13 +2,25 @@ const express = require("express");
 const db = require("../models");
 const router = express.Router();
 
-router.use("/:id/teams", require("./teams"));
+router.use("/:orgId/teams", require("./teams"));
 
 router.get("/", async (req, res) =>
 {
     try 
     {
         res.json(await db.organization.findAll());    // find all orgs in database and send as json data
+    } 
+    catch (error) 
+    {
+        console.warn(error);
+        res.send("server error");
+    }
+})
+router.get("/:orgId", async (req, res) =>
+{
+    try 
+    {
+        res.json(await db.organization.findByPk(req.params.orgId));    // send json data of org found by primary key
     } 
     catch (error) 
     {
@@ -40,23 +52,11 @@ router.post("/", async (req, res) =>
         res.send("server error");
     }
 })
-router.get("/:id", async (req, res) =>
+router.put("/:orgId", async (req, res) =>
 {
     try 
     {
-        res.json(await db.organization.findByPk(req.params.id));    // send json data of org found by primary key
-    } 
-    catch (error) 
-    {
-        console.warn(error);
-        res.send("server error");
-    }
-})
-router.put("/:id", async (req, res) =>
-{
-    try 
-    {
-        const organization = await db.organization.findByPk(req.params.id);
+        const organization = await db.organization.findByPk(req.params.orgId);
         organization.set(
         {
             // can be replaced with req.body.name, req.body.founded, etc. once form is made
@@ -74,11 +74,11 @@ router.put("/:id", async (req, res) =>
         res.send("server error");
     }
 })
-router.delete("/:id", async (req, res) =>
+router.delete("/:orgId", async (req, res) =>
 {
     try 
     {
-        const organization = await db.organization.findByPk(req.params.id);
+        const organization = await db.organization.findByPk(req.params.orgId);
         await organization.destroy();
         res.redirect("/organizations");
     } 
