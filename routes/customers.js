@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
   // Show all Customers
   try {
     const customers = await db.customer.findAll()
-    res.render('customers/index', { webpage: 'Customers', customers })
+    res.render('customers/index', { webpage: 'Payments', customers })
   } catch(err) {
     res.send(err)
   }
@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 
 // GET New Payment
 router.get('/new', (req, res) => {
-  res.render('customers/new', { webpage: 'New Customer' })
+  res.render('customers/new', { webpage: 'New Payment' })
 })
 
 // GET Customer Payment
@@ -42,7 +42,7 @@ router.get('/:id/edit', async (req, res) => {
       }
     })
     res.render('customers/edit', {
-      webpage: 'Edit Customer',
+      webpage: `Edit Payment`,
       customer
     })
   } catch(err) {
