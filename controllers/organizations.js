@@ -2,6 +2,8 @@ const express = require("express");
 const db = require("../models");
 const router = express.Router();
 
+router.use("/:id/teams", require("./teams"));
+
 router.get("/", async (req, res) =>
 {
     try 
