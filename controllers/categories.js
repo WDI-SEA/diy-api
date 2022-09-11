@@ -29,5 +29,25 @@ router.post('/', async (req, res) => {
     }
 })
 
+router.get('/:id', async (req, res) => {
+    try {
+        const category = await db.category.findOne({
+            where: {
+                id: req.params.id
+            }
+        })
+        const expenses = await db.expense.findAll({
+            where: {
+                categoryId: req.params.id
+            }
+        })
+        res.render("categories/expenses.ejs", { expenses: expenses, category: category })
+
+    } catch (err) {
+        console.log(err)
+        res.send("server error")
+    }
+})
+
 
 module.exports = router

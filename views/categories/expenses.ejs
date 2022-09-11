@@ -1,0 +1,7 @@
+<h2>List of Expenses on <%=category.name%></h2>
+<h3>Monthly Budget: $<%=category.budget%></h3>
+
+
+    <% expenses.forEach(expense => { %>
+        <ul><%= expense.date %>: $<%= expense.cost %> (<a href="/expenses/<%=expense.id%>">Click for Full Detail</a>) </ul>
+     <%})%>
