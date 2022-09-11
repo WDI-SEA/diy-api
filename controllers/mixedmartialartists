@@ -1,7 +1,14 @@
 let express = require('express')
+const db = require('../models')
 let router = express.Router()
 
-
+// router.get('/', async (req, res) => {
+//     try {
+//         const mixedMartialArtists = await db.
+//     } catch(err){
+//         console.warn(err)
+//     }
+// })
 
 
 

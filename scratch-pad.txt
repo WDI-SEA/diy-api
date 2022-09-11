@@ -1,3 +1,18 @@
 1. create a model
 
-sequelize model:create --name mixedmartialartist --attributes name:string,wins:integer,gym:string,weight_class:string
+
+createdb <dbname>
+
+sequelize db:migrate
+
+mixedmartialartist
+-----------------------
+name: STRING
+wins: INT
+gym: STRING
+weight class: STRING 
+
+
+sequelize model:create --name mixedmartialartist --attributes name:string,wins:integer,losses:integer,weight_class:string
+
+sequelize db
