@@ -1,11 +1,11 @@
-<form method="POST",
- action="/doodles/<%=doodleID%>/?_method=PUT">
-    <label>Breed</label>
-    <!-- not sure about the name and breed tags, will revisit this once I get the DB done and routes up  -->
-    <input type="text" name="breed" value="<%= myDoodle.breed %>">
-    <label>Personality</label>
-    <input type="text" name="personality" value="<%= myDoodle.personality %>">
-    <label>Picture </label>
-    <input type ="text" name="image" value ="<%= myDooodle.image"
-    <input type="submit">
+<!-- edit or deletes a doodle-->
+<form method ='POST' action="/doodles/<%=doodleId%>/?_method=PUT">
+<label>Breed</label>
+    <input type="text" name="breed" value="<%=myDoodle.breed%>" >
+<label> Personality</label>
+    <input type ="text" name="personality" value="<%=myDoodle.personality%>">
+<label>Image </label>
+    <input type ="text" name="img_url" value="<%=myDoodle.img%>">
+<input type ="submit" >
+
 </form>
