@@ -12,9 +12,15 @@ app.use(ejsLayouts)
 
 //Get
 
-app.get('/', async (req,res) => {
+app.get('/', (req,res) => {
+    res.render('index.ejs')
+})
+
+app.get('/pokemoncards', async (req,res) => {
     try {
-        res.send('pokemon pokemon')
+        const pokemoncards = await db.pokemoncard.findAll()
+        // res.send('pokemon pokemon')
+        res.render('show.ejs', { pokemoncards })
     }catch(err) {
         console.log(err)
     }
