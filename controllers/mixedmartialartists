@@ -6,8 +6,9 @@ let router = express.Router()
 //  GET show all mixed martial artists
 router.get('/', async (req, res) => {
     try {
-        const mixedMartialArtists = await db.mixedmartialartist.findAll({})
-        res.json(mixedMartialArtists)
+        const martialArtists = await db.mixedmartialartist.findAll({})
+        // res.json(mixedMartialArtists)
+        res.render('index', { martialArtists: martialArtists })
     } catch(err){
         console.warn(err)
         res.send(`server error!`)
@@ -32,15 +33,25 @@ router.get('/:id', async (req, res) => {
     }
 })
 
+
+// POST new mixed martial artist 
 router.post('/', async (req, res) => {
+    console.log(req.body)
     const martialArtists = await db.mixedmartialartist.create({
         name: req.body.name,
         wins: req.body.wins,
         losses: req.body.losses,
-        weight_class: req.body.weight_class
+         weight_class: req.body.weight_class
     })
-    res.redirect('/')
+    res.redirect('/mixedmartialartists')
+    // res.send(`test`)
 })
+
+
+// DELETE a mixed martial artist
+// router.delete('/:id', (req, res) => {
+
+// })
 
 
 

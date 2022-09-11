@@ -4,6 +4,7 @@ const app = express()
 const db = require('./models')
 const methodOverride = require('method-override')
 
+app.use(express.urlencoded({ extended: false }))
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 app.use(methodOverride('_method'))
