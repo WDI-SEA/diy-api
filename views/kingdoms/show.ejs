@@ -1,5 +1,9 @@
-<h1>Welcome to <%= kingdom.kingdom_name %></h1>
-<h2><%= kingdom.traits %></h2>
+<div class="k-intro">
+    <h1>Welcome to <%= kingdom.kingdom_name %></h1>
+    <h2><%= kingdom.traits %></h2>
+
+</div>
+
 <% if (kingdom.organisms) { %>
     <% kingdom.organisms.forEach(org => { %>
         <div class="org-info">

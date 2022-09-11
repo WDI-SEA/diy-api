@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: navy;
+    background-color: #1B1B2F;
     color: white;
     text-align: center;
 
@@ -15,7 +15,7 @@ body {
 
 nav {
     height: 60px;
-    background-color: aliceblue;
+    background-color: #4C3A51;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -25,17 +25,11 @@ nav {
 
 nav a {
     padding: 20px;
-    color: salmon;
+    /* color: #E7AB79; */
+    color: white;
     text-decoration: none;
     font-size: 30px;
 }
-
-/* #oLink {
-    color: white;
-    font-size: 25px;
-    text-decoration: none;
-    margin: 30px;
-} */
 
 .form-section {
     text-align: center;
@@ -48,8 +42,6 @@ form {
     margin: 0 auto;
     border-radius: 30px;
     width: 60vw;
-    /* background-color: rgba(255, 255, 255, 0.3); */
-    
 }
 
 label {
@@ -61,7 +53,7 @@ fieldset {
     width: 60%;
     border-radius: 30px;
     font-size: large;
-    border: 3px white solid;
+    border: 3px #FF9551 solid;
     padding: 10px;
     margin-bottom: 100px;
 }
@@ -140,4 +132,30 @@ form button {
 
 .ud-div button:hover {
     cursor: pointer;
+}
+
+#intro {
+    font-size: 40px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#intro h1 {
+    margin-bottom: 30px;
+}
+
+#intro div {
+    white-space: nowrap;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+#intro img {
+    height: 400px;
+    width: 400px;
+}
+
+.k-intro {
+    font-size: 30px;
+    margin-bottom: 50px;
 }
