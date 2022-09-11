@@ -10,6 +10,17 @@ app.use(express.urlencoded({ extended: false }))
 app.use(ejsLayouts)
 app.use(methodOverride('_method'))
 
+function editBox(params, prop, id){
+    if(params != ''){
+        db.hitbox.update({
+            prop : params
+        })
+        where:{
+            id: req.params.id
+        }
+    }
+}
+
 app.get('/', (req,res)=>{
     db.hitbox.findAll()
         .then(hitboxes =>{
@@ -55,14 +66,48 @@ app.get('/hitboxes/:id', (req,res)=>{
     })
 })
 
-app.put('/hitboxes/:id', async (req,res)=>{
+app.get('/hitboxes/:id/edit', (req,res)=>{
+    console.log(req.params.id)
+    db.hitbox.findOne({
+        where:{
+            id: req.params.id
+        }
+    })
+    .then(hitboxes =>{
+        res.render('edit.ejs', {hitboxes: hitboxes})
+    })
+    .catch(err =>{
+        console.log(err)
+        res.render('404.ejs')
+    })
+
+})    
+
+app.put('/hitboxes/:id/edit', (req,res)=>{
+    db.hitbox.update({
+        name: req.body.name,
+        length: req.body.length,
+        width: req.body.width,
+        height: req.body.height,
+        angle: req.body.angle
+    },{
+    where:{
+        id: req.params.id
+    }
+    })
+    .then( 
+        res.redirect(`/hitboxes/${req.params.id}`)
+    )
+})
+
+app.get('/hitboxes/:id', async (req,res)=>{
     try {
-        await db.hitbox.update({
+        await db.hitbox.findOne({
             where:{
                 id: req.params.id
             }
         })
-        res.redirect('edit.ejs', {hitbox})
+        res.redirect('/hitboxes/:id/edit')
     } catch (error) {
         console.log(error)
         res.render('404.ejs')

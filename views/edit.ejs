@@ -1,1 +1,20 @@
-<h1>Edit <%=hitbox.name%></h1>
+<h1>Edit <%= hitboxes.name %> hitbox</h1>
+
+<form method="POST" action="/hitboxes/<%=hitboxes.id%>/edit/?_method=PUT">
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name">
+    <br />
+    <label for="length">Length:</label>
+    <input type="number" step="0.01" name="length" id="length" >
+    <br />
+    <label for="width">Width:</label>
+    <input type="number" step="0.01" name="width" id="width" >
+    <br />
+    <label for="height">Height:</label>
+    <input type="number" step="0.01" name="height" id="height" >
+    <br />
+    <label for="angle">Angle:</label>
+    <input type="number" step="0.01" name="angle" id="angle" >
+    <br />
+    <button type="submit">Submit Hitbox Edit </button>
+</form>
