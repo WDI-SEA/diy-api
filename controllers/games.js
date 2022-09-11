@@ -32,6 +32,7 @@ router.post('/', async (req, res) => {
                 rating: req.body.rating
             }
         })
+        console.log(`New game: ${newGame.id}`)
         res.json(newGame)
     } catch(error) {
         console.warn(error)
@@ -41,8 +42,18 @@ router.post('/', async (req, res) => {
 // PUT /games/:id -- update game
 router.put('/:id', async (req, res) => {
     try {
-        console.log(req.params.id)
-        res.send(req.body)
+        const rowsUpdated = await db.game.update({
+            title: req.body.title,
+            year: req.body.year,
+            rating: req.body.rating
+        }, {
+            where: {
+                id: req.params.id
+            }
+        })
+        console.log(`Game: ${req.params.id} | Num rows updated ${rowsUpdated}`)
+        const updatedGame = await db.game.findByPk(req.params.id)
+        res.json(updatedGame)
     } catch(error) {
         console.warn(error)
     }
@@ -51,7 +62,12 @@ router.put('/:id', async (req, res) => {
 // DELETE /games/:id -- delete game
 router.delete('/:id', async (req, res) => {
     try {
-        res.send(`delete ${req.params.id}`)
+        await db.game.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+        res.send(`Game id# ${req.params.id} deleted`)
     } catch(error) {
         console.warn(error)
     }
