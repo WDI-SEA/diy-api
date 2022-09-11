@@ -1,17 +1,20 @@
 const express = require('express')
-const ejsLayouts = require('express-ejs-layouts');
-const PORT = 3001;
+const layout = require('express-ejs-layouts')
+const PORT = 3001
 const app = express()
 
 app.set('view engine', 'ejs')
-
 app.use(express.urlencoded({ extended: false }))
+// app.use(methodOverride("_method"))
+app.use(layout)
 
-app.use(ejsLayouts)
+app.use('/recipes', require('./controllers/recipes'))
 
 app.get('/', (req, res) => {
-    res.render('')
-});
+    res.render('index.ejs')
+})
+
+
 
 app.listen(PORT, () => {
     console.log(`app is running on port ${PORT}`)

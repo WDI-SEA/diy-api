@@ -29,7 +29,7 @@ Custom:
 |id | integer |
 |createdAt | timestamp |
 |updatedAt | timestamp |
-|recipename | string |
+|name | string |
 |brewing device | string |
 |watertemp | integer |
 |grinder | string |
@@ -37,7 +37,7 @@ Custom:
 |groundcoffee | integer |
 |description | text |
 
-
+sequelize model:create --name recipe --attributes name:string,brewingdevice:string,watertemp:integer,grinder:string,grindsetting:integer,groundcoffee:integer,description:text
 
 
 2. Your API should be accessible via five routes: 
