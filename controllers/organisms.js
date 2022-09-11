@@ -84,7 +84,7 @@ router.delete('/:id', async (req,res) => {
                 id: req.params.id
             }
         })
-        res.redirect('../kingdoms')
+        res.redirect('/')
     } catch(error) {
         console.warn(error)
     }
