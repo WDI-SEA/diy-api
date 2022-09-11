@@ -15,7 +15,10 @@ module.exports = (sequelize, DataTypes) => {
   }
   pokemoncard.init({
     name: DataTypes.STRING,
-    img_url: DataTypes.STRING,
+    img_url: {
+      type: DataTypes.STRING,
+      validate: { isUrl: true }
+    },
     rarity: DataTypes.STRING
   }, {
     sequelize,
