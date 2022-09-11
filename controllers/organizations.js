@@ -18,14 +18,19 @@ router.post("/", async (req, res) =>
 {
     try 
     {
-        res.json(await db.organization.create(    // send json data of org created
+        const [organization, orgCreated] = await db.organization.findOrCreate(    // findOrCreate() to prevent duplicates
         {
-            // can be replaced with req.body.name, req.body.founded, etc. once form is made
-            name: "Gen.G Esports",
-            founded: "2017-08-11",
-            location: "South Korea",
-            abbreviation: "Gen.G"
-        }));
+            where:
+            {
+                // can be replaced with req.body.name, req.body.founded, etc. once form is made
+                name: "Gen.G Esports",
+                founded: "2017-08-11",
+                location: "South Korea",
+                abbreviation: "Gen.G"
+            }
+        });
+        console.log("Unique entry:", orgCreated);
+        res.redirect(`/organizations/${organization.id}`)    // redirect to detail page of org created or found
     } 
     catch (error) 
     {
@@ -37,7 +42,7 @@ router.get("/:id", async (req, res) =>
 {
     try 
     {
-        res.json(await db.organization.findByPk(req.params.id));    // find org by primary key
+        res.json(await db.organization.findByPk(req.params.id));    // send json data of org found by primary key
     } 
     catch (error) 
     {
@@ -59,7 +64,21 @@ router.put("/:id", async (req, res) =>
             abbreviation: "C9"
         })
         await organization.save();
-        res.json(organization);
+        res.redirect(`/organizations/${organization.id}`);    // redirect to detail page of org updated
+    } 
+    catch (error) 
+    {
+        console.warn(error);
+        res.send("server error");
+    }
+})
+router.delete("/:id", async (req, res) =>
+{
+    try 
+    {
+        const organization = await db.organization.findByPk(req.params.id);
+        await organization.destroy();
+        res.redirect("/organizations");
     } 
     catch (error) 
     {
