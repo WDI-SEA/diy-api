@@ -2,15 +2,45 @@ let express = require('express')
 const db = require('../models')
 let router = express.Router()
 
-// router.get('/', async (req, res) => {
-//     try {
-//         const mixedMartialArtists = await db.
-//     } catch(err){
-//         console.warn(err)
-//     }
-// })
 
+//  GET show all mixed martial artists
+router.get('/', async (req, res) => {
+    try {
+        const mixedMartialArtists = await db.mixedmartialartist.findAll({})
+        res.json(mixedMartialArtists)
+    } catch(err){
+        console.warn(err)
+        res.send(`server error!`)
+    }
+})
 
+// GET form to create a new mixed martial artist
+router.get('/new', (req, res) => {
+    res.render('new')
+})
+
+// GET a specific mixed martial artist 
+router.get('/:id', async (req, res) => {
+    try {
+        const martialArtist = await db.mixedmartialartist.findOne({
+            where: { id: req.params.id }
+        })
+        res.render('show', { martialArtist: martialArtist })
+    } catch(err) {
+        console.warn(err)
+        res.send(`server error!`)
+    }
+})
+
+router.post('/', async (req, res) => {
+    const martialArtists = await db.mixedmartialartist.create({
+        name: req.body.name,
+        wins: req.body.wins,
+        losses: req.body.losses,
+        weight_class: req.body.weight_class
+    })
+    res.redirect('/')
+})
 
 
 
