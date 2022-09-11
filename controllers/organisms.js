@@ -12,10 +12,7 @@ router.post('/organisms/new', async (req, res) => {
         db.kingdom.find({
             where: {
                 id: req.body.id
-            }
-        })
-        
-
+             }
         })
     } catch(err) {
         console.log(err)

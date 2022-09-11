@@ -1,9 +1,13 @@
 const express = require('express')
 const router = express.Router()
-
+const db = require('../models')
 
 router.get('/', (req,res) => {
-    res.render('./kingdoms/index')
+    db.kingdom.findAll()
+    .then(kingdoms => {
+        res.render('./kingdoms/index', { kingdoms: kingdoms})
+
+    })
 })
 
 router.get('/:id', (req,res) => {

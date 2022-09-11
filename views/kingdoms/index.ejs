@@ -1,1 +1,8 @@
 <h1>Welcome to Kingdoms</h1>
+
+<% kingdoms.forEach(kingdom => { %>
+    <div class="info-display">
+        <h1><%= kingdom.kingdom_name %>:    </h1> <h2><%= kingdom.traits%></h2>
+        <a href="kingdoms/<%=kingdom.kingdom_name%>">DETAILS</a>
+    </div>
+<% }) %>
