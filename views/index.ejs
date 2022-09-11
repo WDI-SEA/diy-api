@@ -2,6 +2,11 @@
 
 <% martialArtists.forEach(martialArtist => { %>
     <div>
-        <a href=""><%= martialArtist.name %></a>
+        <a href="/mixedmartialartists/<%= martialArtist.name %>"><%= martialArtist.name %></a>
     </div>
 <% }) %>
+
+</br>
+</br>
+</br>
+<a href="/mixedmartialartists/new">Create a new Mixed Martial Artist</a>

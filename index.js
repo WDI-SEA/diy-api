@@ -17,7 +17,7 @@ app.get('/', async (req, res) => {
     try {
    const martialArtists = await db.mixedmartialartist.findAll({})
 //    res.render('index', { martialArtists: martialArtists })
-    res.json(martialArtists)
+    res.render('home')
     } catch(err) {
         console.warn(err)
     }

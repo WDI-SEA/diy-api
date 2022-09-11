@@ -21,10 +21,10 @@ router.get('/new', (req, res) => {
 })
 
 // GET a specific mixed martial artist 
-router.get('/:id', async (req, res) => {
+router.get('/:name', async (req, res) => {
     try {
         const martialArtist = await db.mixedmartialartist.findOne({
-            where: { id: req.params.id }
+            where: { name: req.params.name }
         })
         res.render('show', { martialArtist: martialArtist })
     } catch(err) {
