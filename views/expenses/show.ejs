@@ -1,8 +1,16 @@
 <h2>All Expenses</h2>
-
+<% let costArr = [] %>
 <ul>
     <% expenses.forEach(expense => { %>
         <li><%=expense.date%> : $<%=expense.cost%> <a href="/expenses/<%=expense.id%>">view detail</a></li>
-
+        <% costArr.push(expense.cost) %>
     <%})%>
 </ul>
+
+<% console.log(costArr)%>
+
+<% let total = costArr.reduce((a,b) => a + b, 0)%>
+<h3>Total Spend: $<%= total %></h3>
+
+
+
