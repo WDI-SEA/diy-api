@@ -14,6 +14,9 @@ const PORT = 3000
 
 
 
+app.use('/mixedmartialartists', require('./controllers/mixedmartialartists'))
+
+
 app.listen(PORT, () => {
     console.log(`Tuned into port ${PORT}`)
 })
