@@ -1,0 +1,31 @@
+
+    <div>
+    <h2> Gun name:<%=gun.name%> </h2> 
+        <p>Gun type:<%=gun.type%></p>
+        <p>Gun id: <%=gun.id%> </p>
+        <div>
+            <p>
+                video👇🏼
+            </p>
+            <video width="640" height="480" controls>
+                <source src="<%=gun.video%>" type="video/mp4">
+            </video>
+        </div>
+       
+        
+    </div>
+    <form action="/guns/<%=gun.name%>/?_method=PUT" method="post">
+        <label for="">Gun name:</label>
+        <input type="text" name="name" id="">
+        <p></p>
+        <label for="">Gun type : </label>
+        <input type="text" name="type" id="">
+        <p></p>
+        <label for="">Gun video:</label>
+        <input type="text" name="video" id="">
+        <label for=""></label>
+        <p></p>
+        <button>Update Gun</button>
+    </form>
+  <!-- delete -->
+  <!-- update -->

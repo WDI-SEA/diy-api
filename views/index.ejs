@@ -1,0 +1,27 @@
+This is Index
+<h1>Guns List</h1>
+
+<%guns.forEach(gun=>{%>
+    <ul><li>
+        <div>
+            <a href="/guns/<%=gun.name%>"><%=gun.name%></a>
+            <form action="/guns/<%=gun.name%>/?_method=DELETE" method="post">
+                <button>delete</button>
+            </form>
+        </div>
+    </li></ul>
+<%})%>
+<h2>Add to Gun's List</h2>
+<form action="/guns" method="POST">
+    <label for="name">Gun name:</label>
+    <input id="name" type="text" name="name" >
+    <p></p>
+    <label for="type">Gun type : </label>
+    <input id="type" type="text" name="type" >
+    <p></p>
+    <label for="video">Gun video:</label>
+    <input id="video" type="text" name="video" >
+    <label for=""></label>
+    <p></p>
+    <button>Enter Gun</button>
+</form>
