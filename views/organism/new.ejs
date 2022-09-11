@@ -1,14 +1,14 @@
 
 <h1>Add an Organism</h1>
 
-<form action="organism/new" method="post">
+<form action="/organisms/new" method="post">
     <div class="form-section">
         <label for="cName">Common Name</label>
         <br>
         <input type="text" id="cName" name="cName" required>
     </div>
     <div class="form-section">
-        <label for="size">Size</label>
+        <label for="size">Size from 0 to 10; Humans are 5</label>
         <br>
         <input type="text" id="size" name="size" required>
     </div>
@@ -23,8 +23,8 @@
         <label for="animal">Animal</label>
         <input type="radio" id="plant" name="id" value="2">
         <label for="plant">Plant</label>
-        <input type="radio" id="fungi" name="id" value="4">
-        <label for="fungi">Fungi</label>
+        <input type="radio" id="Fungi" name="id" value="4">
+        <label for="Fungi">Fungi</label>
         <input type="radio" id="protist" name="id" value="5">
         <label for="protist">Protist</label>
         <input type="radio" id="bacteria" name="id" value="6">

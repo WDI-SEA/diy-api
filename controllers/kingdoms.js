@@ -10,10 +10,16 @@ router.get('/', (req,res) => {
     })
 })
 
-router.get('/:id', (req,res) => {
-    res.render('./kingdoms/show', {
-        title: req.params.id
-    })
+router.get('/:id', async (req,res) => {
+    try {
+        const kingdom = await db.kingdom.findOne({
+            where: {kingdom_name: req.params.id},
+            include:[db.organism]
+        })
+        res.render('./kingdoms/show', {kingdom: kingdom})
+    } catch(error) {
+        res.send('error sorry :)')
+    }
 })
 
 

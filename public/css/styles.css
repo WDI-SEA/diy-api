@@ -85,7 +85,7 @@ form button {
     margin-top: 10px;
 }
 
-.info-display {
+.info-display, .org-info {
     margin: 40px auto 0 auto;
     width: 42%;
     display: flex;
@@ -95,11 +95,33 @@ form button {
     height: 40px;
 }
 
-.info-display a {
+.info-display a, .org-info a {
     color: gold;
     text-decoration: none;
     font-weight: bold;
 }
 
+.org-info {
+    width: 80%;
+    font-size: 30px;
+}
 
+.org-info a {
+    font-size: 20px;
+}
+
+.ud-div {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+
+}
+
+#leftA {
+    margin-right: 5px;
+}
+
+#rightA {
+    margin-left: 5px;
+}
 

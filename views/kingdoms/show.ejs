@@ -1,1 +1,15 @@
-<h1>Welcome to <%= title %></h1>
+<h1>Welcome to <%= kingdom.kingdom_name %></h1>
+<h2><%= kingdom.traits %></h2>
+<% if (kingdom.organisms) { %>
+    <% kingdom.organisms.forEach(org => { %>
+        <div class="org-info">
+            <h3>Common Name: <%= org.common_name %></h3>
+            <h3>Scientific Name: <%= org.scientific_name%></h3>
+            <h3>Size: <%= org.size %></h3>
+            <div class="ud-div">
+                <a id="leftA" href="/organisms/edit/<%=org.id%>">UPDATE</a>|  
+                <a id="rightA" href="/organisms/delete/<%=org.id%>">DELETE</a>
+            </div>
+        </div>
+    <% }) %>
+<% } %>

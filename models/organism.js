@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   organism.init({
     common_name: DataTypes.STRING,
-    size: DataTypes.INTEGER,
+    size: DataTypes.STRING,
     scientific_name: DataTypes.STRING,
     kingdomId: DataTypes.INTEGER
   }, {
