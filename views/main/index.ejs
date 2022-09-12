@@ -15,6 +15,13 @@
             <li>location: req.body.location (string)</li>
             <li>abbreviation: req.body.abbreviation (string)</li>
         </ul>
+    <li>POST /organizations/:orgId/sponsors -- add a sponsor record in postgres w/ attributes:</li>
+        <ul>
+            <li>name: req.body.name (string)</li>
+            <li>founded: req.body.founded (string)</li>
+            <li>headquarters: req.body.headquarters (string)</li>
+            <li>revenue: req.body.revenue (string)</li>
+        </ul>
     <li>PUT /organizations/:orgId -- update an org record using primary key w/ attributes:</li>
         <ul>
             <li>name: req.body.name (string)</li>
@@ -58,4 +65,5 @@
     <li>GET <a href="/sponsors">/sponsors</a> -- .json of an array of all sponsors as objects w/ attributes</li>
     <li>GET <a href="/sponsors/1">/sponsors/:sponsorId</a> -- .json of an object w/ attributes for a specific sponsor using primary key</li>
     <li>GET <a href="/sponsors/1/organizations">/sponsors/:sponsorId/organizations</a> -- .json of an array of all orgs under a specific sponsor</li>
+    <!-- for creating a new sponsor, see organizations routes (sponsors make more sense being affiliated with an org vs. alone) -->
 </ul>

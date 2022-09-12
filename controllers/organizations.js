@@ -71,6 +71,31 @@ router.post("/", async (req, res) =>
         res.send("server error");
     }
 })
+router.post("/:orgId/sponsors", async (req, res) =>
+{
+    try 
+    {
+        const [sponsor, sponsorCreated] = await db.sponsor.findOrCreate(
+        {
+            where:
+            {
+                name: req.body.name,
+                founded: req.body.founded,
+                headquarters: req.body.headquarters,
+                revenue: req.body.revenue
+            }
+        });
+        console.log("Unique entry:", sponsorCreated);
+        const organization = await db.organization.findByPk(req.params.orgId);
+        await organization.addSponsor(sponsor);
+        res.redirect(`/organizations/${organization.id}/sponsors`)    // redirect to all sponsors under this org
+    } 
+    catch (error) 
+    {
+        console.warn(error);
+        res.send("server error");
+    }
+})
 router.put("/:orgId", async (req, res) =>
 {
     try 
