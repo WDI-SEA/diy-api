@@ -1,5 +1,7 @@
 <h1>Esports API</h1>
 
+<hr>
+
 <h2>Organizations Routes:</h2>
 <ul>
     <li>GET <a href="/organizations">/organizations</a> -- .json of an array of all orgs as objects w/ attributes</li>
@@ -22,6 +24,8 @@
     <li>DELETE /organizations/:orgId -- delete an org record using primary key</li>
 </ul>
 
+<hr>
+
 <h2>Teams Routes:</h2>
 <ul>
     <li>GET <a href="/organizations/1/teams">/organizations/:orgId/teams</a> -- .json of an array of all teams under an org as objects w/ attributes</li>
@@ -35,4 +39,21 @@
             <li>winnings: req.body.winnings (integer)</li>
             <li>organizationId: req.params.orgId (integer)</li>
         </ul>
+    <li>PUT /organizations/:orgId/teams/:teamId -- update a team record using primary key w/ attributes:</li>
+        <ul>
+            <li>name: req.body.name (string)</li>
+            <li>created: req.body.created (date only)</li>
+            <li>region: req.body.region (string)</li>
+            <li>winnings: req.body.winnings (integer)</li>
+            <li>organizationId: req.params.orgId (integer)</li>
+        </ul>
+    <li>DELETE /organizations/:orgId/teams/:teamId -- delete a team record using primary key</li>
+</ul>
+
+<hr>
+
+<h2>Sponsors Routes:</h2>
+<ul>
+    <li>GET <a href="/sponsors">/sponsors</a> -- .json of an array of all sponsors as objects w/ attributes</li>
+    <li>GET <a href="/sponsors/1">/sponsors/:sponsorId</a> -- .json of an object w/ attributes for a specific sponsor using primary key</li>
 </ul>

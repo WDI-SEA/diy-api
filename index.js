@@ -6,6 +6,7 @@ app.use(express.urlencoded({extended: false}));
 
 // Controllers
 app.use("/organizations", require("./controllers/organizations"));
+app.use("/sponsors", require("./controllers/sponsors"));
 
 // Routes
 app.get("/", (req, res) =>
