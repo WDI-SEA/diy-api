@@ -10,6 +10,8 @@ app.use(methodOverride("_method"))
 app.use(layout)
 
 app.use('/recipes', require('./controllers/recipes'))
+app.use('/brewingdevices', require('./controllers/brewingdevices'))
+app.use('/beans', require('./controllers/beans'))
 
 app.get('/', (req, res) => {
     res.render('index.ejs')

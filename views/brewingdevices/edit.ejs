@@ -1,0 +1,13 @@
+<form method="POST", action="/brewingdevices/<%= aRecipe.id %>/?_method=PUT">
+    <div>
+        <label for="name">Brewing Device Name:</label>
+        <input id="name" type="text" name="name" />    
+    </div>
+
+    <div>
+        <label for="material">Material:</label>
+        <input id="material" type="text" name="material" />
+    </div>
+
+    <button type="submit">Submit Revised Coffee Recipe</button>
+</form>

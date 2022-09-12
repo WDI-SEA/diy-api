@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.brewdevice.belongsTo(models.recipe)
+      models.brewingdevice.belongsTo(models.recipe)
     }
   }
   brewingdevice.init({
