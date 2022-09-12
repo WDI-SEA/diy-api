@@ -12,6 +12,13 @@ body {
 
 }
 
+nav div {
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
 nav {
     height: 60px;

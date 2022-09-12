@@ -35,7 +35,8 @@ router.get('/:id', async (req,res) => {
         const organism = await db.organism.findOne({
             where: {
                 id: req.params.id
-            }
+            }, 
+            include: [db.kingdom]
         })
         res.render('organism/details', {organism: organism})
 
@@ -82,9 +83,10 @@ router.delete('/:id', async (req,res) => {
         await db.organism.destroy({
             where: {
                 id: req.params.id
-            }
+            },
+            include : [db.kingdom]
         })
-        res.redirect('/')
+        res.redirect('/../kingdoms')
     } catch(error) {
         console.warn(error)
     }
