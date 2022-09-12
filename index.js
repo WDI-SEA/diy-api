@@ -1,6 +1,7 @@
 const express = require('express')
 const ejsLayouts = require('express-ejs-layouts')
-// const db = require('.models')
+const db = require('./models')
+const workout = require('./models/workout')
 
 const app = express()
 const PORT = 3003
@@ -14,8 +15,20 @@ app.get('/', (req, res) => {
 })
 
 // POST / add new workout
-app.post('/', (req, res) => {
-    res.send(`POST LEGGGOOOOOO`)
+app.post('/', async (req, res) => {
+    try {
+        const[workout, created] = await db.workout.findOrCreate({
+            where: {
+                name: req.body.name,
+                description: req.description.name,
+                rating: req.body.rating
+            }
+        })
+        await res.redirect('/')
+    } catch(err) {
+        console.log(err)
+    }
+    
 })
 
 // POST /:id add new workout
