@@ -7,12 +7,15 @@ let db =require('../models')
 
 // GET index /doodles - show all doodles   ***** GTG ************
 router.get ("/", (req, res)=>{
-    // const doodleData = readDoodleFile()
-    // console.log(doodleData +"testing")
-    // res.render('index.ejs',{
-    //     doodles:doodleData,
+   db.doodles.findAll({
+    include: [db.breed, db.personality, db.image]
+   }).then((doodles)=>{
+    res.render('index.ejs',{doodles:doodles})
+   }).catch ((error) =>{
+    console.log(error)
+    res.send('server error')
+   })
     })
-// })
 
 
 // POST create - adds a new doodle
@@ -67,6 +70,7 @@ router.get('/new', (req, res) => {
 
 // PUT update /doodles - updates a doodle
 router.get ("/edit/:id", (req, res)=>{
+
     res.send("update your doodle")
 })
 
