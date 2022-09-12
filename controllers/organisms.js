@@ -83,8 +83,7 @@ router.delete('/:id', async (req,res) => {
         await db.organism.destroy({
             where: {
                 id: req.params.id
-            },
-            include : [db.kingdom]
+            }
         })
         res.redirect('/../kingdoms')
     } catch(error) {
