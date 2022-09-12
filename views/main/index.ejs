@@ -30,6 +30,7 @@
             <li>abbreviation: req.body.abbreviation (string)</li>
         </ul>
     <li>DELETE /organizations/:orgId -- delete an org record using primary key</li>
+    <li>DELETE /organizations/:orgId/sponsors/:sponsorId -- remove an association between an org record and sponsor record</li>
 </ul>
 
 <hr>
@@ -66,4 +67,13 @@
     <li>GET <a href="/sponsors/1">/sponsors/:sponsorId</a> -- .json of an object w/ attributes for a specific sponsor using primary key</li>
     <li>GET <a href="/sponsors/1/organizations">/sponsors/:sponsorId/organizations</a> -- .json of an array of all orgs under a specific sponsor</li>
     <!-- for creating a new sponsor, see organizations routes (sponsors make more sense being affiliated with an org vs. alone) -->
+    <!-- use Postman for below actions if there are no form pages -->
+    <li>PUT /sponsors/:sponsorId -- update a sponsor record using primary key w/ attributes:</li>
+        <ul>
+            <li>name: req.body.name (string)</li>
+            <li>founded: req.body.founded (string)</li>
+            <li>headquarters: req.body.headquarters (string)</li>
+            <li>revenue: req.body.revenue (string)</li>
+        </ul>
+    <li>DELETE /sponsors/:sponsorId -- delete a sponsor record using primary key</li>
 </ul>

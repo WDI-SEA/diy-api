@@ -131,5 +131,20 @@ router.delete("/:orgId", async (req, res) =>
         res.send("server error");
     }
 })
+router.delete("/:orgId/sponsors/:sponsorId", async (req, res) =>
+{
+    try 
+    {
+        const organization = await db.organization.findByPk(req.params.orgId);
+        const sponsor = await db.sponsor.findByPk(req.params.sponsorId);
+        await organization.removeSponsor(sponsor)
+        res.redirect(`/organizations/${organization.id}/sponsors`);    // redirect to all sponsors under this org
+    } 
+    catch (error) 
+    {
+        console.warn(error);
+        res.send("server error");
+    }
+})
 
 module.exports = router;
