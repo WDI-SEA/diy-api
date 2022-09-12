@@ -96,5 +96,27 @@ router.put("/:teamId", async (req, res) =>
         res.send("server error");
     }
 })
+// DELETE /organizations/:orgId/teams/:teamId
+router.delete("/:teamId", async (req, res) =>
+{
+    try 
+    {
+        const team = await db.team.findOne(
+        {
+            where:
+            {
+                id: req.params.teamId,
+                organizationId: req.params.orgId
+            }
+        });
+        await team.destroy();
+        res.redirect(`/organizations/${req.params.orgId}/teams`);
+    } 
+    catch (error) 
+    {
+        console.warn(error);
+        res.send("server error");
+    }
+})
 
 module.exports = router;
