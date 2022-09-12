@@ -1,0 +1,5 @@
+<% players.forEach(player => { %>
+    <div>
+      <p><a href="players/<%=player.id%>"><%= `${player.firstName} ${player.lastName}` %></a></p>
+      <img src="<%= player.picture %>" width=300px/>
+  <% }) %>

@@ -1,0 +1,19 @@
+<h1><%= `${player.firstName} ${player.lastName}` %></h1>
+<img src="<%= player.picture %>" width=300px/>
+
+<div id="update">
+    <form method="POST" action="/players/<%=player.id%>/?_method=PUT">
+        <label>First Name:</label>
+        <input type="text" name="firstName" value="<%= player.firstName %>" required>
+        <label>Last Name:</label>
+        <input type="text" name="lastName" value="<%= player.lastName %>" required>
+        <label>Picture:</label>
+        <input type="string" name="picture" value="<%= player.picture %>" required>
+        <input type="submit">
+    </form>
+</div>
+<div id="delete">
+    <form method="POST" action="/players/<%=player.id%>/?_method=DELETE">
+        <input type="submit" value="Delete">
+    </form>
+</div>

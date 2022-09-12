@@ -1,0 +1,1 @@
+sequelize model:create --name Player --attributes firstName:string,lastName:string,picture:string
