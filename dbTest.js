@@ -1,18 +1,16 @@
 const db = require('./models')
 
-async function createRecipe() {
+async function createJob() {
     try {
-        await db.recipe.create({
-            name: 'Hello',
-            brewingdevice: 'Fellow Stagg',
-            watertemp: 99,
-            grinder: 'DF64',
-            grindsetting: 45,
-            groundcoffee: 22,
-            description: 'testing'
+        await db.job.create({
+            position: 'Junior Software Engineer' ,
+            link: 'https://www.linkedin.com/jobs/collections/recommended/?currentJobId=3246038703',
+            description: 'Need to know backend API',
+            status: 'No interview yet',
+            date: '09/11/2022'
         })
     } catch(err) {
         console.warn(err)
     }
 }
-createRecipe()
+createJob()

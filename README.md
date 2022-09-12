@@ -33,7 +33,7 @@ Using what you have learned about Express, Express Routing, RESTful routing, CRU
 | GET | index | /widgets | list all widgets |
 | POST | create | /widgets | add a widget |
 | GET | detail/show | /widgets/:id | show one widget |
-| PUT | update | /widgets/:id | update one widget |
+| PUT | update | /widgets/:id | update one widget |`
 | DELETE | delete | /widgets/:id | delete one widget |
 
 -------
