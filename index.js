@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: false}))
 app.use(layout)
 app.use(methodOverride('_method'))
 
-// app.use('/jobs', require('./controllers/jobs'))
+app.use('/jobs', require('./controllers/jobs'))
 
 app.get('/', (req, res) => {
     res.render('index.ejs')
