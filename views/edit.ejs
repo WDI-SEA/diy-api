@@ -1,0 +1,19 @@
+<h2>Edit <%= martialArtist.name %></h2>
+
+
+<!-- the url after submitting the edit is not including the 'almighty squid' information =( -->
+<form method="POST" action="/mixedmartialartists/<%= martialArtist.name %>/edit/?_method=PUT">
+    <label for="name" >Name:</label>
+    <input type="text" name="" id="name" required>
+    </br>
+    <label for="wins" >Wins:</label>
+    <input type="text" name="wins" id="wins" required>
+    </br>
+    <label for="losses">Losses:</label>
+    <input type="text" name="losses" id="losses" required>
+    </br>
+    <label for="weight_class" >Weight Class:</label>
+    <input type="text" name="weight_class" id="weight_class" required>
+    </br>
+    <button type="submit">Submit Changes</button>
+</form>

@@ -47,8 +47,37 @@ router.post('/', async (req, res) => {
     // res.send(`test`)
 })
 
+
+router.get('/:name/edit', async (req, res) => {
+    try {
+        const martialArtist = db.mixedmartialartist.findOne({
+            where: { name: req.params.name }
+        })
+        res.render('edit', { martialArtist: martialArtist })
+    } catch(err) {
+        console.warn(err)
+        res.send(`server error!`)
+    }
+})
+
+
 //PUT update a mixed martial artist
-// router.put('')
+router.put('/:name/edit', async (req, res) => {
+    try {
+        db.mixedmartialartist.update({
+            name: req.body.name,
+            wins: req.body.wins,
+            losses: req.body.losses,
+            weight_class: req.body.weight_class
+        },{
+            where: { name: req.params.name }
+        })
+        res.redirect(`/mixedmartialartists/${req.params.name}`)
+    } catch(err) {
+        console.warn(err)
+        res.send(`server error!`)
+    }
+})
 
 
 // DELETE a mixed martial artist
