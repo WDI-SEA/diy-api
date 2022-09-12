@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const db = require('../models')
 
-// GET /games -- index of all games
+// GET /games -- index of all drivers
 router.get('/', async (req, res) => {
     try {
         const allDrivers = await db.driver.findAll()
@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
     }
 })
 
-// GET /games/:id -- details on one game
+// GET /games/:id -- details on one driver
 router.get('/:id', async (req, res) => {
     try {
         const thisDriver = await db.driver.findByPk(req.params.id)
@@ -22,7 +22,7 @@ router.get('/:id', async (req, res) => {
     }
 })
 
-// POST /games -- create new game
+// POST /drivers -- create new driver
 router.post('/', async (req, res) => {
     try {
         const [newDriver] = await db.driver.findOrCreate({
@@ -31,44 +31,50 @@ router.post('/', async (req, res) => {
                 team: req.body.team,
                 age: req.body.age,
                 titles: req.body.titles
-            }
+            },
+            include: [db.teams]
         })
-        console.log(`New Driver: ${newDriver.id}`)
+        const [driverTeam] = await db.team.findOrCreate({
+            where: { name: req.body.team }
+        })
+        await newDriver.addTeam(driverTeam)
         res.json(newDriver)
     } catch(error) {
         console.warn(error)
     }
 })
 
-// PUT /games/:id -- update game
+// PUT /drivers/:id -- update driver
 router.put('/:id', async (req, res) => {
     try {
-        const rowsUpdated = await db.game.update({
-            title: req.body.title,
-            year: req.body.year,
-            rating: req.body.rating
+        await db.driver.update({
+            name: req.body.name,
+            team: req.body.team,
+            age: req.body.age
+            titles: req.body.titles
         }, {
             where: {
                 id: req.params.id
             }
         })
-        console.log(`Game: ${req.params.id} | Num rows updated ${rowsUpdated}`)
-        const updatedGame = await db.game.findByPk(req.params.id)
-        res.json(updatedGame)
+        const updatedDriver = await db.driver.findByPk(req.params.id, {include: [db.team]})
+        const [driverTeam] = await db.team.findOrCreate({ where: { name: req.body.team } })
+        await updatedDriver.addTeam(driverTeam)
+        res.json(updatedTeam)
     } catch(error) {
         console.warn(error)
     }
 })
 
-// DELETE /games/:id -- delete game
+// DELETE /drivers/:id -- delete driver
 router.delete('/:id', async (req, res) => {
     try {
-        await db.game.destroy({
+        await db.driver.destroy({
             where: {
                 id: req.params.id
             }
         })
-        res.send(`Game id# ${req.params.id} deleted`)
+        res.redirect('/drivers')
     } catch(error) {
         console.warn(error)
     }
