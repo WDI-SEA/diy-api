@@ -1,0 +1,4 @@
+sequelize model:create --name widget --attributes name:string,quantity:integer
+sequelize model:create --name image --attributes url:text,movieId:integer
+sequelize model:create --name genre --attributes name:string
+sequelize model:create --name movies_genres --attributes movieId:integer,genreId:integer
