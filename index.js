@@ -15,6 +15,7 @@ app.use(ejsLayouts)
 app.use('/public', express.static('public'));
 app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride("_method"));
+
 //Get
 
 // HOMEPAGE
@@ -50,6 +51,7 @@ app.delete('/pokemoncards/:id', async (req,res) => {
         console.log(err)
     }
 })
+
 // PUT/UPDATE
 app.put('/pokemoncards/:id', async (req,res) => {
     console.log(req.body)
@@ -66,6 +68,7 @@ app.put('/pokemoncards/:id', async (req,res) => {
         console.log(err)
     }
 })
+
 // SHOW SPECIFIC CARD
 app.get('/pokemoncards/:id', async (req,res) => {
     try {
