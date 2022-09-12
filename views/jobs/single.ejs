@@ -6,4 +6,11 @@
 <h2><%= oneJob.status %></h2>
 <h2><%= oneJob.date %></h2>
 
-<form method="POST" action="/re"
+<form method="GET" action="/jobs/oneJob <%= oneJob.id %>/edit">
+    <input type="Submit" value="Edit" >
+</form>
+
+
+<form method="POST" action="/jobs/oneJob <%= oneJob.id %>/?_method = DELETE" >
+    <input type="submit" value="delete" >
+</form>
