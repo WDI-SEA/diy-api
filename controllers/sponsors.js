@@ -26,5 +26,25 @@ router.get("/:sponsorId", async (req, res) =>
         res.send("server error");
     }
 })
+router.get("/:sponsorId/organizations", async (req, res) =>
+{
+    try 
+    {
+        const sponsor = await db.sponsor.findOne(
+        {
+            where:
+            {
+                id: req.params.sponsorId
+            },
+            include: [db.organization]
+        })
+        res.json(sponsor.organizations);    // send json data of all orgs under this sponsor
+    } 
+    catch (error) 
+    {
+        console.warn(error);
+        res.send("server error");
+    }
+})
 
 module.exports = router;

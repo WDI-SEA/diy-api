@@ -6,6 +6,7 @@
 <ul>
     <li>GET <a href="/organizations">/organizations</a> -- .json of an array of all orgs as objects w/ attributes</li>
     <li>GET <a href="/organizations/1">/organizations/:orgId</a> -- .json of an object w/ attributes for a specific org using primary key</li>
+    <li>GET <a href="/organizations/1/sponsors">/organizations/:orgId/sponsors</a> -- .json of an array of all sponsors for a specific org</li>
     <!-- use Postman for below actions if there are no form pages -->
     <li>POST /organizations -- add an org record in postgres w/ attributes:</li>
         <ul>
@@ -56,4 +57,5 @@
 <ul>
     <li>GET <a href="/sponsors">/sponsors</a> -- .json of an array of all sponsors as objects w/ attributes</li>
     <li>GET <a href="/sponsors/1">/sponsors/:sponsorId</a> -- .json of an object w/ attributes for a specific sponsor using primary key</li>
+    <li>GET <a href="/sponsors/1/organizations">/sponsors/:sponsorId/organizations</a> -- .json of an array of all orgs under a specific sponsor</li>
 </ul>

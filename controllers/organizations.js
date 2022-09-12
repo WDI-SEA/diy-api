@@ -28,6 +28,26 @@ router.get("/:orgId", async (req, res) =>
         res.send("server error");
     }
 })
+router.get("/:orgId/sponsors", async (req, res) =>
+{
+    try 
+    {
+        const organization = await db.organization.findOne(
+        {
+            where:
+            {
+                id: req.params.orgId
+            },
+            include: [db.sponsor]
+        })
+        res.json(organization.sponsors);    // send json data of all sponsors under this org
+    } 
+    catch (error) 
+    {
+        console.warn(error);
+        res.send("server error");
+    }
+})
 router.post("/", async (req, res) =>
 {
     try 
