@@ -24,7 +24,14 @@ router.get("/:teamId", async (req, res) =>
 {
     try 
     {
-        res.json(await db.team.findByPk(req.params.teamId));    // send json data of team found by primary key
+        res.json(await db.team.findOne(
+        {
+            where:
+            {
+                id: req.params.teamId,
+                organizationId: req.params.orgId
+            }
+        }))
     } 
     catch (error) 
     {
@@ -53,6 +60,35 @@ router.post("/", async (req, res) =>
         });
         console.log("Unique entry:", teamCreated);
         res.redirect(`/organizations/${req.params.orgId}/teams/${team.id}`)    // redirect to detail page of team created or found
+    } 
+    catch (error) 
+    {
+        console.warn(error);
+        res.send("server error");
+    }
+})
+// PUT /organizations/:orgId/teams/:teamId
+router.put("/:teamId", async (req, res) =>
+{
+    try 
+    {
+        const team = await db.team.findOne(
+        {
+            where:
+            {
+                id: req.params.teamId,
+                organizationId: req.params.orgId
+            }
+        });
+        team.set(
+        {
+            name: req.body.name,
+            created: req.body.created,
+            region: req.body.region,
+            winnings: req.body.winnings
+        })
+        await team.save();
+        res.redirect(`/organizations/${req.params.orgId}/teams/${team.id}`);    // redirect to detail page of team updated
     } 
     catch (error) 
     {
