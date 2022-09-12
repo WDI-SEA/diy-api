@@ -1,0 +1,16 @@
+<h1>Brewing Device</h1>
+
+<hr>
+
+<h1><%= aBrewingDevice.name %></h1>
+
+<h2>Material: <%= aBrewingDevice.material %></h2>
+
+<form method="POST" action="/brewingdevices/<%= aBrewingDevice.id %>/?_method=DELETE">
+    <input type="Submit" value="Delete">
+</form>
+
+
+<form method="GET" action="/brewingdevices/<%= aBrewingDevice.id %>/edit">
+    <input type="Submit" value="Edit">
+</form>

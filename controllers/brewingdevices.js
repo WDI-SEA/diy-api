@@ -14,7 +14,12 @@ router.get('/new', async (req, res) => {
 
 router.post('/new', async (req, res) => {
     try {
-        await db.brewingdevice.create({
+        const aRecipe = await db.recipe.findOne({
+            where: {
+                name: req.body.recipeName
+            }
+        })
+        await aRecipe.createBrewingdevice({
             name: req.body.name,
             material: req.body.material
         })
@@ -27,12 +32,12 @@ router.post('/new', async (req, res) => {
 // Read
 router.get('/:id', async (req, res) => {
     try {
-        const aRecipe = await db.recipe.findOne({
+        const aBrewingDevice = await db.brewingdevice.findOne({
             where: {
                 id: req.params.id
             }   
         })
-        res.render('recipes/showOne', {aRecipe: aRecipe})
+        res.render('brewingdevices/showOne', {aBrewingDevice: aBrewingDevice})
     } catch(err) {
         console.warn(err)
     }
@@ -41,12 +46,12 @@ router.get('/:id', async (req, res) => {
 // Update
 router.get('/:id/edit', async (req, res) => {
     try {
-        const aRecipe = await db.recipe.findOne({
+        const aBrewingDevice = await db.brewingdevice.findOne({
             where: {
                 id: req.params.id
             }
         })
-        res.render('recipes/edit', {aRecipe: aRecipe})
+        res.render('brewingdevices/edit', {aBrewingDevice: aBrewingDevice})
     } catch(err) {
         console.log(err)
         res.render('error')
@@ -55,20 +60,15 @@ router.get('/:id/edit', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
     try {
-        await db.recipe.update({
+        await db.brewingdevice.update({
             name: req.body.name,
-            brewingdevice: req.body.brewingdevice,
-            watertemp: req.body.watertemp,
-            grinder: req.body.grinder,
-            grindsetting: req.body.grindsetting,
-            groundcoffee: req.body.groundcoffee,
-            description: req.body.description
+            material: req.body.material
         }, {
             where: {
                 id: req.params.id
             }
         })
-        res.redirect('/recipes')
+        res.redirect('/brewingdevices')
     } catch(err) {
         console.log(err)
         res.render('error')
@@ -78,12 +78,12 @@ router.put('/:id', async (req, res) => {
 // Destroy
 router.delete('/:id', async (req, res) => {
     try {
-        await db.recipe.destroy({
+        await db.brewingdevice.destroy({
             where: {
                 id: req.params.id
             }
         })
-        res.redirect('/recipes')
+        res.redirect('/brewingdevices')
     } catch(err) {
         console.warn(err)
     }

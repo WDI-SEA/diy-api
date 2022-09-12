@@ -14,5 +14,12 @@
 <form method="GET" action="/recipes/<%= aRecipe.id %>/edit">
     <input type="Submit" value="Edit">
 </form>
+
+<hr>
+
+<h3>Brewing Devices that can be used with this Recipe:</h3>
+<% someBrewingDevices.forEach(device => { %>
+    <a style='color:white;' href="/brewingdevices/<%= device.id %>"><%= device.name %></a>
+<% }) %>
     
 

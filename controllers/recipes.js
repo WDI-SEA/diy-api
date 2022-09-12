@@ -37,7 +37,15 @@ router.get('/:id', async (req, res) => {
                 id: req.params.id
             }   
         })
-        res.render('recipes/showOne', {aRecipe: aRecipe})
+        const someBrewingDevices = await db.brewingdevice.findAll({
+            where: {
+                recipeId: req.params.id
+            }
+        })
+        res.render('recipes/showOne', {
+            aRecipe: aRecipe, 
+            someBrewingDevices: someBrewingDevices
+        })
     } catch(err) {
         console.warn(err)
     }
