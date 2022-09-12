@@ -27,7 +27,7 @@ router.post('/new', async (req, res) => {
     }
 }) 
 
-//SHOW ONE JOB LISTING
+//SHOW ONE JOB LISTING -- SOMETHING NOT WORKING HERE
 router.get('/:id', async (req, res) => {
     try {
         const oneJob = await db.job.findOne({
@@ -35,11 +35,14 @@ router.get('/:id', async (req, res) => {
                 id: req.params.id
             }
         })
-        res.render('jobs/oneJob', {oneJob: oneJob})
+        res.render('jobs/show', {oneJob: oneJob})
     } catch(err) {
         console.warn(err)
     }
 })
+
+//EDIT JOB LISTING
+router.get
 
 
 module.exports = router
