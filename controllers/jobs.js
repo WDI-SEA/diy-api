@@ -27,7 +27,7 @@ router.post('/new', async (req, res) => {
     }
 }) 
 
-//SHOW ONE JOB LISTING -- SOMETHING NOT WORKING HERE
+//SHOW ONE JOB LISTING 
 router.get('/:id', async (req, res) => {
     try {
         const oneJob = await db.job.findOne({
@@ -42,7 +42,38 @@ router.get('/:id', async (req, res) => {
 })
 
 //EDIT JOB LISTING
-router.get
+router.get(':id/edit', async (req, res) => {
+    try {
+        const oneJob = await db.job.findOne({
+            where: {
+                id: req. params.id
+            }
+        })
+        res.render('jobs/edit', {oneJob: oneJob})
+    } catch(err) {
+        console.log(err)
+        res.render('error')
+    }
+})
 
+router.put('/:id', async (req, res) => {
+    try {
+        await db.job.update({
+            position: req.body.name,
+            link: req.body.link,
+            description: req.body.description,
+            status: req.body.status,
+            date: req.body.date 
+        }, {
+            where: {
+                id: req.params.id
+            }
+        })
+        res.redirect('/jobs')
+    } catch(err) {
+        console.log(err)
+        res.render('error')
+    }
+})
 
 module.exports = router
