@@ -1,0 +1,15 @@
+user Table:
+userName: STRING,
+userId: INT
+
+sequelize model:create --name user --attributes userName:string
+
+///////////////////////////////////////
+
+Posts Table:
+postId: INT
+userId: INT
+caption:VARCHAR(90)
+imageUrl:VARCHAR(500)
+
+sequelize model:create --name post --attributes userId:integer,caption:string,imageUrl:string
