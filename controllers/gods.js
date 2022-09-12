@@ -76,16 +76,14 @@ router.put('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
     try {
-        const numRowsDeleted = await db.god.destroy({
-            where: {
-                id: req.params.id
-            }
-        })       
-        res.redirect("/gods")
-
-    } catch (err) {
-        console.log(err)
-        res.send("server error")
+        console.log(req.body)
+        await db.god.destroy({
+            where: { id: req.params.name }
+        })
+        res.redirect('/gods')
+    } catch(err) {
+        console.warn(err)
+        res.send(`server error!`)
     }
 })
 
