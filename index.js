@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: false }))
 app.get('/', async (req, res)=>{
     try{
         const cartoons = await db.cartoons.findAll()
-        res.render('cartoon/home.ejs', {cartoons: cartoons})
+        res.render('home.ejs', {cartoons: cartoons})
     } catch(err){
         console.warn(err)
     }

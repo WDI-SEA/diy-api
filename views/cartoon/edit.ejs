@@ -1,0 +1,14 @@
+<h1>Edit the selected cartoon:</h1>
+
+<form method="POST", action="/cartoons/<%= cartoon.id %>/?_method=PUT">
+    <label>Title:</label>
+    <input type="text" name="title" value="<%= cartoon.title %>">
+    <br>
+    <label>Release Year:</label>
+    <input type="text" name="year" value="<%= cartoon.year %>">
+    <br>
+    <label>Total Episodes:</label>
+    <input type="text" name="episodes" value="<%= cartoon.episodes %>">
+    <br>
+    <input type="submit">
+</form>

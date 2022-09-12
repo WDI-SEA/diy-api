@@ -1,0 +1,10 @@
+<h1>HOME PAGE</h1>
+
+<% cartoons.forEach((cartoon, idx) =>{ %>
+    <h3>Title: <%= cartoon.title %>, Year: <%= cartoon.year %>, Episodes: <%= cartoon.episodes %></h3>
+    <a href="/cartoons/<%= cartoon.id %>"><p>details</p></a>
+    <a href="/cartoons/edit/<%= cartoon.id %>"> Edit </a>
+        <form method="POST" action="/cartoons/<%= cartoon.id %>/?_method=DELETE">
+            <input type="submit" value="Delete">
+        </form>
+<% }) %>

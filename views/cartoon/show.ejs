@@ -1,0 +1,7 @@
+
+<h3>Title: <%= cartoons.title %>, Year: <%= cartoons.year %>, Episodes: <%= cartoons.episodes %></h3>
+<a href="/cartoons/<%= cartoons.id %>"><p>details</p></a>
+<a href="/cartoons/edit/<%= cartoons.id %>"> Edit </a>
+    <form method="POST" action="/cartoons/<%= cartoons.id %>/?_method=DELETE">
+        <input type="submit" value="Delete">
+     </form>
