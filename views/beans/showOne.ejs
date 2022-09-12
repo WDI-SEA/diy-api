@@ -1,0 +1,19 @@
+<h1><%= aBean.name %></h1>
+
+<hr>
+
+<h2>Country of Origin: <%= aBean.country %></h2>
+
+<h2>Region: <%= aBean.region %></h2>
+
+<h2>Roast Level: <%= aBean.roastlevel %></h2>
+
+
+<form method="POST" action="/beans/<%= aBean.id %>/?_method=DELETE">
+    <input type="Submit" value="Delete">
+</form>
+
+
+<form method="GET" action="/beans/<%= aBean.id %>/edit">
+    <input type="Submit" value="Edit">
+</form>

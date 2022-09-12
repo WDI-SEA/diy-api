@@ -1,0 +1,25 @@
+<h1>Coffee Bean Form:</h1>
+
+<form method="POST", action="/beans/<%= aBean.id %>/?_method=PUT">
+    <div>
+        <label for="name">Coffee Bean Name:</label>
+        <input id="name" type="text" name="name" />    
+    </div>
+
+    <div>
+        <label for="country">Country of Origin:</label>
+        <input id="country" type="text" name="country" />
+    </div>
+
+    <div>
+        <label for="region">Region:</label>
+        <input id="region" type="text" name="region" />
+    </div>
+
+    <div>
+        <label for="roastlevel">Roast Level:</label>
+        <input id="roastlevel" type="text" name="roastlevel" />
+    </div>
+
+    <button type="submit">Submit Coffee Bean</button>
+</form>

@@ -3,27 +3,34 @@ const db = require('../models')
 const router = express.Router()
 
 router.get('/', async (req, res) => {
-    const allRecipes = await db.recipe.findAll()
-    res.render('recipes/show', { showRecipes: allRecipes })
+    const allBeans = await db.bean.findAll()
+    res.render('beans/show', { allBeans: allBeans })
 })
 
 // Create
 router.get('/new', async (req, res) => {
-    res.render('recipes/new')
+    res.render('beans/new')
 })
 
 router.post('/new', async (req, res) => {
     try {
-        await db.recipe.create({
-            name: req.body.name,
-            brewingdevice: req.body.brewingdevice,
-            watertemp: req.body.watertemp,
-            grinder: req.body.grinder,
-            grindsetting: req.body.grindsetting,
-            groundcoffee: req.body.groundcoffee,
-            description: req.body.description
+        const [bean, beanCreated] = await db.bean.findOrCreate({
+            where: {
+                name: req.body.name,
+                country: req.body.country,
+                region: req.body.region,
+                roastlevel: req.body.roastlevel
+            }
         })
-        res.redirect('/recipes')
+
+        const aRecipe = await db.recipe.findOne({
+            where: {
+                name: req.body.recipeName
+            }
+        })
+        res.redirect('/beans')
+        await aRecipe.addBean(bean)
+        
     } catch(err) {
         console.warn(err)
     }
@@ -32,12 +39,12 @@ router.post('/new', async (req, res) => {
 // Read
 router.get('/:id', async (req, res) => {
     try {
-        const aRecipe = await db.recipe.findOne({
+        const aBean = await db.bean.findOne({
             where: {
                 id: req.params.id
             }   
         })
-        res.render('recipes/showOne', {aRecipe: aRecipe})
+        res.render('beans/showOne', {aBean: aBean})
     } catch(err) {
         console.warn(err)
     }
@@ -46,12 +53,12 @@ router.get('/:id', async (req, res) => {
 // Update
 router.get('/:id/edit', async (req, res) => {
     try {
-        const aRecipe = await db.recipe.findOne({
+        const aBean = await db.bean.findOne({
             where: {
                 id: req.params.id
             }
         })
-        res.render('recipes/edit', {aRecipe: aRecipe})
+        res.render('beans/edit', {aBean: aBean})
     } catch(err) {
         console.log(err)
         res.render('error')
@@ -60,20 +67,17 @@ router.get('/:id/edit', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
     try {
-        await db.recipe.update({
+        await db.bean.update({
             name: req.body.name,
-            brewingdevice: req.body.brewingdevice,
-            watertemp: req.body.watertemp,
-            grinder: req.body.grinder,
-            grindsetting: req.body.grindsetting,
-            groundcoffee: req.body.groundcoffee,
-            description: req.body.description
+            country: req.body.country,
+            region: req.body.region,
+            roastlevel: req.body.roastlevel
         }, {
             where: {
                 id: req.params.id
             }
         })
-        res.redirect('/recipes')
+        res.redirect('/beans')
     } catch(err) {
         console.log(err)
         res.render('error')
@@ -83,12 +87,12 @@ router.put('/:id', async (req, res) => {
 // Destroy
 router.delete('/:id', async (req, res) => {
     try {
-        await db.recipe.destroy({
+        await db.bean.destroy({
             where: {
                 id: req.params.id
             }
         })
-        res.redirect('/recipes')
+        res.redirect('/beans')
     } catch(err) {
         console.warn(err)
     }

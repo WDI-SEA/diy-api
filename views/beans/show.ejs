@@ -1,0 +1,11 @@
+<h2>List of Coffee Beans:</h2>
+
+<a style="color: #e4bc84;" href="/beans/new">Add a Bean</a>
+
+<hr>
+
+<% allBeans.forEach(bean => { %>
+    <div>
+        <a style="color: #e4bc84;" href="/beans/<%= bean.id %>"><%= bean.name %></a>
+    </div>
+<% }) %>
