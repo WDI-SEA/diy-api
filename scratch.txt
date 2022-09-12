@@ -1,0 +1,7 @@
+
+workout
+
+name
+description
+
+sequelize  model:create --name workout --attributes name:string,description:text,rating:integer
