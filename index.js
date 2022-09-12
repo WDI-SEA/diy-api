@@ -5,7 +5,7 @@ const { defaults } = require('pg')
 const db = require('./models')
 const pokemoncard = require('./models/pokemoncard')
 const methodOverride = require('method-override')
-
+const pokemonController = require('./controllers/pokemoncard')
 const app = express()
 const PORT = process.env.PORT || 3000
 
@@ -15,6 +15,7 @@ app.use(ejsLayouts)
 app.use('/public', express.static('public'));
 app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride("_method"));
+app.use('/pokemoncards', pokemonController)
 
 //Get
 
@@ -22,80 +23,6 @@ app.use(methodOverride("_method"));
 app.get('/', (req,res) => {
     res.render('index.ejs')
 })
-
-// SHOWALL CARDS
-app.get('/pokemoncards', async (req,res) => {
-    try {
-        const pokemoncards = await db.pokemoncard.findAll()
-        // res.send('pokemon pokemon')
-        res.render('show.ejs', { pokemoncards })
-    }catch(err) {
-        console.log(err)
-    }
-})
-
-// SHOW FORM TO MAKE NEW CARD
-app.get('/pokemoncards/new', (req,res) => {
-    res.render('new.ejs')
-})
-
-// DELETE/DESTROY
-app.delete('/pokemoncards/:id', async (req,res) => {
-    console.log(req.params.id)
-    try {
-        const Destroy = await db.pokemoncard.destroy({
-            where: { id: req.params.id }
-        })
-        res.redirect('/pokemoncards')
-    }catch(err) {
-        console.log(err)
-    }
-})
-
-// PUT/UPDATE
-app.put('/pokemoncards/:id', async (req,res) => {
-    console.log(req.body)
-    try {
-        const editPokemonCard = await db.pokemoncard.update({
-            name: req.body.name,
-            img_url: req.body.img_url,
-            rarity: req.body.rarity
-        }, {
-            where: { id: req.params.id }
-        })
-        res.redirect('/pokemoncards')
-    }catch(err) {
-        console.log(err)
-    }
-})
-
-// SHOW SPECIFIC CARD
-app.get('/pokemoncards/:id', async (req,res) => {
-    try {
-        const onePokemonCard = await db.pokemoncard.findOne({
-            where: { id: req.params.id }
-        })
-        res.render('edit.ejs', { pokemoncard: onePokemonCard})
-    }catch(err) {
-        console.log(err)
-    }
-})
-
-// CREATE A NEW CARD
-app.post('/pokemoncards', async (req,res) => {
-    console.log(req.body)
-    try {
-        const pokemoncards = await db.pokemoncard.create({
-            name: req.body.name,
-            img_url: req.body.img_url,
-            rarity: req.body.rarity
-        })
-        res.redirect('/pokemoncards')
-    }catch(err) {
-        console.log(err)
-    }
-})
-
 
 // Listen
 app.listen(PORT, function() {
