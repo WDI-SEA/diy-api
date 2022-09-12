@@ -3,7 +3,7 @@ const ejsLayouts = require('express-ejs-layouts')
 const db = require('./models')
 const moment = require('moment')
 const rowdy = require('rowdy-logger')
-
+let router = express.Router()
 const app = express()
 const port = process.env.PORT || 3000
 rowdy.begin(app)
@@ -20,24 +20,15 @@ app.use((req, res, next) => {
   next()
 })
 
-// GET / - display all articles and their authors
-app.get('/', (req, res) => {
-  db.article.findAll({
-    include: [db.author]
-  }).then((articles) => {
-    res.render('main/index', { articles: articles })
-  }).catch((error) => {
-    console.log(error)
-    res.status(400).render('main/404')
-  })
-})
+
+
 
 // bring in authors and articles controllers
-app.use('/users', require('./controllers/users'))
-app.use('/thread', require('./controllers/thread))
-app.use('/comment', require('./controllers/comment))
+// app.use('/users', require('./controllers/users'))
+app.use('/threads', require('./controllers/thread'))
+// app.use('/comment', require('./controllers/comment))
 
 app.listen(port, () => {
-  rowdy.print()
+  // rowdy.print()
   console.log(`listening on port ${port}`)
 })
