@@ -31,9 +31,13 @@ router.post('/', async (req, res) => {
                 title: req.body.title,
                 year: req.body.year,
                 rating: req.body.rating
-            }
+            },
+            include: [db.platform]
         })
-        console.log(`New game: ${newGame.id}`)
+        const [gamePlatform] = await db.platform.findOrCreate({
+            where: { name: req.body.platform }
+        })
+        await newGame.addPlatform(gamePlatform)
         res.json(newGame)
     } catch(error) {
         console.warn(error)
@@ -43,7 +47,7 @@ router.post('/', async (req, res) => {
 // PUT /games/:id -- update game
 router.put('/:id', async (req, res) => {
     try {
-        const rowsUpdated = await db.game.update({
+        await db.game.update({
             title: req.body.title,
             year: req.body.year,
             rating: req.body.rating
@@ -52,8 +56,9 @@ router.put('/:id', async (req, res) => {
                 id: req.params.id
             }
         })
-        console.log(`Game: ${req.params.id} | Num rows updated ${rowsUpdated}`)
-        const updatedGame = await db.game.findByPk(req.params.id)
+        const updatedGame = await db.game.findByPk(req.params.id, {include: [db.platform]})
+        const [gamePlatform] = await db.platform.findOrCreate({ where: { name: req.body.platform } })
+        await updatedGame.addPlatform(gamePlatform)
         res.json(updatedGame)
     } catch(error) {
         console.warn(error)
@@ -68,7 +73,7 @@ router.delete('/:id', async (req, res) => {
                 id: req.params.id
             }
         })
-        res.send(`Game id# ${req.params.id} deleted`)
+        res.redirect('/games')
     } catch(error) {
         console.warn(error)
     }
