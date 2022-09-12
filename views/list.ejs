@@ -1,0 +1,9 @@
+<h1>Cars List</h1>
+
+<% cars.forEach(function(cars) {%>
+    <div>
+        <h2>
+           <a href="/cars/<%= cars.id%>"><%=cars.name %>, <%=cars.color %>, <%=cars.year %></a> 
+        </h2>
+    </div>
+<% }); %>

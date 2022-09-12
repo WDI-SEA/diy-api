@@ -1,0 +1,8 @@
+Cars
+______
+id - integer
+Year - integer
+Color - string
+name - string
+
+sequelize model:create --name cars --attributes year:integer,color:string,name:string
