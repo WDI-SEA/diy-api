@@ -27,7 +27,7 @@ router.post('/new', async (req, res) => {
     }
 }) 
 
-//SHOW ONE JOB LISTING -- THIS IS NOT WORKING
+//SHOW ONE JOB LISTING
 router.get('/:id', async (req, res) => {
     try {
         const oneJob = await db.job.findOne({
@@ -35,7 +35,7 @@ router.get('/:id', async (req, res) => {
                 id: req.params.id
             }
         })
-        res.render('jobs/oneJob', {oneJob: oneJob})
+        res.render('jobs/single.ejs', {oneJob: oneJob})
     } catch(err) {
         console.warn(err)
     }
