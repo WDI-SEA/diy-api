@@ -11,6 +11,7 @@ app.use(methodOverride('_method'))
 
 // controllers
 app.use('/drivers', require('./controllers/drivers'))
+app.use('/teams', require('./controllers/teams'))
 
 // routes
 app.get('/', (req, res) => {
