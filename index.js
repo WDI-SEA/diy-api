@@ -7,10 +7,11 @@ const methodOverride = require('method-override')
 const app = express()
 const PORT = 3000
 app.use(express.urlencoded({ extended: false }))
-app.use(methodOverride('_method'))
+app.use(methodOverride('_method')) // was probably only necessary for html forms
 
 // controllers
 app.use('/games', require('./controllers/games'))
+app.use('/platforms', require('./controllers/platforms'))
 
 // routes
 app.get('/', (req, res) => {
