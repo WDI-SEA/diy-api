@@ -15,7 +15,8 @@ router.get('/', async (req, res) => {
 // GET /games/:id -- details on one game
 router.get('/:id', async (req, res) => {
     try {
-        const thisGame = await db.game.findByPk(req.params.id)
+        const thisGame = await db.game.findByPk(req.params.id,
+            { include: [db.platform] })
         res.json(thisGame)
     } catch(error) {
         console.warn(error)

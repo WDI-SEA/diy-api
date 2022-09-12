@@ -9,4 +9,15 @@ async function createGame() {
     console.log(newGame)
 }
 
-createGame()
+// createGame()
+
+async function createPlatform() {
+    const [newPlatform] = await db.platform.findOrCreate({
+        where: {name: 'PS5'},
+        include: [db.game] })
+    const game = await db.game.findByPk(2)
+    newPlatform.addGame(game)
+    console.log(newPlatform)
+}
+
+// createPlatform()
