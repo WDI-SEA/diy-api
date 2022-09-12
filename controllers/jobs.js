@@ -42,7 +42,7 @@ router.get('/:id', async (req, res) => {
 })
 
 //EDIT JOB LISTING
-router.get(':id/edit', async (req, res) => {
+router.get('/:id/edit', async (req, res) => {
     try {
         const oneJob = await db.job.findOne({
             where: {
