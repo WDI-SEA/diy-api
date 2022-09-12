@@ -19,7 +19,6 @@ const createOrg = async () =>
     catch (error) 
     {
         console.warn(error);
-        res.send("server error");
     }
 }
 createOrg();

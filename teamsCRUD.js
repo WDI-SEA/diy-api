@@ -20,7 +20,6 @@ const createTeam = async () =>
     catch (error) 
     {
         console.warn(error);
-        res.send("server error");
     }
 }
 createTeam();
@@ -39,7 +38,6 @@ const findTeamsfromOrg = async () =>
     catch (error) 
     {
         console.warn(error);
-        res.send("server error");
     }
 }
 findTeamsfromOrg();
