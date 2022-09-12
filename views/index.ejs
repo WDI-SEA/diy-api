@@ -1,0 +1,12 @@
+<h1>Our Galery</h1>
+<div class="links">
+    <a href="/characters/new">Add to the Galery</a>
+</div>
+<% characters.forEach(function(character) { %>
+    <div class='well'>
+        <img src="<%= character.img_icon %>" width='40%'/>
+        <h2><%= character.name %></h2>
+        <h3> <a href="/characters/<%=character.id%>">Click to know more</a></h3>
+    </div>
+<% }) %> 
+

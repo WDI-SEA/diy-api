@@ -13,19 +13,19 @@ const create = async () => {
         console.log(err)
     }
  }
-create()
+// create()
 const upDate = async () => {
     try {
-       await db.character.update({ img_icon: 'https://i.pinimg.com/originals/a2/56/e2/a256e2e1b71e3343323ded4c0f44222d.jpg' }, {
+       await db.character.update({ img_icon: 'https://qph.cf2.quoracdn.net/main-qimg-f2d85ff885707f4d71da531618d7a871-lq' }, {
            where: {
-                 id: 1
+                 id: 4
                  }
         })  
      } catch (err) {
          console.log(err)
      }
  }
-// upDate()
+upDate()
 const destroy = async () => {
     try {
         await db.character.destroy({

@@ -1,0 +1,25 @@
+    <div class='well'>
+        <img src="<%= character.img_icon %>" width='50%'/>
+        <h2><%= character.name %></h2>
+        <p><%= character.season %></p>
+        <p><%= character.description %></p>
+        <p><%= character.type %></p>
+        
+        <div style="width: 50vw; margin-left: 25vw;">
+            <p>Edit this Character:</p>
+            <form method="POST" action="/characters/<%=character.id%>/?_method=PUT">
+                <label>Name:</label>
+                <input type="text" name="name" value="<%= character.name %>" required>
+                <label>Description:</label>
+                <input type="text" name="description" value="<%= character.description %>" required>
+                <label>Type:</label>
+                <input type="text" name="type" value="<%= character.type %>" required>
+                <label>Season:</label>
+                <input type="text" name="season" value="<%= character.season %>" required>
+                <label>Image Url:</label>
+                <input type="text" name="img_icon" value="<%= character.img_icon %>" required>
+        
+                <input type="submit">
+            </form>
+            </div>
+    </div>
