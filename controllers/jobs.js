@@ -76,4 +76,17 @@ router.put('/:id', async (req, res) => {
     }
 })
 
+//DELETE A JOB
+router.delete('/:id', async (req, res ) => {
+    try {
+        await db.job.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+    } catch(err) {
+        console.warn(err)
+    }
+})
+
 module.exports = router
