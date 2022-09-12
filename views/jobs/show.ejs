@@ -1,0 +1,9 @@
+<h2>My Current Applied Jobs</h2>
+
+<a href="/jobs/show/">Add a New Job to Track</a>
+
+<% showJobs.forEach(job => { %>
+    <div>
+        <a href="/jobs/<%= job.id %>"><%= job.name %></a>
+    </div>
+<% }) %>

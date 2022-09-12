@@ -1,0 +1,28 @@
+<form method="POST", action="/jobs/<%= oneJob.id %>/?_method=PUT">
+    <div>
+        <label for="position">Position Title</label>
+        <input type="text" id="position" name="name" />
+    </div>
+
+    <div>
+        <label for="link">Job Listing Link</label>
+        <input type="text" id="link" name="link" />
+    </div>
+
+    <div>
+        <label for="description">Job Description</label>
+        <input type="text" id="description" name="description" />
+    </div>
+
+    <div>
+        <label for="status">Current Interview Status</label>
+        <input type="text" id="status" name="status" />
+    </div>
+
+    <div>
+        <label for="date">Date Applied</label>
+        <input type="date" id="date" name="date" />
+    </div>
+
+    <button type="submit">Submit</button>
+</form>

@@ -21,11 +21,25 @@ router.post('/new', async (req, res) => {
             status: req.body.status,
             date: req.body.date
         })
-        res.redirect('/recipes')
+        res.redirect('/jobs')
     } catch(err) {
         console.warn(err)
     }
 }) 
+
+//SHOW ONE JOB LISTING
+router.get('/:id', async (req, res) => {
+    try {
+        const oneJob = await db.job.findOne({
+            where: {
+                id: req.params.id
+            }
+        })
+        res.render('jobs/oneJob', {oneJob: oneJob})
+    } catch(err) {
+        console.warn(err)
+    }
+})
 
 
 module.exports = router
