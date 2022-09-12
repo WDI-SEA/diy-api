@@ -23,7 +23,7 @@ Using what you have learned about Express, Express Routing, RESTful routing, CRU
 |wodgets | integer |
 |quantity | integer |
 
-Custom:
+Recipes:
 | column name     | type |
 |:---------------:|:----:|
 |id | integer |
@@ -38,6 +38,12 @@ Custom:
 |description | text |
 
 sequelize model:create --name recipe --attributes name:string,brewingdevice:string,watertemp:integer,grinder:string,grindsetting:integer,groundcoffee:integer,description:text
+
+sequelize model:create --name brewingdevice --attributes name:string,material:string,recipeId:integer
+
+sequelize model:create --name bean --attributes name:string,country:string,region:string,roastlevel:string
+
+sequelize model:create --name recipes_beans --attributes recipeId:integer,beanId:integer
 
 
 2. Your API should be accessible via five routes: 
