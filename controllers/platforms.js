@@ -15,10 +15,29 @@ router.get('/:id', async (req, res) => {
 })
 
 // POST /platforms -- create platform
+router.post('/', async (req, res) => {
+    const [newPlatform] = await db.platform.findOrCreate({
+        where: { name: req.body.name }
+    })
+    res.json(newPlatform)
+})
 
 // PUT /platforms/:id -- update platform
+router.put('/:id', async (req, res) => {
+    await db.platform.update({
+        name: req.body.name
+    }, {
+        where: { id: req.params.id }
+    })
+    const updatedPlatform = await db.platform.findByPk(req.params.id)
+    res.json(updatedPlatform)
+})
 
 // DELETE /platforms/:id -- delete platform
+router.delete('/:id', async (req, res) => {
+    await db.platform.destroy({ where: { id: req.params.id } })
+    res.redirect('/platforms')
+})
 
 
 module.exports = router
