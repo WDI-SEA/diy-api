@@ -50,9 +50,10 @@ router.post('/', async (req, res) => {
 
 router.get('/:name/edit', async (req, res) => {
     try {
-        const martialArtist = db.mixedmartialartist.findOne({
+        const martialArtist = await db.mixedmartialartist.findOne({
             where: { name: req.params.name }
         })
+        console.log("HIIIIIIII", martialArtist)
         res.render('edit', { martialArtist: martialArtist })
     } catch(err) {
         console.warn(err)
@@ -64,7 +65,7 @@ router.get('/:name/edit', async (req, res) => {
 //PUT update a mixed martial artist
 router.put('/:name/edit', async (req, res) => {
     try {
-        db.mixedmartialartist.update({
+        await db.mixedmartialartist.update({
             name: req.body.name,
             wins: req.body.wins,
             losses: req.body.losses,

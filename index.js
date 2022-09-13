@@ -29,7 +29,7 @@ app.get('/', async (req, res) => {
 app.use('/mixedmartialartists', require('./controllers/mixedmartialartists'))
 
 
-// 
+// Listen on a port
 app.listen(PORT, () => {
     console.log(`Tuned into port ${PORT}`)
 })
