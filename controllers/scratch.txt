@@ -1,0 +1,6 @@
+sequelize mdel:create --name=show --attributes title:string,decription:string,spooky:boolean.watched:boolean
+
+show
+title:string
+description:string
+sppoky:boole
