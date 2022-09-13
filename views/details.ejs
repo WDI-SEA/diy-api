@@ -1,11 +1,20 @@
     <div class='well'>
-        <img src="<%= character.img_icon %>" width='50%'/>
-        <h2><%= character.name %></h2>
-        <p><%= character.season %></p>
-        <p><%= character.description %></p>
-        <p><%= character.type %></p>
-        
-        <div style="width: 50vw; margin-left: 25vw;">
+        <div id="img">
+            <img src="<%= character.img_icon %>" width='50%'/>
+        </div>   
+        <div id="details">
+             <h2 id="character-name"><%= character.name %></h2>
+            <p> seasons: <%= character.season %></p>
+            <p>Description: <%= character.description %></p>
+            <p>Type: <%= character.type %></p>
+            <div id="delete">
+                <form method="POST" action="/characters/<%=character.id%>/?_method=DELETE">
+                    <input type="submit" value="Delete" />
+                </form>
+            </div>
+        </div>
+           
+        <div class="edit-form">
             <p>Edit this Character:</p>
             <form method="POST" action="/characters/<%=character.id%>/?_method=PUT">
                 <label>Name:</label>
@@ -19,7 +28,7 @@
                 <label>Image Url:</label>
                 <input type="text" name="img_icon" value="<%= character.img_icon %>" required>
         
-                <input type="submit">
+                <input type="submit" />
             </form>
             </div>
     </div>

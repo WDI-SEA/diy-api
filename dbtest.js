@@ -25,7 +25,7 @@ const upDate = async () => {
          console.log(err)
      }
  }
-upDate()
+// upDate()
 const destroy = async () => {
     try {
         await db.character.destroy({

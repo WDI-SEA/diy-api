@@ -1,7 +1,10 @@
+const { Router } = require('express')
 const express = require('express')
 const ejsLayouts = require('express-ejs-layouts')
 const db = require('./models')
 const character = require('./models/character')
+const methodOverride = require('method-override');
+
 
 
 const app = express()
@@ -11,7 +14,7 @@ app.set('view engine', 'ejs')
 app.use('/public', express.static('public'));
 app.use(express.urlencoded({ extended: false }))
 app.use(ejsLayouts)
-
+app.use(methodOverride('_method'));
 // routs
 
 app.get('/', (req, res) => {
@@ -74,6 +77,17 @@ app.get('/characters/:id', async (req, res) => {
         console.log(err)
     }
 }) 
+// DESTROY
+app.delete('/characters/:id', async (req,res) => {
+    try {
+       const deleteCharacter = await db.character.destroy({
+            where: { id: req.params.id }
+        })
+        res.redirect('/characters')
+    }catch(err){
+        console.log(err)
+    }
+})
 
 
 app.listen(port, () => {

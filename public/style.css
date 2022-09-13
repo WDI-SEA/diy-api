@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Ms+Madi&family=Raleway:ital@1&display=swap');
+body {
+    text-align: center;
+    display: grid;
+    justify-content: center;
+    font-family: 'Raleway', sans-serif;
+    background-image: url("https://data.whicdn.com/images/320151779/original.png");
+    background-repeat: repeat;
+    background-position: center; /* Center the image */
+    width: 100vw;
+
+}
+a {
+    color: rgb(219, 206, 192);
+}
+.container {
+    margin-top: 50px;
+    position: relative;
+    display: block;
+    width: 100vw;
+}
+#logo {
+    background-color: rgba(136, 145, 143, 0.5);
+    padding: 10px;
+}
+#tvd-logo {
+    position: absolute;
+    left: 30%;
+    top: 150px;
+}
+#title-p2 {
+    margin-top: 170px;
+    text-shadow: 2px 2px black;
+    color: rgb(177, 15, 42);
+}
+.description {
+    display: block;
+    height: 200px;
+    background-color: rgba(136, 145, 143, 0.5);
+    padding: 10px;
+    font-size: 20px;
+    color:rgb(0, 0, 0);
+}
+.well {
+    display: grid;
+    justify-items: center;
+    background-color: rgba(136, 145, 143, 0.5);
+    padding: 10px;
+    font-size: 20px;
+    color:rgb(0, 0, 0);
+    margin-top: -20px;
+}
+.links {
+    display: flex;
+    justify-content: flex-start;
+    margin: 30px;
+    margin-left: 60px;
+    padding: 10px;
+    height: 20px;
+    width: 40px;
+    background-color: rgb(43, 43, 43);
+    border-radius: 10px;
+    color: beige;
+}
+
+#galery {
+    background-color: rgb(43, 43, 43);
+    margin-left: 35%;
+    border-radius: 10px;
+    text-align: center;
+    height: 45px;
+    width: 300px;
+}
+#add {
+    display: grid;
+    align-self: center;
+    background-color: rgb(43, 43, 43);
+    text-align: center;
+    border-radius: 10px;
+    color: beige;
+    width: 200px;
+    height: 30px;
+    margin: 20px;
+
+}
+.titles {
+    font-family: 'Ms Madi', cursive;
+    font-size: 100px;
+    color: beige;
+    margin-top: -10px;
+}
+#character-name {
+    font-family: 'Ms Madi', cursive;
+    font-size: 45px;
+    color: beige;
+}
+/* #edit-form {
+    width: 
+} */
