@@ -6,8 +6,5 @@
         <a href="/gods/<%= god.id %>"><%= god.name %></a>
       </h2>
       <a href="/gods/edit/<%= idx %>"> Edit </a>
-      <form method="POST" action="/gods/<%= idx %>/?_method=DELETE">
-        <input type="submit" value="Delete">
-    </form>
     </div>
   <% }); %>

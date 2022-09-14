@@ -40,7 +40,7 @@ router.post('/', (req, res) => {
       res.render('gods/show', { god: god })
     })
     .catch((error) => {
-      res.status(400).render('main/404')
+      res.send('server error')
     })
   })
 
@@ -63,10 +63,10 @@ router.put('/:id', async (req, res) => {
       })
     const updateGod = await scrollBy.god.update({
         name: req.body.name,
-        godOf: reqbody.godOf,
+        godOf: req.body.godOf,
         img_url: req.body.img_url
     })
-    res.redirect(`/gods/${req.params.id}`)
+    res.redirect(`/gods`)
     } catch (err) {
         console.log(err)
         res.send('server error, the gods are at it again')
