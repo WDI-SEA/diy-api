@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
   
 // GET /threads/new - display form for creating new threads
 router.get('/new', (req, res) => {
-    res.render('thread/new')
+    res.send("hi")
 })
 
 // POST /thread - create a new post
