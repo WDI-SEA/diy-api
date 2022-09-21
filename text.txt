@@ -1,15 +1,15 @@
 user Table:
-userName: STRING,
-userId: INT
+name: STRING,
+age: INT,
+gender: string
 
-sequelize model:create --name user --attributes userName:string
+sequelize model:create --name student --attributes name:string,age:integer,gender:string
 
 ///////////////////////////////////////
 
 Posts Table:
-postId: INT
-userId: INT
-caption:VARCHAR(90)
-imageUrl:VARCHAR(500)
+schoolName: INT
+studentId: INT
 
-sequelize model:create --name post --attributes userId:integer,caption:string,imageUrl:string
+
+sequelize model:create --name school --attributes studentId:integer,schoolName:string

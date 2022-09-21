@@ -1,0 +1,19 @@
+<h1> show me the child: </h1>
+
+<form method="GET" action="/students/">
+    <lable for="search"></lable>
+    <input type="text"  id="search" name="studentSearch" />
+    <input type="submit" />
+  </form>
+
+  <% students.forEach(function(student) { %>
+    <div>
+      <a href="/students/<%= student.id %>">
+        <h3><%= student.name %></h3>
+      </a>
+    </div>
+  <% }) %>
+
+
+
+  <a href="/students/new">Enroll New Student</a>
