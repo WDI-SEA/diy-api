@@ -1,0 +1,28 @@
+<%- include('./partials/header.ejs')%>
+<main class="min-vh-100">
+  <form class="container" method="POST"action="/blogs">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        aria-describedby="emailHelp"
+        name="title"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="content" class="form-label">Content</label>
+      <input type="text" class="form-control" id="content" name="content" />
+    </div>
+
+    <select name="authorId" class="form-select mb-3">
+      <option selected>Select Author Id</option>
+      <option value="1">Author 1</option>
+      <option value="2">Author 2</option>
+      <option value="3">Author 3</option>
+    </select>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</main>
+<%- include('./partials/footer.ejs')%>

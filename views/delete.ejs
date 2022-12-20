@@ -1,0 +1,10 @@
+<%-include('./partials/header.ejs')%>
+<main class="min-vh-100">
+  <form method="post" action="/delete">
+    <select name="" id="">
+      <input type="hidden" name="_method" value="DELETE" />
+      <input type="number" placeholder="Choose number to delete" name="blogId" />
+    </select>
+  </form>
+</main>
+<%-include('./partials/footer.ejs')%>
