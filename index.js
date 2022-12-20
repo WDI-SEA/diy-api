@@ -1,11 +1,12 @@
 const express = require('express')
 const app = express()
-app.set('view engine', 'ejs')
 const PORT = 8000
 const db = require('./models')
 const methodOverride = require('method-override')
 
+app.set('view engine', 'ejs')
 app.use(methodOverride('_method'))
+app.use(express.urlencoded({ extended: false }))
 
 app.get('/', async(req, res) => {
   try {
@@ -19,14 +20,10 @@ app.get('/', async(req, res) => {
 app.post('/', async(req, res) => {
   try {
     await db.workout.create({
-      // name: req.body.name,
-      // date: req.body.date,
-      // weight: req.body.weight,
-      // reps: req.body.reps
-      name: 'Bicep Curls',
-      date: '12/19/2022',
-      weight: '25',
-      reps: '8'
+      name: req.body.name,
+      date: req.body.date,
+      weight: req.body.weight,
+      reps: req.body.reps
     })
     res.send('created new record')
   } catch (error) {
@@ -48,6 +45,9 @@ app.get('/:id', async(req, res) => {
 app.put('/:id', async(req, res) => {
   try {
     await db.workout.update({
+      name: req.body.name,
+      date: req.body.date,
+      weight: req.body.weight,
       reps: req.body.reps
     }, {
       where: {
