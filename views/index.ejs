@@ -1,0 +1,21 @@
+<form method="GET" action="/customers">
+    <label for="nameFilter">Filter by Name</label>
+    <input type="text" name="nameFilter" id="nameFilter" />
+    <input type="submit" />
+  </form>
+  
+  <!-- Index is a route (URL) that lists all items of a specific type -->
+  <!-- this will loop thorugh each dino -->
+
+    <!-- (the item, the index of where item lives) -->
+    <% customers.forEach((customer, index) => { %>
+    <li><%= customer.name %></li>
+    <!-- delete form to remove dino from db -->
+    <form method="POST" action="/customers<%= index %>/?_method=DELETE">
+      <button type="submit">Delete</button>
+    </form>
+    <!-- link to a page that will show an edit form for this dino -->
+    <a href="/customers/<%= index %>/edit">edit</a>
+    <% }); %>
+  </ul>
+  

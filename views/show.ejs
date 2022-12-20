@@ -1,0 +1,9 @@
+  <a href="/customers/new"> Enter a New Customer</a>
+  <ul>
+<ul>
+    <% customers.forEach(customer =>{%>
+     <li> <%=  customer.name%> has purchased   bookID:<%= customer.bookId%>.    Quanity of <%= customer.quanity%>.</li>
+     
+    
+    <% })%>
+ </ul> 
