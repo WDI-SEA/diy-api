@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   planet.init({
     name: DataTypes.STRING,
-    mass: DataTypes.INTEGER,
+    mass: DataTypes.DOUBLE,
     type: DataTypes.STRING
   }, {
     sequelize,

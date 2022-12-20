@@ -13,7 +13,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       mass: {
-        type: Sequelize.INTEGER
+        type: Sequelize.DOUBLE
       },
       planetId: {
         type: Sequelize.INTEGER

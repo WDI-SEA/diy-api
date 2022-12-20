@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   moon.init({
     name: DataTypes.STRING,
-    mass: DataTypes.INTEGER,
+    mass: DataTypes.DOUBLE,
     planetId: DataTypes.INTEGER
   }, {
     sequelize,
