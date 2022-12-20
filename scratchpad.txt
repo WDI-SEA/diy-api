@@ -1,0 +1,2 @@
+sequelize model:create --name cocktail --attributes name:text,alcoholType:text,mixer:text,alcohol:integer
+
