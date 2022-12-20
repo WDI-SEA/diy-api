@@ -1,0 +1,17 @@
+Planets - Moons 1:M
+
+planets table
+-------------
+name: string
+mass: integer
+type: string
+
+moons table
+-------------
+name: string
+mass: integer
+planetId: integer
+
+sequelize model:create --name planet --attributes name:string,mass:integer,type:string
+
+sequelize model:create --name moon --attributes name:string,mass:integer,planetId:integer
