@@ -1,6 +1,6 @@
 <%-include('./partials/header.ejs')%>
 <main class="min-vh-100">
-  <form method="post" action="/delete">
+  <form method="post" action="/delete?_method=DELETE">
     <select name="" id="">
       <input type="hidden" name="_method" value="DELETE" />
       <input type="number" placeholder="Choose number to delete" name="blogId" />
