@@ -1,0 +1,7 @@
+{
+  "development": {
+    "database": "fav_music",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
