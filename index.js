@@ -8,7 +8,7 @@ app.set('view engine', 'ejs')
 app.use(methodOverride('_method'))
 app.use(express.urlencoded({ extended: false }))
 
-app.get('/', async(req, res) => {
+app.get('/', async (req, res) => {
   try {
     const allWorkouts = await db.workout.findAll()
     res.send(allWorkouts)
@@ -17,7 +17,7 @@ app.get('/', async(req, res) => {
   }
 })
 
-app.post('/', async(req, res) => {
+app.post('/', async (req, res) => {
   try {
     await db.workout.create({
       name: req.body.name,
@@ -31,7 +31,7 @@ app.post('/', async(req, res) => {
   }
 })
 
-app.get('/:id', async(req, res) => {
+app.get('/:id', async (req, res) => {
   try {
     const workout = await db.workout.findOne({
       where: { id: req.params.id }
@@ -42,18 +42,21 @@ app.get('/:id', async(req, res) => {
   }
 })
 
-app.put('/:id', async(req, res) => {
+app.put('/:id', async (req, res) => {
   try {
-    await db.workout.update({
-      name: req.body.name,
-      date: req.body.date,
-      weight: req.body.weight,
-      reps: req.body.reps
-    }, {
-      where: {
-        id: req.params.id
+    await db.workout.update(
+      //   {
+      //   name: req.body.name,
+      //   date: req.body.date,
+      //   weight: req.body.weight,
+      //   reps: req.body.reps
+      // }
+      req.body,
+      {
+        where: {
+          id: req.params.id
+        }
       }
-    }
     )
     res.send('updated')
   } catch (error) {
@@ -61,7 +64,7 @@ app.put('/:id', async(req, res) => {
   }
 })
 
-app.delete('/:id', async(req, res) => {
+app.delete('/:id', async (req, res) => {
   try {
     await db.workout.destroy({
       where: { id: req.params.id }
