@@ -1,0 +1,27 @@
+{
+  "name": "diy-api",
+  "version": "1.0.0",
+  "description": "## **Deliverable**:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fmher/diy-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fmher/diy-api/issues"
+  },
+  "homepage": "https://github.com/fmher/diy-api#readme",
+  "dependencies": {
+    "axios": "^1.2.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "pg": "^8.8.0",
+    "sequelize": "^6.27.0"
+  }
+}
