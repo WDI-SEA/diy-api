@@ -1,0 +1,21 @@
+<div>
+    <h2>Add a car: </h2>
+    <form method ='POST' action="/cars">
+        <label for="make">Make:</label>
+        <input id ='make' type = 'text' placeholder="make of car" name="make" required/>
+        <label for="model">Model:</label>
+        <input id ='model' type = 'text' placeholder="model of car" name="model" required/>
+        <label for="year">Year:</label>
+        <input id ='year' type = 'text' placeholder="year of car" name="year" required/>
+        <button type ='submit'>Add your car</button>
+    </form>
+</div>
+<h1>Inventory of all brands available: </h1>
+<div>
+    <ul>
+
+        <%cars.forEach(function(car){%>
+            <p><a href="/cars/<%=car.id%>"><%=car.make%></a></p>
+        <%})%>
+    </ul>
+</div>

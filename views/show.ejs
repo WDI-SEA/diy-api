@@ -1,0 +1,18 @@
+<a href="/">Home</a>
+<h1><%=car.make%> description: </h1>
+    
+    <p><%=car.make%></p>
+    <p><%=car.model%></p>
+    <p><%=car.year%></p>
+    <form method="POST" action="/cars/<%=car.id%>/?_method=PUT">
+        <label for="make">Update make: </label>
+        <input id="make" type="text" name="make" value="<%=car.make%>"/>
+        <label for="model">Update model: </label>
+        <input id="model" type="text" name="model" value="<%=car.model%>"/>
+        <label for="year">Update year: </label>
+        <input id="year" type="text" name="year" value="<%=car.year%>"/>
+        <button type="submit">Update</button>
+    </form>
+    <form method="POST" action="/cars/<%=car.id%>/?_method=DELETE">
+        <button type="submit">Delete this Vehicle</button>
+    </form>
