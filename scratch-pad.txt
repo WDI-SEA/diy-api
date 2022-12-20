@@ -1,0 +1,11 @@
+SQL Table: gym membership
+
+first name: VARCHAR(255)
+last name: VARCHAR(255)
+age: INT
+email: VARCHAR(255)
+
+// anatomy of the model create command
+sequelize model:create --name (name of the table singular) --attributes colName:dataType,colName:dataType
+
+sequelize model:create --name user --attributes firstName:string,lastName:string,age:integer,email:string
