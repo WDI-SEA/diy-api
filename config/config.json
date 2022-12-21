@@ -1,0 +1,7 @@
+{
+  "development": {
+    "database": "databus_of_things",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}

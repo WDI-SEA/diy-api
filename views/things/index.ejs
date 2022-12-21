@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Click <a href="things/new">here</a> to make a new thing</h1>
+    <h1>things:</h1>
+
+    <% things.forEach((e) => { %>
+        <p>Name: <a href="/things/<%= e.id %>"><%= e.name %></a></p>
+        <p>Age: <%= e.age %></p>
+        <p>Backstory: <%= e.backstory %></p>
+        <p>Is it a reference? <%= e.reference %></p>
+        <p>If it was: <%= e.ifyes %></p>
+        <img src="<%= e.image %>" alt="image of <%= e.name %>">
+        <form method="PUSH" action="/things/<%= e.id %>/?_method=DELETE">
+            <button type="submit">Delete</button>
+        </form>
+   <% }) %>
+</body>
+</html>

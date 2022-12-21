@@ -1,0 +1,1 @@
+sequelize model:create --name thing --attributes name:string,age:integer,backstory:string,reference:boolean,ifyes:string,image:string,estimatedheight:string

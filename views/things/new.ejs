@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Thing Creator</h1>
+    <a href="/index/"><p>See the things!</p></a>
+    <form action="/things/new" method="POST">
+        <div>
+        <label for="name">Name:</label>
+        <input required id="name" placeholder="Jerry" type="text" name="name" />
+        </div>
+        <div>
+        <label for="age">Age:</label>
+        <input required id="age" placeholder="2000" type="integer" name="age" />
+        </div>
+        <div>
+        <label for="backstory">Backstory:</label>
+        <input required id="backstory" placeholder="Once upon a time a long long time ago there was a ..." type="text" name="backstory" />
+        </div>
+        <div>
+        <label for="reference">Is it a Reference? (type t or f)</label>
+        <input required id="reference" placeholder="f" type="string" name="reference" />
+        </div>
+        <div>
+        <label for="ifyes">If Yes:</label>
+        <input required id="ifyes" placeholder="Blahblah bob loblaw" type="text" name="ifyes" />
+        </div>
+        <div>
+        <label for="image">Image URL:</label>
+        <input required id="image" placeholder=".pmg/.htp/.www" type="text" name="image" />
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
