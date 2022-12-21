@@ -1,0 +1,32 @@
+DIY API
+
+Steps to starting a node project:
+- NPM init -y
+    makes package.json
+- install packages
+    pg, sequelize, axios, express, ejs
+- add node_modules to gitignore
+    echo "node_modules" >> .gitignore
+- touch index.js
+- Require packages
+    express, axios, create app variable
+- set EJS as view engine
+    app.set('view engine', 'ejs')
+- set up port
+    declare port #, app.listen(port, arrow fxn and console.log)
+
+SEQUELIZE:
+- sequelize init (IN MAIN DIRECTORY)
+sequelize model:create --name constellation --attributes name:string,pic:string,description:text
+
+- Create views folders and ejs files
+
+
+
+ROUTES:
+
+GET list of all constellations
+POST a new constellation to favorites
+GET details on a specific constellation
+PUT update a specific constellation
+DELETE a constellation from favorites
