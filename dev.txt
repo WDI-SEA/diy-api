@@ -1,0 +1,43 @@
+// const express = require('express')
+// const app = express()
+// Port = 3000;
+// app.use(express.json())
+
+
+// app.get('/', (req, res) => {
+//     res.send({
+//         Categories: 'Hard Candy, Licorice, Taffy, BubbleGum, Jelly Beans'
+//     })
+// });
+
+// app.post('/Hard Candy', (req, res) => {
+//  ]
+    
+//     if(!logo) {
+//         res.status(404).send({
+//             message: 'We need a logo)'
+//         })
+//     }
+
+//     res.send({
+//         Hard Candy: `${logo} and ID of ${id}`
+//     })
+})
+
+
+
+
+
+
+
+
+// app.listen(Port, () => 
+//     console.log(`listening on port ${Port}`)
+// )
+
+
+Planning: 
+
+sequelize model:create --name planet --attributes name:string,mass:integer,type:string
+
+sequelize model:create --name moon --attributes name:string,mass:integer,planetId:integer
