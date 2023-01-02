@@ -1,0 +1,8 @@
+
+<h1>All Artists</h1>
+
+<% artists.forEach(artist => { %>
+    <h4>Artist: <%= artist.name %></h4>
+    <h5>Style: <%= artist.style %></h5>
+    <h5>Paintings: <a href="#"><img src="<%= artist.paintings.img_url %>"></a></h5>
+<% }) %>

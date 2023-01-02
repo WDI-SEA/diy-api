@@ -1,0 +1,19 @@
+// create table
+
+artist
+_______
+name: string
+style: string
+paintingId: integer
+
+
+painting
+___________
+name: string
+style: string
+img_url: string
+artistId: integer
+
+sequelize model:create --name artist --attributes name:string,style:string,paintingId:integer
+
+sequelize model:create --name painting --attributes name:string,style:string,img_url:string,artistId:integer
