@@ -3,17 +3,19 @@ const app = express();
 const axios = require('axios');
 const PORT = 3001
 
-app.set('view engine', 'ejs');
+app.use(express.urlencoded({ extended: false}))
 
-app.use(express.static('static'));
-
-app.get('/', (req, res) => {
-    res.send('hello, starting page!')
+app.get('/', (req, res)=> {
+    res.json({
+        message: 'Welcom to theee api'
+    })
 })
 
 
 
+app.use('/planets', require('./controllers/planets.js'))
+
 
 app.listen(PORT, () => {
-    console.log('hello!')
+    console.log('hello hello from', PORT)
 })
