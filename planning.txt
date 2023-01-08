@@ -1,0 +1,23 @@
+animals table
+------------
+scientific_name: string
+species: string
+breeds: string
+origin: string
+
+
+sequelize db:create
+
+sequelize model:create --name animal --attributes scientific_name:string,species:string,breed:string,origin:string
+
+
+| Method | Action      | URL                 | Functionality         |
+|--------|:-----------:|:-------------------:|:----------------------|
+| GET    | index       | /animals            | list all animals      |
+| POST   | create      | /animals            | add one animal        |
+| GET    | detail/show | /animals/:id        | show one animal       |
+| GET    | detail/show | /animals/cat/:breed | show one cat breed    |
+| PUT    | update      | /animals/:id        | update one animal     |
+| DELETE | delete      | /animals/:id        | delete one animal     |
+
+
