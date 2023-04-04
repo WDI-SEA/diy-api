@@ -53,6 +53,10 @@ Using what you have learned about Express, Express Routing, RESTful routing, CRU
 3. Link your model to your server.
 4. Update your routes and make the magic happen!
 
+For the mvp of this deliverable, your `DIY API` just needs to conform to `REST` standards and serve JSON from its endpoints. 
+
+Using thunderclient, you can use the `Form-encode` tab in the `Body` of a request to send a payload of form data to your epxress app. This will useful for your `PUT` and `POST` routes.
+
 -------
 
 ## Bonus:
@@ -61,5 +65,6 @@ Using what you have learned about Express, Express Routing, RESTful routing, CRU
     * Show all elements from second model that relate to your element from first model at :id. 
     * Add a new element to your original model that include related elements from this second model at :id.
 2. Add PUT and DELETE functionality to your second model
+3. Add views to your API.
 3. Add a third model to your API, that has a M:M relationship to one one the other two models. Support GET and POST functionality.
 4. Add UPDATE and DELETE to your functionality to your M:M model.
