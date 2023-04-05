@@ -1,0 +1,11 @@
+<% species.forEach(function(species) { %>
+    <h1><a href="<%=species.url%>" target="_blank"><%= species.name %></a></h1>
+    <img src="<%=species.img_src_set['1.5x']%>" alt="Sorry we don't have an available image"/>
+    <form method="POST" action="caught">
+        <label>Caught this fish? Save your stats</label>
+        <input hidden type="text" name="name" value="<%=species.name%>">
+        <input type="number" name="length" placeholder="Length in inches">
+        <input type="number" name="weight" placeholder="Weight in pounds">
+        <button type="submit">Submit</button>
+    </form>
+<% }); %>

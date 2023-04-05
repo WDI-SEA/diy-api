@@ -1,0 +1,29 @@
+<h1>Your Personal Best</h1>
+
+<% allFish.forEach(pb => { %>
+<ul></ul>
+    <li><a href="<%=pb.url%>" target="_blank"><%= pb.name %></a></li>
+    <li><%=pb.length%></li>
+    <li><%=pb.weight%></li>
+    <form method="POST" action="/caught/edit">
+        <input type="hidden" name="id" value="<%= pb.id %>">
+        <input type="number" name="length" value="<%= pb.length %>">
+        <button type="submit">Update Length</button>
+      </form>
+    </li>
+    <li>
+      <form method="POST" action="/caught/edit">
+        <input type="hidden" name="id" value="<%= pb.id %>">
+        <input type="number" name="weight" value="<%= pb.weight %>">
+        <button type="submit">Update Weight</button>
+      </form>
+    </li>
+    <li>
+      <form method="POST" action="/caught/delete">
+        <input type="hidden" name="id" value="<%= pb.id %>">
+        <button type="submit">Delete</button>
+      </form>
+    </li>
+</ul>
+
+<% }) %>
