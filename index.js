@@ -28,13 +28,25 @@ app.get('/cocktails', async (req,res) => {
     }
 })
 
-//POST /-- add a cocktail to the list
+//POST /-- add a cocktail & spirit to the list
 app.post('/cocktails',async (req,res) =>{
     try{
     const cocktail = await db.cocktail.create(
         req.body
     )
     res.json(cocktail)
+    } catch(err) {
+        console.log(err)
+    }
+})
+
+app.post('/spirit',async (req,res) =>{
+    try{
+    const spirit = await db.spirit.create(
+        req.body
+    )
+    console.log(req.body, "heyyy Im here")
+    res.json(spirit)
     } catch(err) {
         console.log(err)
     }

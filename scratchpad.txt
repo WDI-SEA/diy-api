@@ -1,3 +1,7 @@
 Creating Model
 ----------------
 sequelize model:create --name cocktail --attributes name:string,recipe:string,garnish:string,glassware:string
+
+second model
+--------------
+sequelize model:create --name spirit --attributes brand:string,type:string,origin:string
