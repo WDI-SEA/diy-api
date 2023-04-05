@@ -1,0 +1,3 @@
+Creating Model
+----------------
+sequelize model:create --name cocktail --attributes name:string,recipe:string,garnish:string,glassware:string
