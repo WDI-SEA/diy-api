@@ -52,15 +52,30 @@ router.post("/", (req, res) => {
     res.redirect(`/baseball`)
 })
 
+router.get("/:id/edit", (req, res) => {
+    teamId = req.params.id;
+    db.baseball.findOne({
+        where: { id: teamId }
+    })
+    .then((baseballs) => {
+        console.log(baseballs)
+        res.render("baseball/edit.ejs", 
+        {baseballs: baseballs})
+    })
+    console.log(req.params)
+})
+
 router.put("/:id", async (req, res) => {
-    console.log(req.body)
+    console.log("body", req.body)
+    console.log("params", req.params)
     await db.baseball.update({
         team: req.body.team,
         location: req.body.location,
         championships: parseInt(req.body.championships)
     }, {
-        where: {id: req.body.id}
+        where: {id: parseInt(req.body.id)}
 })
+    res.redirect(`/baseball`)
     // res.send("update team info")
 
 })

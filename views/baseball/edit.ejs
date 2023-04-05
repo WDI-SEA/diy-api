@@ -1,0 +1,13 @@
+<%- include("../partials/header") %>
+<form method="POST" action="/baseball/<%=baseballs.id%>/?_method=PUT">
+    <label for="newTeamName">New team name:</label>
+        <input id="newTeamName" type="text" name="team" value="<%=baseballs.team%>"/>
+    <label for="newTeamLocation">New team location:</label>
+     <input id="newTeamLocation" type="text" name="location" value="<%=baseballs.location%>"/>
+     <label for="newTeamChampionships">New team championships:</label>
+    <input type="number" name="championships" value="<%=baseballs.championships%>"/>
+    <input hidden type="number" name="id" value="<%=baseballs.id%>"/>
+    <button type="submit">Submit</button>
+</form>
+<h4><a href="/baseball">All teams</a></h4>
+<%- include("../partials/footer") %>
