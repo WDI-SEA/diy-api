@@ -29,31 +29,36 @@ router.post('/', async (req, res) => {
 router.put('/:SizeRank', async (req, res) => {
   const { SizeRank } = req.params;
 
-  try {
-    const [numUpdated] = await db.homevalues.update(
-      { sizerank: 1 },
-      { where: { sizerank: SizeRank } }
-    );
+  const [numUpdated] = await db.homevalues.update(
+    { sizerank: 1 },
+    { where: { sizerank: SizeRank } }
+  );
 
-    if (numUpdated === 0) {
-      return res.status(404).send(`SizeRank ${SizeRank} not found.`);
-    }
-
-    res.json({ message: `Updated SizeRank ${SizeRank}.` });
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Error updating home value.');
+  if (numUpdated === 0) {
+    return res.status(404).send(`SizeRank ${SizeRank} not found.`);
   }
+
+  res.json({ message: `Updated SizeRank ${SizeRank}.` });
 });
 
 
-router.delete('/:id', (req, res) => {
-  db.user.destroy({
-    where: { firstName: 'Brian' }
-  }).then(numRowsDeleted=>{
-      console.log(numRowsDeleted)
-    // do something when done deleting
-      process.exit()
-  });})
+
+router.delete('/:SizeRank', async (req, res) => {
+  const { SizeRank } = req.params;
+
+  try {
+    const numDeleted = await db.homevalues.destroy({ where: { sizerank: "1" } });
+
+    if (numDeleted === 0) {
+      return res.status(404).send(`No SizeRank ${SizeRank} found to delete.`);
+    }
+
+    res.json({ message: `Deleted SizeRank ${SizeRank}.` });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Error deleting home value.');
+  }
+});
+
 
 module.exports = router
