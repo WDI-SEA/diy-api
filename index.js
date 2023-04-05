@@ -4,7 +4,8 @@ const app = express();
 const PORT = 8000;
 
 //Config for db & models
-const db = require('./models')
+const db = require('./models');
+const cocktail = require('./models/cocktail');
 
 //middleware
 app.use(express.urlencoded({ extended: false }))
@@ -14,55 +15,75 @@ app.use(express.urlencoded({ extended: false }))
 app.get('/', (req,res) => {
     res.send("This is the homepage")
 })
-//Get / -- home route for the page & list all cocktails 
-app.get('/cocktails', (req,res) => {
 
-    res.json("Cocktails Home Page")//json to send back in the format
+//Get /cocktails --  page list all cocktails 
+app.get('/cocktails', async (req,res) => {
+    try{
+        //const data = req.body
+        const allCocktails = await db.cocktail.findAll()
+        res.json(allCocktails)//json to send back in the format
+
+    } catch(err) {
+        console.log(err)
+    }
 })
 
 //POST /-- add a cocktail to the list
 app.post('/cocktails',async (req,res) =>{
     try{
-    console.log(req.body,"request body")
     const cocktail = await db.cocktail.create(
         req.body
-    //     {
-    //     name: req.body.name,
-    //     recipe: req.body.recipe,
-    //     glassware: req.body.glassware,
-    //     garnish: req.body.garnish
-    // }
     )
     res.json(cocktail)
     } catch(err) {
         console.log(err)
     }
-
-//     }).then((cocktail) => {
-
-//         console.log(cocktail)
-
-//     }).catch((error) => {
-
-//         console.log(error)
-//     })
-  // res.json(cocktails)
 })
 
 //GET /:id -- this will list the details and show info pertaining to one cocktail
-app.get('/cocktails/:id', (req,res) => {
-    res.send(" This is where X cocktail will show")
+app.get('/cocktails/:id', async (req,res) => {
+    try {
+        const id = req.params.id
+        const cocktailInfo = await db.cocktail.findOne({where: {id}})
+        
+        res.json(cocktailInfo)
+
+    }catch (err) {
+        console.log(err)
+    }
+
 })
 
 //PUT /:id --This is where user can update a cocktail/ add addition
-app.put('/cocktails/:id', (req,res) => {
-    res.send("Update the cocktails Here")
+app.put('/cocktails/:id', async (req,res) => {
+    try {
+        const id = req.params.id
+        const data = req.body
+        const updateCocktail = await db.cocktail.update(data, {
+            where: { id }
+            
+        })
+        
+        res.json(data)
+
+    }catch (err) {
+        console.log(err)
+    }
+
 })
 
 
 //DELETE /:id -- Delete the cocktails 
-app.delete('/cocktails/:id', (req,res) =>{
-    res.send("Functionality to delete cocktails here")
+app.delete('/cocktails/:id', async (req,res) =>{
+    try{
+        const id = req.params.id
+        const cocktail = await db.cocktail.destroy({where: {id}})
+        res.json(cocktail)
+        
+
+    }catch(err){
+        console.log(err)
+    }
 })
 
 
