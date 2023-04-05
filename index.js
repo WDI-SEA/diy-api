@@ -23,11 +23,11 @@ app.post('/books', async (req, res) => {
     try {
         const [book] = await db.book.findOrCreate({
             where: {
-                title: 'Warmage'
+                title: 'The Road to Sevendor'
             },
             defaults: {
-                readOrder: 2,
-                length: 747
+                readOrder: 3.5,
+                length: 1012
             }
         })
         res.json(book)
@@ -50,17 +50,31 @@ app.get('/books/:id', async (req, res) => {
 
 // PUT	update	/widgets/:id	update one widget
 app.put('/books/:id', async (req, res) => {
-    const numOfChanges = await db.book.update({ length: 477 }, {
-        where: {
-            title: 'Spellmonger'
-        }
-    })
-    console.log(numOfChanges)
+    try {
+        const numOfChanges = await db.book.update({ length: 477 }, {
+            where: {
+                title: 'Spellmonger'
+            }
+        })
+        console.log(numOfChanges)
+        res.send('book updated')
+    } catch (err) {
+        console.log(err)
+        res.status(500).send('Server Rrror 🦖')
+    }
 })
 
 // DELETE	delete	/widgets/:id	delete one widget
-app.delete('/books/:id', (req, res) => {
-    res.send('delete one of the books')
+app.delete('/books/:id', async (req, res) => {
+    try {
+        const victim = await db.book.findByPk(req.params.id)
+        victim.destroy()
+        console.log(victim)
+        res.send('book destroyed')
+    } catch (err) {
+        console.log(err)
+        res.status(500).send('Server Rrror 🦕')
+    }
 })
 
 app.listen(PORT, () => { console.log(`Server running on ${PORT} 🚒`)})
