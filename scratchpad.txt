@@ -1,0 +1,7 @@
+BOOKS TABLE => book model
+-------------------------
+title: VARCHAR(255) => string
+readOrder: INT => integer
+length: INT => integer
+
+sequelize model:create --name book --attributes title:string,readOrder:integer,length:integer
