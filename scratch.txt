@@ -1,0 +1,5 @@
+sequelize model:create --name pet --attributes name:string,species:string,description:text,userId:integer
+
+sequelize model:create --name homevalues --attributes regionid:integer,sizerank:integer,regionname:string,regiontype:string,statename:string,basedate:integer,value2022:integer,value2023:integer,value2024:integer
+
+\copy homevalues from '/Users/juanecabrera/seir-306/unit2/diy-api/zillowdata.csv' delimiter ',' CSV HEADER;
