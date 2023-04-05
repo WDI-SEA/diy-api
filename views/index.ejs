@@ -1,0 +1,11 @@
+<h1>Welcome to Finda</h1>
+<form method="GET" action="/result">
+    <label for="search">Search for a species</label>
+    <input id="search" name="fishSearch" type="text" />
+    <button type="submit">Search</button>
+</form>
+<%console.log(fish.url)%>
+<% fish.forEach(function(fish) { %>
+      <p><a href="<%=fish.url%>" target="_blank"><%= fish.name %></a></p>
+      <img src="<%=fish.img_src_set['1.5x']%>" />
+  <% }); %>
