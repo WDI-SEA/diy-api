@@ -1,0 +1,8 @@
+JimmyEatWorld Records
+
+
+| id | title | release_date | record_label| artwork_url |
+-------------------------------------------
+|PK  | VARCHAR | date       | VARCHAR | text |
+
+sequelize model:create --name album --attributes title:string,release_date:date,record_label:string,artwork_url:text
