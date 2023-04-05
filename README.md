@@ -53,7 +53,7 @@ Using what you have learned about Express, Express Routing, RESTful routing, CRU
 3. Link your model to your server.
 4. Update your routes and make the magic happen!
 
-For the mvp of this deliverable, your `DIY API` just needs to conform to `REST` standards and serve JSON from its endpoints. 
+For the mvp of this deliverable, your `DIY API` just needs to conform to `REST` standards and serve JSON from its endpoints. (In express routes, use `res.json()`)
 
 Using thunderclient, you can use the `Form-encode` tab in the `Body` of a request to send a payload of form data to your epxress app. This will useful for your `PUT` and `POST` routes.
 
