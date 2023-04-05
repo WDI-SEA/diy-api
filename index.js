@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const db = require('./models')
 const PORT = 3000
 
 app.get('/', (req, res) => {
@@ -7,13 +8,32 @@ app.get('/', (req, res) => {
 })
 
 // GET	index	/widgets	list all widgets
-app.get('/books', (req, res) => {
-    res.send('This should be the book list')
+app.get('/books', async (req, res) => {
+    try {
+        const books = await db.book.findAll()
+        res.json(books)
+    } catch (err) {
+        console.log(err)
+        res.status(500).send('Server Rrror 🦖')
+    }
 })
 
 // POST	create	/widgets	add a widget
-app.post('/books', (req, res) => {
-    res.send('this adds a book to the list/db')
+app.post('/books', async (req, res) => {
+    try {
+        const [book] = await db.book.findOrCreate({
+            where: {
+                title: 'Warmage'
+            },
+            defaults: {
+                readOrder: 2,
+                length: 747
+            }
+        })
+    } catch (err) {
+        console.log(err)
+        res.status(500).send('Server Rrror 🦖')
+    }
 })
 
 // GET	detail/show	/widgets/:id	show one widget
