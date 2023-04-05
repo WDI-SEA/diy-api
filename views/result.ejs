@@ -4,8 +4,8 @@
     <form method="POST" action="caught">
         <label>Caught this fish? Save your stats</label>
         <input hidden type="text" name="name" value="<%=species.name%>">
-        <input type="integer" name="length" placeholder="Length in inches">
-        <input type="integer" name="weight" placeholder="Weight in pounds">
+        <input type="number" name="length" placeholder="Length in inches">
+        <input type="number" name="weight" placeholder="Weight in pounds">
         <button type="submit">Submit</button>
     </form>
 <% }); %>
