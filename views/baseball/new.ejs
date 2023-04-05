@@ -1,0 +1,13 @@
+<%- include("../partials/header") %>
+<h1>Create New Team:</h1>
+<form method="POST" action="/baseball/<%=baseballs.id%>">
+    <label for="newTeam">Team name:</label>
+    <input id="newTeam" type="text" name="team" placeholder="Team name"/>
+    <label for="newTeamLocation">Team location:</label>
+    <input id="newTeamLocation" type="text" name="location" placeholder="Team location"/>
+    <input hidden type="text" name="league" value="Major League Baseball"/>
+    <input type="number" name="championships" value="0"/>
+    <button type="submit">Submit</button>
+</form>
+<h4><a href="/baseball">All teams</a></h4>
+<%- include("../partials/footer") %>

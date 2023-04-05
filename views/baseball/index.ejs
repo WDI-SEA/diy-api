@@ -1,0 +1,10 @@
+<%- include("../partials/header") %>
+<h1>Major League Baseball</h1>
+<h2>Teams</h2>
+<ul>
+    <% baseballs.forEach(element => { %>
+        <li><a href="/baseball/<%=element.id%>"><%=element.team%></a></li>
+        <% }) %>
+    </ul>
+<h3><a href="/baseball/new">Create New Team</a></h3>
+<%- include("../partials/footer") %>

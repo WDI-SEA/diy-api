@@ -1,0 +1,32 @@
+PACKAGES DOWNLOAD
+------------------------------
+npm i sequelize pg express ejs
+
+
+INITIALIZE SEQUELIZE 
+------------------------------
+sequelize init
+
+CREATE DATABASE
+------------------------------
+createdb sports
+
+CREATE TABLE => MODEL
+------------------------------
+team: VARCHAR(255) => string
+league: VARCHAR(255) => string
+location: VARCHAR(255) => string
+championships: INT => integer 
+
+sequelize model:create --name baseball --attributes team:string,league:string,location:string,championships:integer
+
+
+UPDATE config.json 
+
+
+MIGRATE MODEL TO PSQL
+------------------------------
+sequelize db:migrate
+
+
+
