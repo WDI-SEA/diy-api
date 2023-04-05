@@ -1,0 +1,118 @@
+<html>
+<head>
+    <title>Unit Details</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 90vw;
+            height: 90vh;
+            border: 2px solid black;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        img {
+            max-width: 200%;
+            max-height: 200%;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input {
+            margin-bottom: 20px;
+            width: 100%;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+
+        .button {
+            width: 50%;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .button:hover {
+            background-color: #3e8e41;
+        }
+        #delete{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit Details</h1>
+        <div>
+            <img src="<%= unit.imgUrl %>">
+        </div>
+        <form action="/<%= unit.id %>?_method=PUT" method="POST">
+            <input type="hidden" name="_method" value="PUT">
+            <div>
+                <label for="name">Name</label>
+                <input type="string" id="name" name="name" value="<%= unit.name %>">
+            </div>
+            <div>
+                <label for="race">Race</label>
+                <input type="string" id="race" name="race" value="<%= unit.race %>">
+            </div>
+            <div>
+                <label for="imgUrl">Img Url</label>
+                <input type="string" id="imgUrl" name="imgUrl" value="<%= unit.imgUrl %>">
+            </div>
+            <input type="submit" value="Update">
+        </form>
+        <form action="/<%= unit.id %>?_method=DELETE" method="POST"> 
+            <input type="hidden" name="_method" value="DELETE"> 
+            <input type="submit" id="delete" value="Delete">
+        </form>
+        <a href="/" class="button">Back to Home</a>
+    </div>
+</body>
+</html>

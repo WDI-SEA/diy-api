@@ -1,0 +1,14 @@
+sequelize model:create --name unit --attributes name:string,race:string,imgUrl:text
+
+
+
+<a type="button" href="./new">New Unit</a>
+
+
+<%unit.data.forEach(unit => {%>
+    <div>
+        <p><%=unit.name%></p>
+        <p>Race: <%=unit.race%></p>
+        <img src="<%=unit.Imgurl%>">
+        </div>
+<%}) %>
