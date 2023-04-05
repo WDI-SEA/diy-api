@@ -66,22 +66,26 @@ router.get("/:id/edit", (req, res) => {
 })
 
 router.put("/:id", async (req, res) => {
-    console.log("body", req.body)
-    console.log("params", req.params)
+    // console.log("body", req.body)
+    // console.log("params", req.params)
     await db.baseball.update({
         team: req.body.team,
         location: req.body.location,
         championships: parseInt(req.body.championships)
     }, {
-        where: {id: parseInt(req.body.id)}
+        where: {id: req.body.id}
 })
     res.redirect(`/baseball`)
     // res.send("update team info")
 
 })
 
-router.delete("/:id", (req, res) => {
-    res.send("delete team")
+router.delete("/:id", async (req, res) => {
+    // res.send("delete team")
+    await db.baseball.destroy({
+        where: {id: req.params.id}
+    })
+    res.redirect(`/baseball`)
 })
 
 
