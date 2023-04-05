@@ -1,0 +1,15 @@
+PACKAGES DOWNLOAD
+------------------------------
+npm i sequelize pg express ejs
+
+CREATE DATABASE
+------------------------------
+createdb sports
+
+CREATE TABLE => MODEL
+------------------------------
+team: VARCHAR(255) => string
+sport: VARCHAR(255) => string
+league: VARCHAR(255) => string
+location: VARCHAR(255) => string
+championships: INT => integer 
