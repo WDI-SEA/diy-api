@@ -11,4 +11,11 @@
 <% fish.forEach(function(fish) { %>
       <p><a href="<%=fish.url%>" target="_blank"><%= fish.name %></a></p>
       <img src="<%=fish.img_src_set['1.5x']%>" />
+      <form method="POST" action="caught">
+        <label>Caught this fish? Save your stats</label>
+        <input hidden type="text" name="name" value="<%=fish.name%>">
+        <input type="number" name="length" placeholder="Length in inches">
+        <input type="number" name="weight" placeholder="Weight in pounds">
+        <button type="submit">Submit</button>
+    </form>
   <% }); %>
