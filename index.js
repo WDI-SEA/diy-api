@@ -49,8 +49,13 @@ app.get('/books/:id', async (req, res) => {
 })
 
 // PUT	update	/widgets/:id	update one widget
-app.put('/books/:id', (req, res) => {
-    res.send('this would let you update one of the books')
+app.put('/books/:id', async (req, res) => {
+    const numOfChanges = await db.book.update({ length: 477 }, {
+        where: {
+            title: 'Spellmonger'
+        }
+    })
+    console.log(numOfChanges)
 })
 
 // DELETE	delete	/widgets/:id	delete one widget
