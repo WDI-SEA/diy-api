@@ -30,6 +30,7 @@ app.post('/books', async (req, res) => {
                 length: 747
             }
         })
+        res.json(book)
     } catch (err) {
         console.log(err)
         res.status(500).send('Server Rrror 🦖')
@@ -37,8 +38,14 @@ app.post('/books', async (req, res) => {
 })
 
 // GET	detail/show	/widgets/:id	show one widget
-app.get('/books/:id', (req, res) => {
-    res.send('this shows all the deets of a single book')
+app.get('/books/:id', async (req, res) => {
+    try {
+        const book = await db.book.findByPk(req.params.id)
+        res.json(book)
+    } catch (err) {
+        console.log(err)
+        res.status(500).send('Server Rrror 🦖')
+    }
 })
 
 // PUT	update	/widgets/:id	update one widget
