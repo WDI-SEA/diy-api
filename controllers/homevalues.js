@@ -17,8 +17,8 @@ router.get('/:id', (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-  const { regionname, sizerank } = req.body;
-  const [homevalue, created] = await db.homevalues.findOrCreate({
+  const { sizerank } = req.body;
+  const [homevalue] = await db.homevalues.findOrCreate({
     where: { regionname: 'New York, NY' },
     defaults: { sizerank }
   }); 
@@ -26,18 +26,26 @@ router.post('/', async (req, res) => {
 });
 
 
-router.put('/:id', (req, res) => {
-  db.user.update({
-    lastName: 'Taco'
-  }, {
-    where: {
-      firstName: 'Brian'
+router.put('/:SizeRank', async (req, res) => {
+  const { SizeRank } = req.params;
+
+  try {
+    const [numUpdated] = await db.homevalues.update(
+      { sizerank: 1 },
+      { where: { sizerank: SizeRank } }
+    );
+
+    if (numUpdated === 0) {
+      return res.status(404).send(`SizeRank ${SizeRank} not found.`);
     }
-}).then(numRowsChanged=>{
-    // Returns a value of how many rows were altered by this update
-    console.log(numRowsChanged)
-    process.exit()
-});})
+
+    res.json({ message: `Updated SizeRank ${SizeRank}.` });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Error updating home value.');
+  }
+});
+
 
 router.delete('/:id', (req, res) => {
   db.user.destroy({
