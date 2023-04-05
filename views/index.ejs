@@ -1,0 +1,58 @@
+<style>
+    .units-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .unit-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 220px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #000;
+}
+
+    img {
+        width: 220px;
+        height: 220px;
+    }
+
+    .delete {
+        margin-top: 10px;
+        background-color: lightcoral;
+    }
+</style>
+
+<form action="/" method="POST">
+    <div>
+        <label for="name">Name</label>
+        <input type="string" id="name" name="name">
+    </div>
+    <div>
+        <label for="race">Race</label>
+        <input type="string" id="race" name="race">
+    </div>
+    <div>
+        <label for="imgUrl">Img Url</label>
+        <input type="string" id="imgUrl" name="imgUrl">
+    </div>
+    <input type="submit">
+</form>
+
+<div class="units-container">
+    <% unit.forEach(unit => { %>
+        <div class="unit-card">
+            <p>Unit: <%= unit.name %></p>
+            <p>Race: <%= unit.race %></p>
+            <img src="<%= unit.imgUrl %>">
+            <form action="/<%= unit.id %>?_method=DELETE" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <input class="delete" type="submit" value="Delete">
+            </form>
+            <a href="/units/<%= unit.id %>">Go to Unit Page</a>
+        </div>
+    <% }) %>
+</div>
